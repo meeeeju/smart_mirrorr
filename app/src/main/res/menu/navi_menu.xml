@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/main"
+            android:icon="@drawable/ic_baseline_wallpaper_24"
+            android:title="메인 "/>
+        <item android:id="@+id/hearing"
+            android:icon="@drawable/ic_baseline_wallpaper_24"
+            android:title="detail"/>
+        <item android:id="@+id/videogame"
+            android:icon="@drawable/ic_baseline_wallpaper_24"
+            android:title="거짓말탐지기 "/>
+        <item android:id="@+id/list"
+            android:icon="@drawable/ic_baseline_wallpaper_24"
+            android:title="일정분석 "/>
+        <item android:id="@+id/mypage"
+            android:icon="@drawable/ic_baseline_wallpaper_24"
+            android:title="마이페이지 "/>
+
+
+
+    </group>
+
+
+
+</menu>
