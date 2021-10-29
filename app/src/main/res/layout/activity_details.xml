@@ -6,19 +6,6 @@
     android:layout_height="match_parent">
 
 
-    <Switch
-        android:id="@+id/swch_wd"
-        android:layout_width="150dp"
-        android:layout_height="25dp"
-        android:switchTextAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:text="Week(L) Day(R)"
-        app:layout_constraintBottom_toTopOf="@+id/img_weekgraph"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ImageView
         android:id="@+id/btn_drug"
         android:layout_width="75dp"
@@ -40,8 +27,34 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.618"
+        app:layout_constraintVertical_bias="0.405"
         app:srcCompat="@drawable/graph" />
+
+    <Switch
+        android:id="@+id/swch_wd"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:switchTextAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:text="Week(L) Day(R)"
+        app:layout_constraintBottom_toTopOf="@+id/img_weekgraph"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/txt_better"
+        android:layout_width="414dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="4dp"
+        android:text="USER, your blood pressure higher 6bpm than last week."
+        android:textColor="#0B0A0A"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_weekgraph" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
