@@ -142,4 +142,28 @@
         app:layout_constraintTop_toBottomOf="@+id/txtlay_gender"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/txtlay_smoking"
+        android:layout_width="322dp"
+        android:layout_height="25dp"
+        android:text="Do you want to Smoking Chanllenge?"
+        android:textColor="#0C0C0C"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtlay_gender"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Switch
+        android:id="@+id/swch_smoking"
+        android:layout_width="53dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtlay_smoking"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtlay_smoking" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
