@@ -1,7 +1,7 @@
-package com.example.yanadu.retrofit
+package com.example.yanadu.retrofit_practice.retrofit
 
 import com.example.restapitutorial.utils.API
-import com.example.yanadu.data.Sample
+import com.example.yanadu.retrofit_practice.retrofit_data.Sample
 
 import retrofit2.Call
 import retrofit2.http.GET

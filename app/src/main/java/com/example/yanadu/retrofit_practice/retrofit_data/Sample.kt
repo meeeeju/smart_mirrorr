@@ -1,4 +1,4 @@
-package com.example.yanadu.data
+package com.example.yanadu.retrofit_practice.retrofit_data
 
 data class Sample(
     var userId: String,

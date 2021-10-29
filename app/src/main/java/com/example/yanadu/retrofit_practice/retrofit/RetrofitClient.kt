@@ -13,7 +13,8 @@ import kotlin.math.log
  object RetrofitClient {
      //레트로핏 클라이언트 선언
      private var retrofitClient: Retrofit?=null
-   //  private lateinit var retrofitClient: Retrofit
+
+
 
     //레트로핏 클라이언트 가져오기
     fun getClient(baseUrl:String):Retrofit?{
@@ -21,7 +22,7 @@ import kotlin.math.log
 
         if (retrofitClient==null){
 
-            //레트로핏 빌
+            //레트로핏 빌드
             retrofitClient=Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())

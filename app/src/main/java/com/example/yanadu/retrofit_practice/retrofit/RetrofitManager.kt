@@ -4,8 +4,8 @@ import android.util.Log
 import com.example.restapitutorial.utils.API
 import com.example.restapitutorial.utils.Constants.TAG
 import com.example.restapitutorial.utils.RESPONSE_STATE
-import com.example.yanadu.data.Sample
-import com.example.yanadu.retrofit.IRetrofit
+import com.example.yanadu.retrofit_practice.retrofit_data.Sample
+import com.example.yanadu.retrofit_practice.retrofit.IRetrofit
 
 
 import retrofit2.Call

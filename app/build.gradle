@@ -53,10 +53,13 @@ dependencies {
     //레트로핏
     def retrofit_version="2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    //gson 컨버터 json 객체를 받는데
-
+    //gson 컨버터 json 객체를 받는 것
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-
     //레트로핏 로깅 인터셉터
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.2"
+
+    // okhttp
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:4.9.0"
 }
