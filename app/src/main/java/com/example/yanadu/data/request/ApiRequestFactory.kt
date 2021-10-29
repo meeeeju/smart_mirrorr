@@ -45,16 +45,16 @@ object ApiRequestFactory {
 
 
 
-    loginService.requestLogin(text1,text2,text3,text4).enqueue(object Callback<SignupForm>{
-        override fun onFailure(call: Call<SignupForm>, t: Throwable) {
+    //loginService.requestLogin(text1,text2,text3,text4).enqueue(object Callback<SignupForm>{
+      //  override fun onFailure(call: Call<SignupForm>, t: Throwable) {
             //실패할 경우
-        }
+       // }
 
-        override fun onResponse(call: Call<SignupForm>, response: Response<SignupForm>) {
+      //  override fun onResponse(call: Call<SignupForm>, response: Response<SignupForm>) {
             //정상응답이 올경우
-        }
+      //  }
 
-    })
+   // })
 
 
 
