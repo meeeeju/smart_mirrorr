@@ -11,6 +11,7 @@ import com.example.yanadu.ui.MainActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.CompoundButton;
 
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +22,9 @@ class DetailActivity : AppCompatActivity() {
             Toast.makeText(this@DetailActivity,"Proviotics(2021/06/06~) + Vitamin C(2018/03/24~)",Toast.LENGTH_LONG).show()
 
         }
-        swch_wd.setOnClickListener {
-            img_weekgraph.setImageResource(R.drawable.daygraph)
-        }
+
+
     }
 }
+
+

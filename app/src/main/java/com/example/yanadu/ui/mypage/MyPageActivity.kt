@@ -11,8 +11,15 @@ class MyPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_page)
 
-        btn_male.setOnClickListener {btn_male.setBackgroundColor(Color.DKGRAY)}
-        btn_female.setOnClickListener {btn_female.setBackgroundColor(Color.DKGRAY)}
+        btn_male.setOnClickListener {
+            btn_male.setBackgroundColor(Color.DKGRAY)
+            btn_female.setBackgroundColor(Color.LTGRAY)
+        }
+        btn_female.setOnClickListener {
+            btn_female.setBackgroundColor(Color.DKGRAY)
+            btn_male.setBackgroundColor(Color.LTGRAY)
+        }
+
     }
 
 }
