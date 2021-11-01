@@ -8,7 +8,8 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.core.view.GravityCompat
 import com.example.yanadu.R
-import com.example.yanadu.ui.game.GameActivity
+import com.example.yanadu.ui.extra.ExtraActivity
+import com.example.yanadu.ui.extra.GameActivity
 import com.example.yanadu.ui.graph_detail.DetailActivity
 import com.example.yanadu.ui.mypage.MyPageActivity
 import com.example.yanadu.ui.schedule.ScheduleActivity
@@ -24,6 +25,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             layout_drawer.openDrawer(GravityCompat.START) //START: left  //END: right
         }
         naviView.setNavigationItemSelectedListener(this)   //네비게이션 메뉴 아이템에 클릭 속성 부여 얘가 없으면 아무리 클릭해도 전환 안
+
+        tv_makbak.setOnClickListener {
+            Toast.makeText(this@MainActivity,"버튼이 클릭되었습니다.",Toast.LENGTH_SHORT).show()
+        }
+
+        ib_graph.setOnClickListener {
+            val intent = Intent(this, DetailActivity::class.java)
+            startActivity(intent)
+
+        }
+        iv_todo.setOnClickListener {
+            val intent = Intent(this, ScheduleActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }
@@ -43,7 +58,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.videogame ->
             {
                 Toast.makeText(applicationContext,"거짓말탐지",LENGTH_SHORT).show()
-                val intent= Intent(this, GameActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
+                val intent= Intent(this, ExtraActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }
             R.id.list ->
