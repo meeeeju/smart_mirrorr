@@ -5,15 +5,20 @@
     android:id="@+id/layout_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFDE7"
+    android:background="#FFFFFF"
     tools:context=".ui.MainActivity">
 
     <!--    android:background="#4FEAD481"-->
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
 
             <ImageView
@@ -76,8 +81,8 @@
                 android:layout_marginLeft="36dp"
 
                 android:background="@drawable/rectangle_background_main"
-                android:text="96"
                 android:gravity="center"
+                android:text="96"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_oxgen"
                 app:layout_constraintStart_toEndOf="@+id/iv_oxgen"
@@ -92,8 +97,8 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginLeft="36dp"
                 android:background="@drawable/rectangle_background_main"
-                android:text="71"
                 android:gravity="center"
+                android:text="71"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_heart"
                 app:layout_constraintStart_toEndOf="@+id/iv_heart"
@@ -106,8 +111,8 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginLeft="36dp"
                 android:background="@drawable/rectangle_background_main"
-                android:text="70"
                 android:gravity="center"
+                android:text="70"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_makbak"
                 app:layout_constraintStart_toEndOf="@+id/iv_makbak"
@@ -116,55 +121,10 @@
             <!--            체크박스둬서 클릭하면 todolist에 추가하기-->
 
 
-
-            <ImageButton
-                android:id="@+id/ib_graph"
-                android:layout_width="184dp"
-                android:layout_height="185dp"
-                android:layout_marginEnd="110dp"
-                android:layout_marginRight="110dp"
-                android:layout_marginBottom="68dp"
-                android:background="@drawable/circle_background"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.202"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/bar_graph" />
-
-            <ImageView
-                android:id="@+id/iv_todo"
-                android:layout_width="166dp"
-                android:layout_height="181dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/rectangle_background_main"
-                android:padding="10dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/calender"
-                app:layout_constraintBottom_toBottomOf="@+id/ib_graph"
-                app:layout_constraintStart_toEndOf="@+id/ib_graph"
-                app:layout_constraintTop_toTopOf="@+id/ib_graph"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/tv_mission"
-                android:layout_width="339dp"
-                android:layout_height="78dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/rectangle_edge_main"
-                android:gravity="center"
-                android:text="오늘의 미션:  규칙적으로 3끼 챙겨먹기 "
-                android:textColor="#000000"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_makbak" />
-
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="77dp"
-                android:layout_height="88dp"
+                android:layout_width="49dp"
+                android:layout_height="53dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
@@ -173,6 +133,54 @@
                 app:srcCompat="@drawable/sun" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mission"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="78dp"
+                android:background="@drawable/rectangle_edge_main"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="오늘의 미션:  규칙적으로 3끼 챙겨먹기 "
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/ib_graph"
+                    android:layout_width="184dp"
+                    android:layout_height="185dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/circle_background"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/bar_graph" />
+
+                <ImageView
+                    android:id="@+id/iv_todo"
+                    android:layout_width="166dp"
+                    android:layout_height="181dp"
+                    android:background="@drawable/rectangle_background_main"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/calender" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <com.google.android.material.navigation.NavigationView

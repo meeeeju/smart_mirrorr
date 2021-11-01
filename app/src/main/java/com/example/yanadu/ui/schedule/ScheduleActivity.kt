@@ -65,6 +65,25 @@ class ScheduleActivity : AppCompatActivity() {
             diaryContent.text = str
             diaryContent.visibility = View.VISIBLE
         }
+
+        updateBtn.setOnClickListener {
+            contextEditText.visibility = View.VISIBLE
+            diaryContent.visibility = View.INVISIBLE
+            contextEditText.setText(str)
+            saveBtn.visibility = View.VISIBLE
+            updateBtn.visibility = View.INVISIBLE
+            deleteBtn.visibility = View.INVISIBLE
+            diaryContent.text = contextEditText.text
+        }
+        deleteBtn.setOnClickListener {
+            diaryContent.visibility = View.INVISIBLE
+            updateBtn.visibility = View.INVISIBLE
+            deleteBtn.visibility = View.INVISIBLE
+            contextEditText.setText("")
+            contextEditText.visibility = View.VISIBLE
+            saveBtn.visibility = View.VISIBLE
+            removeDiary(fname)
+        }
     }
 
     fun checkDay(cYear: Int, cMonth: Int, cDay: Int, userID: String) {
@@ -84,24 +103,7 @@ class ScheduleActivity : AppCompatActivity() {
             saveBtn.visibility = View.INVISIBLE
             updateBtn.visibility = View.VISIBLE
             deleteBtn.visibility = View.VISIBLE
-            updateBtn.setOnClickListener {
-                contextEditText.visibility = View.VISIBLE
-                diaryContent.visibility = View.INVISIBLE
-                contextEditText.setText(str)
-                saveBtn.visibility = View.VISIBLE
-                updateBtn.visibility = View.INVISIBLE
-                deleteBtn.visibility = View.INVISIBLE
-                diaryContent.text = contextEditText.text
-            }
-            deleteBtn.setOnClickListener {
-                diaryContent.visibility = View.INVISIBLE
-                updateBtn.visibility = View.INVISIBLE
-                deleteBtn.visibility = View.INVISIBLE
-                contextEditText.setText("")
-                contextEditText.visibility = View.VISIBLE
-                saveBtn.visibility = View.VISIBLE
-                removeDiary(fname)
-            }
+
             if (diaryContent.text == null) {
                 diaryContent.visibility = View.INVISIBLE
                 updateBtn.visibility = View.INVISIBLE

@@ -5,66 +5,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#F3B0E4"
+    android:background="#FBFBFB"
     tools:context=".ui.extra.ExtraActivity">
 
-<!--    <Button-->
-<!--        android:id="@+id/button_health"-->
-<!--        android:layout_width="318dp"-->
-<!--        android:layout_height="226dp"-->
-<!--        android:text="건강을 부탁해"-->
-<!--        tools:layout_editor_absoluteX="41dp"-->
-<!--        tools:layout_editor_absoluteY="101dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:background="@drawable/ripple_effect"/>-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="320dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="120dp"
-        app:cardCornerRadius="20dp"
-        android:id="@+id/card_healthy">
-
-        <TextView
-            android:id="@+id/tv_healthy"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@drawable/ripple_effect_extra"
-            android:gravity="center"
-            android:text="Healthy,please"
-            android:textColor="#FFFFFF"
-            android:textSize="40sp" />
+            android:background="@color/green">
+
+            <TextView
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+
+                android:layout_weight="1"
+
+                android:text="Button"
+                tools:layout_editor_absoluteX="218dp"
+                tools:layout_editor_absoluteY="67dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="16dp"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="320dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="25dp"
-        app:cardCornerRadius="20dp"
-        android:id="@+id/card_fun">
-
-        <TextView
-            android:id="@+id/tv_fun"
+        <Button
+            android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/ripple_effect_extra"
-            android:gravity="center"
-            android:text="Fun, please"
-            android:textColor="#FFFFFF"
-            android:textSize="40sp" />
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:text="Button" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:text="Button" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    </androidx.cardview.widget.CardView>
-
-
-
-
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:text="Button" />
+    </FrameLayout>
 </LinearLayout>
