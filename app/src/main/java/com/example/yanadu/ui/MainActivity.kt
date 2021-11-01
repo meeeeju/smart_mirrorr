@@ -27,8 +27,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         naviView.setNavigationItemSelectedListener(this)   //네비게이션 메뉴 아이템에 클릭 속성 부여 얘가 없으면 아무리 클릭해도 전환 안
 
         tv_makbak.setOnClickListener {
-            Toast.makeText(this@MainActivity,"버튼이 클릭되었습니다.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity,"정상 수치입니다.",Toast.LENGTH_SHORT).show()
         }
+        tv_heart.setOnClickListener {
+            Toast.makeText(this@MainActivity,"정상 수치입니다.",Toast.LENGTH_SHORT).show()
+        }
+        tv_oxgen.setOnClickListener {
+            Toast.makeText(this@MainActivity,"정상 수치입니다.",Toast.LENGTH_SHORT).show()
+        }
+
 
         ib_graph.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
@@ -57,13 +64,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.videogame ->
             {
-                Toast.makeText(applicationContext,"거짓말탐지",LENGTH_SHORT).show()
                 val intent= Intent(this, ExtraActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }
             R.id.list ->
             {
-                Toast.makeText(applicationContext,"일정 ",LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"스케줄 ",LENGTH_SHORT).show()
                 val intent= Intent(this, ScheduleActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }

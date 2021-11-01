@@ -50,8 +50,8 @@
 
             <ImageView
                 android:id="@+id/iv_makbak"
-                android:layout_width="65dp"
-                android:layout_height="74dp"
+                android:layout_width="74dp"
+                android:layout_height="68dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rectangle_edge_main"
                 android:padding="10dp"
@@ -79,10 +79,11 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="36dp"
                 android:layout_marginLeft="36dp"
-
+                android:textStyle="bold"
                 android:background="@drawable/rectangle_background_main"
                 android:gravity="center"
                 android:text="96"
+                android:textColor="@color/main_brown"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_oxgen"
                 app:layout_constraintStart_toEndOf="@+id/iv_oxgen"
@@ -98,7 +99,9 @@
                 android:layout_marginLeft="36dp"
                 android:background="@drawable/rectangle_background_main"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:text="71"
+                android:textColor="@color/main_brown"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_heart"
                 app:layout_constraintStart_toEndOf="@+id/iv_heart"
@@ -113,6 +116,8 @@
                 android:background="@drawable/rectangle_background_main"
                 android:gravity="center"
                 android:text="70"
+                android:textColor="@color/main_brown"
+                android:textStyle="bold"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_makbak"
                 app:layout_constraintStart_toEndOf="@+id/iv_makbak"
@@ -123,14 +128,25 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="49dp"
-                android:layout_height="53dp"
+                android:layout_width="42dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/sun" />
+
+            <TextView
+                android:id="@+id/tv_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="29'c"
+                android:textColor="@color/main_brown"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -142,14 +158,14 @@
 
             <TextView
                 android:id="@+id/tv_mission"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="30dp"
+                android:layout_width="348dp"
                 android:layout_height="78dp"
-                android:background="@drawable/rectangle_edge_main"
-                android:gravity="center"
                 android:layout_gravity="center"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/rectangle_edge_mission"
+                android:gravity="center"
                 android:text="오늘의 미션:  규칙적으로 3끼 챙겨먹기 "
-                android:textColor="#000000"
+                android:textColor="@color/main_brown"
                 android:textSize="18sp" />
 
             <LinearLayout

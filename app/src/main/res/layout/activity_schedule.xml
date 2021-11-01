@@ -8,13 +8,18 @@
     >
 
     <CalendarView
+        android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/calendarView"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/main_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.488" android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/title"
 
         />
@@ -23,12 +28,20 @@
         android:id="@+id/diaryTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity= "center"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp" android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/rectangle_background_pink"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/schedule_color"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     <EditText
         android:id="@+id/contextEditText"
@@ -43,15 +56,26 @@
         android:visibility="invisible"/>
 
     <TextView
+        android:id="@+id/diaryContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="@+id/diaryContent"
-        app:layout_constraintTop_toTopOf="@+id/contextEditText"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/schedule_color"
+        android:textColorHighlight="@color/schedule_color"
+        android:textColorHint="@color/schedule_color"
+        android:textColorLink="@color/schedule_color"
+        android:textCursorDrawable="@color/schedule_color"
+        android:backgroundTint="@color/schedule_color"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/contextEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-        app:layout_constraintStart_toStartOf="@+id/contextEditText" android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp" android:visibility="invisible"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/contextEditText"
+        app:layout_constraintTop_toTopOf="@+id/contextEditText"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/title"
@@ -63,7 +87,7 @@
         android:gravity="center"
         android:text="TO-DO_LIST"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#5E5C5E"
+        android:textColor="@color/schedule_color"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,34 +109,41 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:visibility="invisible"
-        android:backgroundTint="#8FB168"/>
+        android:backgroundTint="@color/main_grey"/>
 
     <Button
-        android:text="수정"
+        android:id="@+id/updateBtn"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:id="@+id/updateBtn"
-        app:layout_constraintBaseline_toBaselineOf="@+id/saveBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:backgroundTint="@color/main_grey"
+        android:text="수정"
+        android:textColor="@color/schedule_color"
+        android:textColorHighlight="@color/main_grey_700"
+        android:textColorHint="@color/main_grey_700"
+        android:textColorLink="@color/main_grey_700"
         android:visibility="invisible"
-        android:backgroundTint="#8FB168"/>
+        app:layout_constraintBaseline_toBaselineOf="@+id/saveBtn"
+        app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:text="삭제"
+        android:id="@+id/deleteBtn"
         android:layout_width="176dp"
         android:layout_height="wrap_content"
-        android:id="@+id/deleteBtn"
-        app:layout_constraintBaseline_toBaselineOf="@+id/updateBtn"
-        app:layout_constraintEnd_toEndOf="@+id/saveBtn"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:backgroundTint="@color/main_grey"
+        android:text="삭제"
+        android:textColor="@color/schedule_color"
+        android:textColorHighlight="@color/main_grey_700"
+        android:textColorHint="@color/main_grey_700"
+        android:textColorLink="@color/main_grey_700"
         android:visibility="invisible"
-        android:backgroundTint="#8FB168">
-    </Button>
+        app:layout_constraintBaseline_toBaselineOf="@+id/updateBtn"
+        app:layout_constraintEnd_toEndOf="@+id/saveBtn"></Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

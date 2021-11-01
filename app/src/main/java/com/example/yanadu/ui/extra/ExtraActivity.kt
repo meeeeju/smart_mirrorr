@@ -3,7 +3,9 @@ package com.example.yanadu.ui.extra
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.yanadu.R
+import com.example.yanadu.ui.graph_detail.DetailActivity
 import kotlinx.android.synthetic.main.activity_extra.*
 import kotlinx.android.synthetic.main.activity_game.*
 import kotlinx.android.synthetic.main.activity_login.*
@@ -15,15 +17,11 @@ class ExtraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extra)
 
-        card_healthy.setOnClickListener{
-            val intent = Intent(this, HealthyActivity::class.java)
-            startActivity(intent)
-        }
+//        tv_game_title.setOnClickListener {
+//            val intent = Intent(this, GameActivity::class.java)
+//            startActivity(intent)
+//        }
 
-        card_fun.setOnClickListener {
-            val intent = Intent(this, GameActivity::class.java)
-            startActivity(intent)
-        }
 
 
     }
