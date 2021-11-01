@@ -4,20 +4,172 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mypage.MyPageActivity">
+    tools:context=".ui.mypage.MyPageActivity"
+    tools:layout_editor_absoluteX="53dp"
+    tools:layout_editor_absoluteY="1dp">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="179dp"
-        android:layout_marginLeft="179dp"
-        android:layout_marginTop="347dp"
-        android:layout_marginEnd="182dp"
-        android:layout_marginRight="182dp"
-        android:text="mypage"
+        android:layout_marginTop="8dp"
+        android:text="USER"
+        android:textColor="#090909"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_user" />
+
+    <ImageView
+        android:id="@+id/img_user"
+        android:layout_width="99dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042"
+        app:srcCompat="@drawable/userimg" />
+
+    <EditText
+        android:id="@+id/txtpl_id"
+        android:layout_width="322dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="textPersonName"
+        android:text="IMUSER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtlay_id" />
+
+
+    <TextView
+        android:id="@+id/txtlay_id"
+        android:layout_width="322dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:text="ID"
+        android:textColor="#0B0A0A"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/txtlay_name"
+        android:layout_width="322dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:text="Name"
+        android:textColor="#0B0A0A"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtpl_id" />
+
+    <EditText
+        android:id="@+id/txt_name"
+        android:layout_width="322dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:text="USER"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtlay_name" />
+
+    <TextView
+        android:id="@+id/txtlay_birth"
+        android:layout_width="322dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:text="Birth"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+
+    <TextView
+        android:id="@+id/txtlay_gender"
+        android:layout_width="322dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:text="Gender"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dpSpinner" />
+
+    <Button
+        android:id="@+id/btn_female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="192dp"
+        android:layout_marginRight="192dp"
+        android:background="#B5B2BC"
+        android:text="FEMALE"
+        android:textColor="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_male"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_male"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#B5B2BC"
+        android:text="male"
+        android:textColor="#FFEB3B"
+        app:layout_constraintEnd_toStartOf="@+id/btn_female"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtlay_gender" />
+
+    <TextView
+        android:id="@+id/txtlay_smoking"
+        android:layout_width="322dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:text="Do you want to Smoking Chanllenge?"
+        android:textColor="#0C0C0C"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_male" />
+
+    <Switch
+        android:id="@+id/swch_smoking"
+        android:layout_width="53dp"
+        android:layout_height="58dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtlay_smoking" />
+
+    <DatePicker
+        android:id="@+id/dpSpinner"
+        android:layout_width="258dp"
+        android:layout_height="90dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtlay_birth"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
