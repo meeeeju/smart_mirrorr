@@ -25,8 +25,8 @@ class LoginActivity : AppCompatActivity() {
         }
         //로그인 하러가기
         btn_login.setOnClickListener {
-            val id = ptxt_id.text.toString()
-            val pw = ptxt_pwd.text.toString()
+            val id = et_id.text.toString()
+            val pw = et_pwd.text.toString()
 
             if(id.isEmpty() || pw.isEmpty() ){
                 isExistBlank = true

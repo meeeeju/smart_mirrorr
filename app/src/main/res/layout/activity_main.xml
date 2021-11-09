@@ -5,7 +5,7 @@
     android:id="@+id/layout_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/main_white"
     tools:context=".ui.MainActivity">
 
     <!--    android:background="#4FEAD481"-->
@@ -176,7 +176,7 @@
                 android:gravity="center">
 
                 <ImageButton
-                    android:id="@+id/ib_graph"
+                    android:id="@+id/imgbtn_graph"
                     android:layout_width="184dp"
                     android:layout_height="185dp"
                     android:layout_marginRight="20dp"

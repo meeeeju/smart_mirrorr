@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
 
-        ib_graph.setOnClickListener {
+        imgbtn_graph.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
 

@@ -23,12 +23,12 @@ class DetailActivity : AppCompatActivity() {
 
         }
 
-        swch_wd.setOnCheckedChangeListener { buttonView, isChecked ->
+        sbtn_wd.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked==true){
-                img_weekgraph.setImageResource(R.drawable.daygraph)
+                iv_weekgraph.setImageResource(R.drawable.daygraph)
             }
             else{
-                img_weekgraph.setImageResource(R.drawable.graph)
+                iv_weekgraph.setImageResource(R.drawable.graph)
 
             }
         }

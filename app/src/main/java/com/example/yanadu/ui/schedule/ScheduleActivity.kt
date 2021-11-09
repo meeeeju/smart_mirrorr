@@ -33,13 +33,13 @@ class ScheduleActivity : AppCompatActivity() {
 
         // UI값 생성
         calendarView=findViewById(R.id.calendarView)
-        diaryTextView=findViewById(R.id.diaryTextView)
+        diaryTextView=findViewById(R.id.tv_diary)
         saveBtn=findViewById(R.id.saveBtn)
         deleteBtn=findViewById(R.id.deleteBtn)
         updateBtn=findViewById(R.id.updateBtn)
-        diaryContent=findViewById(R.id.diaryContent)
+        diaryContent=findViewById(R.id.tv_diaryContent)
         title=findViewById(R.id.title)
-        contextEditText=findViewById(R.id.contextEditText)
+        contextEditText=findViewById(R.id.et_context)
 
         title.text = "TO-DO-LIST"
 

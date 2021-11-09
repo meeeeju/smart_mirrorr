@@ -8,7 +8,7 @@
 
 
         <TextView
-            android:id="@+id/join_id"
+            android:id="@+id/tv_join_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="회원가입"
@@ -22,7 +22,7 @@
             app:layout_constraintVertical_bias="0.117" />
 
         <EditText
-            android:id="@+id/ptxt_joinname"
+            android:id="@+id/et_join_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -38,10 +38,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/join_id" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_join_id" />
 
         <EditText
-            android:id="@+id/ptxt_joinid"
+            android:id="@+id/et_join_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -58,11 +58,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptxt_joinname"
+            app:layout_constraintTop_toBottomOf="@+id/et_join_name"
             app:layout_constraintVertical_bias="0.057" />
 
         <EditText
-            android:id="@+id/ptxt_joinpwd"
+            android:id="@+id/et_join_pwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -79,11 +79,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptxt_joinid"
+            app:layout_constraintTop_toBottomOf="@+id/et_join_id"
             app:layout_constraintVertical_bias="0.069" />
 
         <EditText
-            android:id="@+id/ptxt_joinmail"
+            android:id="@+id/et_join_mail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -100,7 +100,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptxt_joinpwd"
+            app:layout_constraintTop_toBottomOf="@+id/et_join_pwd"
             app:layout_constraintVertical_bias="0.093" />
 
         <Button
@@ -115,7 +115,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ptxt_joinmail"
+            app:layout_constraintTop_toBottomOf="@+id/et_join_mail"
             app:layout_constraintVertical_bias="0.323" />
 
 
