@@ -37,6 +37,7 @@ public class ApiRequestFactory {
                 }
             }
 
+
             @Override
             public void onFailure(Call<UserData> call, Throwable t) {
                 Log.d("mTag", t.toString());
