@@ -20,10 +20,10 @@ class SignupActivity : AppCompatActivity() {
 
 
         btn_signup.setOnClickListener {
-            val joinname = ptxt_joinname.text.toString()
-            val joinid = ptxt_joinid.text.toString()
-            val joinpwd = ptxt_joinpwd.text.toString()
-            val joinmail = ptxt_joinmail.text.toString()
+            val joinname = et_join_name.text.toString()
+            val joinid = et_join_id.text.toString()
+            val joinpwd = et_join_pwd.text.toString()
+            val joinmail = et_join_mail.text.toString()
 
             if(joinname.isEmpty() || joinid.isEmpty() || joinpwd.isEmpty() || joinmail.isEmpty()){
                 isExistBlank = true
