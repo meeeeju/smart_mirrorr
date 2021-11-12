@@ -13,6 +13,12 @@ public class UserData implements Serializable {
     String passwd;
     @SerializedName("email")
     String email;
+    @SerializedName("sex")
+    String sex;
+    @SerializedName("smoking")
+    String smoking;
+    @SerializedName("birth")
+    String birth;
 
     public String getNickname() {
         return nickname;
@@ -44,5 +50,15 @@ public class UserData implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+    public String getSmoking() {
+        return smoking;
+    }
+    public String getBirth() {
+        return birth;
     }
 }
