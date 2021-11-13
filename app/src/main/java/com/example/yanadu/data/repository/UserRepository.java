@@ -23,8 +23,29 @@ public class UserRepository {
     }
 
 
-    public static void requestSignIn(String id,String pwd){
-        userService.signIn(id,pwd).enqueue(new Callback<UserData>() {
+    public static void requestSignIn(SignInForm s1){
+        userService.signIn(s1).enqueue(new Callback<UserData>() {
+            @Override
+            public void onResponse(Call<UserData> call, Response<UserData> response) {
+                if (response.isSuccessful()) {
+                    Log.d("id", response.body().getId());
+                    Log.d("pw",response.body().getPasswd());
+                    Log.d("name", response.body().getNickname());
+                    Log.d("email", response.body().getEmail());
+                    Log.d("sex",response.body().getSex());
+                    Log.d("smoking",response.body().getSmoking());
+                    Log.d("birth",response.body().getBirth());
+                }
+            }
+            @Override
+            public void onFailure(Call<UserData> call, Throwable t) {
+                Log.d("mTag", t.toString());
+            }
+        });
+    }
+
+    public static void requestSignUp(UserData u1){
+        userService.signUp(u1).enqueue(new Callback<UserData>() {
             @Override
             public void onResponse(Call<UserData> call, Response<UserData> response) {
                 if (response.isSuccessful()) {

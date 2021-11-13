@@ -55,10 +55,18 @@ public class UserData implements Serializable {
     public String getSex() {
         return sex;
     }
+
+    public void setSex(String sex){this.sex=sex;}
+
     public String getSmoking() {
         return smoking;
     }
+
+    public void setSmoking(String smoking){this.smoking=smoking;}
+
     public String getBirth() {
         return birth;
     }
+
+    public void setBirth(String birth){this.birth=birth;}
 }
