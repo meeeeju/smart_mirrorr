@@ -10,6 +10,8 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
+
+//사용자와 관련된 API입니다.
 public interface UserAPI {
 
 //    @GET("/user")
