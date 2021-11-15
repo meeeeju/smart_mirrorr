@@ -50,10 +50,6 @@ public class  ApiRequestFactory {
     }
 
 
-    public static UserAPI getUserService(){
-        return ApiRequestFactory.getInstance().create(UserAPI.class);
-    }
-
 
 
 

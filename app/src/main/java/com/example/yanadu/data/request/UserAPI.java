@@ -16,11 +16,9 @@ public interface UserAPI {
 
 //    @GET("/user")
 //    Call<UserData> getUserData(@Body( id String ) String id, String pw))
-<<<<<<< HEAD
-//    @FormUrlEncoded
-=======
 
->>>>>>> 3fde41c998595be1eb5c99534f448d15c86a3d09
+//    @FormUrlEncoded
+
     @POST("/user")
     Call<UserData> signIn(@Body SignInForm signInForm );
 
