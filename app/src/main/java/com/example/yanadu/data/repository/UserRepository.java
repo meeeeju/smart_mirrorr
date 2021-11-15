@@ -18,8 +18,8 @@ public class UserRepository {
     private static UserAPI userService;
 
     public UserRepository(){
-        Retrofit a1=ApiRequestFactory.getInstance();
-        userService= a1.create(UserAPI.class);
+
+        userService=ApiRequestFactory.getUserService();
     }
 
 

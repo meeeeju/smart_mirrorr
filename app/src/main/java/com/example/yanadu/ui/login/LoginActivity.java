@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(com.example.yanadu.R.layout.activity_login);
 
         Button btn_login = (Button) findViewById(R.id.btn_login);
+        Button btn_signup = (Button) findViewById(R.id.btn_signup);
         EditText et_id=(EditText) findViewById(R.id.et_id);
         EditText et_pwd=(EditText) findViewById(R.id.et_pwd);
 
@@ -33,7 +34,17 @@ public class LoginActivity extends AppCompatActivity {
         final Boolean[] isExistBlank = {false};
         Boolean isPWSame = false;
 
-      //  UserRepository u=new UserRepository();
+        UserRepository u=new UserRepository();
+
+
+        btn_signup.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : click event
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //로그인 클릭시 메인 화면으로 전환
         btn_login.setOnClickListener(new View.OnClickListener(){
@@ -50,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.e("test",et_id.getText().toString()+et_pwd.getText().toString());
 
 
-                    UserRepository.requestSignIn(new SignInForm(et_id.getText().toString(),et_pwd.getText().toString()));
+                    u.requestSignIn(new SignInForm(et_id.getText().toString(),et_pwd.getText().toString()));
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
@@ -59,8 +70,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-
 
 
     }
