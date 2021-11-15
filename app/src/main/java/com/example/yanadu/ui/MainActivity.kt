@@ -11,6 +11,7 @@ import com.example.yanadu.R
 import com.example.yanadu.ui.extra.ExtraActivity
 import com.example.yanadu.ui.extra.GameActivity
 import com.example.yanadu.ui.graph_detail.DetailActivity
+import com.example.yanadu.ui.graph_detail.WeekGraphActivity
 import com.example.yanadu.ui.mypage.MyPageActivity
 import com.example.yanadu.ui.schedule.ScheduleActivity
 import com.google.android.material.navigation.NavigationView
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.hearing ->
             {
                 Toast.makeText(applicationContext,"건강분석",LENGTH_SHORT).show()
-                val intent= Intent(this, DetailActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
+                val intent= Intent(this, WeekGraphActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }
             R.id.videogame ->

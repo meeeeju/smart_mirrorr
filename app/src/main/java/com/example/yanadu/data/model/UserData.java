@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class UserData implements Serializable {
+public class UserData extends ObjectData implements Serializable {
     @SerializedName("name")
     String name;
     @SerializedName("id")
@@ -19,6 +19,9 @@ public class UserData implements Serializable {
     String smoking;
     @SerializedName("birthday")
     String birthday;
+    @SerializedName("result")
+    Boolean result;
+
 
     public String getNickname() {
         return name;
@@ -69,4 +72,14 @@ public class UserData implements Serializable {
     }
 
     public void setBirth(String birth){this.birthday=birth;}
+
+    public Boolean getResult() {
+        return result;
+    }
+
+    public void setResult(Boolean result) {
+        this.result = result;
+    }
+
+
 }

@@ -2,7 +2,7 @@ package com.example.yanadu.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SignUpForm {
+public class SignUpForm extends ObjectData{
 
     @SerializedName("nickname")
     String nickname;

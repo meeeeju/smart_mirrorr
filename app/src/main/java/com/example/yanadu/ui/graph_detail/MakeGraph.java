@@ -18,17 +18,11 @@ import java.util.ArrayList;
 import static android.os.Build.VERSION_CODES.R;
 
 public class MakeGraph {
-    BarChart barChart;
-
-
-    MakeGraph(BarChart b){
-        barChart=b;
-    }
 
 
 
-    public void showBarChart(){
-        ArrayList<Double> valueList = new ArrayList<Double>();
+    public void showBarChart(ArrayList<Double> valueList){
+
         ArrayList<BarEntry> entries = new ArrayList<>();
         String title = "Title";
 
@@ -46,8 +40,7 @@ public class MakeGraph {
         BarDataSet barDataSet = new BarDataSet(entries, title);
 
         BarData data = new BarData(barDataSet);
-        barChart.setData(data);
-        barChart.invalidate();
+
     }
 
     public void initBarDataSet(BarDataSet barDataSet, Context context){

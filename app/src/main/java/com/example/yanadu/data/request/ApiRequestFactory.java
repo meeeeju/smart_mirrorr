@@ -45,9 +45,6 @@ public class  ApiRequestFactory {
         }
         return retrofit;
     }
-    public static UserAPI getUserService(){
-        return ApiRequestFactory.getInstance().create(UserAPI.class);
-    }
 
 
 
