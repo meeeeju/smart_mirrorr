@@ -6,19 +6,19 @@ public class SignInForm {
 
     @SerializedName("id")
     String id;
-    @SerializedName("passwd")
-    String passwd;
+    @SerializedName("pwd")
+    String pwd;
 
     public SignInForm(String toString, String toString1) {
         id=toString;
-        passwd=toString1;
+        pwd=toString1;
     }
 
     public void setId(String id) {
         this.id = id;
     }
     public void setPwd(String passwd) {
-        this.passwd = passwd;
+        this.pwd = passwd;
     }
 }
 

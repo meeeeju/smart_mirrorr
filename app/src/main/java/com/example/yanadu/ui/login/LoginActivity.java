@@ -36,15 +36,15 @@ public class LoginActivity extends AppCompatActivity {
 
         UserRepository u=new UserRepository();
 
-//
-//        btn_signup.setOnClickListener(new Button.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // TODO : click event
-//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        btn_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : click event
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         //로그인 클릭시 메인 화면으로 전환

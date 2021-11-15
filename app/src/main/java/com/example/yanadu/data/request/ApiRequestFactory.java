@@ -27,7 +27,7 @@ public class  ApiRequestFactory {
 
 
     private static final String BASE_URL = "http://125.6.37.219:16002";
-    private static Retrofit retrofit;
+    private static Retrofit retrofit = null;
 
     public  ApiRequestFactory(){
     }
