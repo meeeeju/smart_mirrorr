@@ -18,6 +18,7 @@ public class UserRepository {
     private static UserAPI userService;
 
     public UserRepository(){
+
         userService=ApiRequestFactory.getUserService();
     }
 

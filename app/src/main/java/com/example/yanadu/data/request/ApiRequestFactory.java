@@ -3,6 +3,9 @@ package com.example.yanadu.data.request;
 
 import com.google.gson.GsonBuilder;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -31,6 +34,8 @@ public class  ApiRequestFactory {
 
     public static Retrofit getInstance()
     {
+
+
         if (retrofit == null)
         {
             retrofit = new Retrofit.Builder()
@@ -43,6 +48,13 @@ public class  ApiRequestFactory {
     public static UserAPI getUserService(){
         return ApiRequestFactory.getInstance().create(UserAPI.class);
     }
+
+
+    public static UserAPI getUserService(){
+        return ApiRequestFactory.getInstance().create(UserAPI.class);
+    }
+
+
 
 
 //    public void getData(){
