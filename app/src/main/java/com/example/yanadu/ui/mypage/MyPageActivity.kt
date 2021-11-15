@@ -20,6 +20,7 @@ class MyPageActivity : AppCompatActivity() {
             btn_male.setBackgroundColor(Color.LTGRAY)
         }
 
+
     }
 
 }

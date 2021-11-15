@@ -84,11 +84,13 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
         if(!(((UserData)objectData).getResult())){
             Toast.makeText(getApplicationContext(),"ID와 PW를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
         }
-        else
-        {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+//        else
+//        {
+//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     @Override
