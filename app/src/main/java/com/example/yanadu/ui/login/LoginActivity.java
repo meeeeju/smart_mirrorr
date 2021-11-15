@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         final Boolean[] isExistBlank = {false};
         Boolean isPWSame = false;
 
-      //  UserRepository u=new UserRepository();
+        UserRepository u=new UserRepository();
 
         //로그인 클릭시 메인 화면으로 전환
         btn_login.setOnClickListener(new View.OnClickListener(){

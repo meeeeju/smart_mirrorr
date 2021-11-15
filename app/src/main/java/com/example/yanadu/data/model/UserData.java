@@ -5,27 +5,27 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class UserData implements Serializable {
-    @SerializedName("nickname")
-    String nickname;
+    @SerializedName("name")
+    String name;
     @SerializedName("id")
     String id;
-    @SerializedName("passwd")
-    String passwd;
+    @SerializedName("pwd")
+    String pwd;
     @SerializedName("email")
     String email;
     @SerializedName("sex")
     String sex;
     @SerializedName("smoking")
     String smoking;
-    @SerializedName("birth")
-    String birth;
+    @SerializedName("birthday")
+    String birthday;
 
     public String getNickname() {
-        return nickname;
+        return name;
     }
 
     public void setNickname(String nickname) {
-        this.nickname = nickname;
+        this.name = nickname;
     }
 
     public String getId() {
@@ -37,11 +37,11 @@ public class UserData implements Serializable {
     }
 
     public String getPasswd() {
-        return passwd;
+        return pwd;
     }
 
     public void setPasswd(String passwd) {
-        this.passwd = passwd;
+        this.pwd = passwd;
     }
 
     public String getEmail() {
@@ -65,8 +65,8 @@ public class UserData implements Serializable {
     public void setSmoking(String smoking){this.smoking=smoking;}
 
     public String getBirth() {
-        return birth;
+        return birthday;
     }
 
-    public void setBirth(String birth){this.birth=birth;}
+    public void setBirth(String birth){this.birthday=birth;}
 }
