@@ -38,6 +38,7 @@ public class UserRepository {
 //                    Log.d("birth",response.body().getBirth());
 //                    Log.d("birth",response.body().getResult()+"");
                     onget.onGetData(response.body());
+
                 }
             }
             @Override
@@ -47,18 +48,19 @@ public class UserRepository {
         });
     }
 
-    public static void requestSignUp(UserData u1){
+    public  void requestSignUp(UserData u1){
         userService.signUp(u1).enqueue(new Callback<UserData>() {
             @Override
             public void onResponse(Call<UserData> call, Response<UserData> response) {
                 if (response.isSuccessful()) {
-                    Log.d("id", response.body().getId());
-                    Log.d("pw",response.body().getPasswd());
-                    Log.d("name", response.body().getNickname());
-                    Log.d("email", response.body().getEmail());
-                    Log.d("sex",response.body().getSex());
-                    Log.d("smoking",response.body().getSmoking());
-                    Log.d("birth",response.body().getBirth());
+//                    Log.d("id", response.body().getId());
+//                    Log.d("pw",response.body().getPasswd());
+//                    Log.d("name", response.body().getNickname());
+//                    Log.d("email", response.body().getEmail());
+//                    Log.d("sex",response.body().getSex());
+//                    Log.d("smoking",response.body().getSmoking());
+//                    Log.d("birth",response.body().getBirth());
+                    onget.onSendDate(response.body());
                 }
             }
             @Override
