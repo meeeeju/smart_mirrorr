@@ -14,6 +14,7 @@ import com.example.yanadu.ui.graph_detail.DetailActivity
 import com.example.yanadu.ui.graph_detail.WeekGraphActivity
 import com.example.yanadu.ui.mypage.MyPageActivity
 import com.example.yanadu.ui.schedule.ScheduleActivity
+import com.example.yanadu.ui.schedule.ToDoActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.list ->
             {
                 Toast.makeText(applicationContext,"스케줄 ",LENGTH_SHORT).show()
-                val intent= Intent(this, ScheduleActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
+                val intent= Intent(this, ToDoActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }
 

@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
         UserRepository u=new UserRepository(this);  //this는 OnGetData
 
 
+
         btn_gotojoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

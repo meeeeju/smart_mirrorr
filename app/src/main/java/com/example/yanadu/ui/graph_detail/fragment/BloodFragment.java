@@ -44,6 +44,8 @@ public class BloodFragment extends Fragment {
 
         barChart = (BarChart) getView().findViewById(R.id.fragment_bluetooth_chat_barchart);
         showBarChart();
+
+
         // Inflate the layout for this fragment
         return rootView;
 
