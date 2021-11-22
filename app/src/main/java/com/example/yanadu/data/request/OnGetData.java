@@ -1,7 +1,6 @@
 package com.example.yanadu.data.request;
 
 import com.example.yanadu.data.model.ObjectData;
-import com.example.yanadu.data.model.UserData;
 
 import java.util.List;
 

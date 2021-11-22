@@ -12,14 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        <activity android:name=".ui.mypage.MyPageActivity"></activity>
         <activity android:name=".ui.schedule.ToDoActivity" />
         <activity android:name=".ui.graph_detail.WeekGraphActivity" />
-        <activity android:name=".ui.login.LoginActivity">
-        </activity>
+        <activity android:name=".ui.login.LoginActivity"></activity>
         <activity android:name=".ui.extra.GameActivity" />
         <activity android:name=".ui.extra.HealthyActivity" />
         <activity android:name=".ui.extra.ExtraActivity" />
-        <activity android:name=".ui.mypage.MyPageActivity" />
         <activity android:name=".ui.schedule.ScheduleActivity" />
         <activity android:name=".ui.login.SignupActivity" />
         <activity android:name=".ui.graph_detail.DetailActivity" />

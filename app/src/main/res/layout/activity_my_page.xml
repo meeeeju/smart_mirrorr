@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mypage.MyPageActivity"
-    android:orientation="vertical"
     android:gravity="center"
-    >
+    android:orientation="vertical"
+    android:layout_margin="30dp"
+    tools:context=".ui.mypage.MyPageActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="3dp"
         android:text="USER"
         android:textColor="@color/schedule_color"
         android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/img_user"
@@ -26,53 +25,94 @@
         android:layout_height="90dp"
         app:srcCompat="@drawable/userimg" />
 
-    <EditText
-        android:id="@+id/txtpl_id"
-        android:layout_width="322dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="ID"
-        android:inputType="textPersonName"
-        android:text="IMUSER"
-        android:backgroundTint="@color/main_grey"
-        android:textColor="@color/schedule_color"
-        android:textColorHighlight="@color/main_brown"
-        android:textCursorDrawable="@color/schedule_color"
-      />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-    <TextView
-        android:id="@+id/txtlay_id"
-        android:layout_width="322dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="16dp"
-        android:text="ID"
-        android:textColor="@color/schedule_color"
-        android:textStyle="bold"
-        />
+        <TextView
+            android:id="@+id/label_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="NAME" />
 
-    <TextView
-        android:id="@+id/txtlay_name"
-        android:layout_width="322dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="24dp"
-        android:text="Name"
-        android:textColor="@color/schedule_color"
-        android:textStyle="bold"
-        />
+        <EditText
+            android:id="@+id/my_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_grey"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/schedule_color"
+            android:textColorHighlight="@color/main_brown"
+            android:textCursorDrawable="@color/schedule_color" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/txt_name"
-        android:layout_width="322dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:text="USER"
-        android:textColor="@color/schedule_color"
-        android:textCursorDrawable="@color/schedule_color"
-        android:backgroundTint="@color/main_grey"
-       />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <TextView
+            android:id="@+id/label_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="ID" />
+
+        <EditText
+            android:id="@+id/my_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_grey"
+            android:ems="10"
+            android:hint="ID"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/schedule_color"
+            android:textColorHighlight="@color/main_brown"
+            android:textCursorDrawable="@color/schedule_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <TextView
+            android:id="@+id/label_mail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="E-mail" />
+
+        <EditText
+            android:id="@+id/my_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_grey"
+            android:ems="10"
+            android:hint="mail"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/schedule_color"
+            android:textColorHighlight="@color/main_brown"
+            android:textCursorDrawable="@color/schedule_color" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/txtlay_birth"
@@ -81,8 +121,17 @@
         android:layout_marginTop="24dp"
         android:text="Birth"
         android:textColor="@color/schedule_color"
-        android:textStyle="bold"
-         />
+        android:textStyle="bold" />
+
+    <DatePicker
+        android:id="@+id/my_birthSpinner"
+        android:layout_width="258dp"
+        android:layout_height="90dp"
+        android:calendarTextColor="@color/schedule_color"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txtlay_gender"
@@ -91,17 +140,16 @@
         android:layout_marginTop="4dp"
         android:text="Gender"
         android:textColor="#070707"
-        android:textStyle="bold"
-       />
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_female"
+            android:id="@+id/my_btnfemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FEMALE"
@@ -112,7 +160,7 @@
             android:textCursorDrawable="@color/main_grey_700" />
 
         <Button
-            android:id="@+id/btn_male"
+            android:id="@+id/my_btnmale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="male"
@@ -122,8 +170,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txtlay_smoking"
@@ -136,21 +183,18 @@
             android:textStyle="bold" />
 
         <Switch
-            android:id="@+id/swch_smoking"
+            android:id="@+id/my_smoking"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="7"/>
+            android:layout_weight="7" />
     </LinearLayout>
 
-    <DatePicker
-        android:id="@+id/dpSpinner"
-        android:layout_width="258dp"
-        android:layout_height="90dp"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        android:calendarTextColor="@color/schedule_color"
-
-        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/my_btnsave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="save" />
 
 
 </LinearLayout>

@@ -12,17 +12,13 @@ import android.widget.Toast;
 
 import com.example.yanadu.R;
 import com.example.yanadu.data.model.ObjectData;
-import com.example.yanadu.data.model.ResultData;
 import com.example.yanadu.data.model.SignInForm;
-import com.example.yanadu.data.model.UserData;
+import com.example.yanadu.data.model.SignUpForm;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
-import com.example.yanadu.data.request.UserAPI;
 import com.example.yanadu.ui.MainActivity;
 
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 public class LoginActivity extends AppCompatActivity implements OnGetData {
 
@@ -84,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
 
     @Override
     public void onGetData(ObjectData objectData) {
-        if(!(((UserData)objectData).getResult())){
+        if(!(((SignUpForm)objectData).getResult())){
             Toast.makeText(getApplicationContext(),"ID와 PW를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
         }
 

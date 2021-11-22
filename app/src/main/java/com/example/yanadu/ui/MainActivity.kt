@@ -9,7 +9,6 @@ import android.widget.Toast.LENGTH_SHORT
 import androidx.core.view.GravityCompat
 import com.example.yanadu.R
 import com.example.yanadu.ui.extra.ExtraActivity
-import com.example.yanadu.ui.extra.GameActivity
 import com.example.yanadu.ui.graph_detail.DetailActivity
 import com.example.yanadu.ui.graph_detail.WeekGraphActivity
 import com.example.yanadu.ui.mypage.MyPageActivity
