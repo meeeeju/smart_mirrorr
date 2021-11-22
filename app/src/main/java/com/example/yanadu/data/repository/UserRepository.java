@@ -2,6 +2,7 @@ package com.example.yanadu.data.repository;
 
 import android.util.Log;
 
+import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.request.ApiRequestFactory;
 import com.example.yanadu.data.request.OnGetData;
@@ -47,9 +48,9 @@ public class UserRepository {
     }
 
     public  void requestSignUp(UserData u1){
-        userService.signUp(u1).enqueue(new Callback<UserData>() {
+        userService.signUp(u1).enqueue(new Callback<CheckReturn>() {
             @Override
-            public void onResponse(Call<UserData> call, Response<UserData> response) {
+            public void onResponse(Call<CheckReturn> call, Response<CheckReturn> response) {
                 if (response.isSuccessful()) {
 //                    Log.d("id", response.body().getId());
 //                    Log.d("pw",response.body().getPasswd());
@@ -62,7 +63,7 @@ public class UserRepository {
                 }
             }
             @Override
-            public void onFailure(Call<UserData> call, Throwable t) {
+            public void onFailure(Call<CheckReturn> call, Throwable t) {
                 Log.d("mTag", t.toString());
             }
         });

@@ -1,5 +1,6 @@
 package com.example.yanadu.data.request;
 
+import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.UserData;
 
 import retrofit2.Call;
@@ -19,7 +20,7 @@ public interface UserAPI {
     Call<UserData> signIn(@Body UserData signIn );
 
     @POST("/addUser")
-    Call<UserData> signUp(@Body UserData signUp);
+    Call<CheckReturn> signUp(@Body UserData signUp);
 
 
 }

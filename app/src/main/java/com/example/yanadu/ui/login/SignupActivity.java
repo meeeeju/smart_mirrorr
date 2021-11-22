@@ -6,10 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
@@ -71,14 +73,16 @@ public class SignupActivity extends AppCompatActivity implements OnGetData {
 
     @Override
     public void onSendDate(ObjectData objectData) {   //그냥 회원정보 잘 갔는지 확인차원
-        UserData ud = (UserData)objectData;
-        Log.d("id", ud.getId());
-        Log.d("pw",ud.getPasswd());
-        Log.d("name", ud.getNickname());
-        Log.d("email", ud.getEmail());
-        Log.d("sex",ud.getSex());
-        Log.d("smoking",ud.getSmoking());
-        Log.d("birth",ud.getBirth());
+        CheckReturn rv = (CheckReturn) objectData;
+        Log.d("check",rv.getCheck()+"");
+        if(rv.getCheck())
+        {
+            Toast.makeText(getApplicationContext(),"회원가입 성공 ", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"오류가 발생했습니다. 다시 시도해주세요! ", Toast.LENGTH_SHORT).show();
+
+        }
 
     }
 

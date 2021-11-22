@@ -1,13 +1,19 @@
 package com.example.yanadu.data.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Note extends ObjectData implements Serializable {
 
+    @SerializedName("_id")
     int _id;  //todo number
+    @SerializedName("todo")
     String todo;
+    @SerializedName("date")
     String date;
-    String id;
+    @SerializedName("id")
+    String id;   //user id
 
 
     public int get_id() {
