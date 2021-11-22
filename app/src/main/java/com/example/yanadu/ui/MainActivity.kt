@@ -7,8 +7,10 @@ import android.view.MenuItem
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.core.view.GravityCompat
+import androidx.navigation.Navigation.findNavController
 import com.example.yanadu.R
-import com.example.yanadu.ui.extra.ExtraActivity
+import com.example.yanadu.ui.extra.FeeelActivity
+import com.example.yanadu.ui.extra.FeelActivity
 import com.example.yanadu.ui.extra.GameActivity
 import com.example.yanadu.ui.graph_detail.DetailActivity
 import com.example.yanadu.ui.graph_detail.WeekGraphActivity
@@ -16,6 +18,8 @@ import com.example.yanadu.ui.mypage.MyPageActivity
 import com.example.yanadu.ui.schedule.ScheduleActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{  //navigationView 상속해야함
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,19 +69,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.videogame ->
             {
-                val intent= Intent(this, ExtraActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
+                Toast.makeText(applicationContext,"액티비티",LENGTH_SHORT).show()
+                val intent= Intent(this, FeeelActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }
             R.id.list ->
             {
-                Toast.makeText(applicationContext,"스케줄 ",LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"스케줄",LENGTH_SHORT).show()
                 val intent= Intent(this, ScheduleActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }
 
             R.id.mypage ->
             {
-                Toast.makeText(applicationContext,"마이페이지 ",LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"마이페이지",LENGTH_SHORT).show()
                 val intent= Intent(this, MyPageActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
                 startActivity(intent)
             }
@@ -86,6 +91,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         layout_drawer.closeDrawers()  //네비게이션 뷰 닫됨
         return false
     }
+
+
 
     override fun onBackPressed() {  //뒤로 가기 누를 경
         if (layout_drawer.isDrawerOpen(GravityCompat.START))

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/img_shadowall"/>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="30dp"></corners>
+        </shape>
+        <item android:bottom="2dp" android:left="2dp">
+            <shape>
+                <gradient android:angle="270"
+                    android:endColor="#E2E2E2" android:startColor="#BABABA" />
+            </shape>
+        </item>
+    </item>
+
+
+</layer-list>

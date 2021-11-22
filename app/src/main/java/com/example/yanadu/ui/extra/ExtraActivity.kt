@@ -12,7 +12,9 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class ExtraActivity : AppCompatActivity() {
+/*class ExtraActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extra)
@@ -30,4 +32,4 @@ class ExtraActivity : AppCompatActivity() {
 
 
 
-}
+}*/
