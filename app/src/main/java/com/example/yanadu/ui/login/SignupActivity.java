@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yanadu.R;
 import com.example.yanadu.data.model.ObjectData;
-import com.example.yanadu.data.model.SignUpForm;
+import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
 
@@ -38,7 +38,7 @@ public class SignupActivity extends AppCompatActivity implements OnGetData {
 
 
         UserRepository u1=new UserRepository(this);
-        SignUpForm user1 = new SignUpForm();
+        UserData user1 = new UserData();
 
 
         //로그인 클릭시 메인 화면으로 전환
@@ -71,7 +71,7 @@ public class SignupActivity extends AppCompatActivity implements OnGetData {
 
     @Override
     public void onSendDate(ObjectData objectData) {   //그냥 회원정보 잘 갔는지 확인차원
-        SignUpForm ud = (SignUpForm)objectData;
+        UserData ud = (UserData)objectData;
         Log.d("id", ud.getId());
         Log.d("pw",ud.getPasswd());
         Log.d("name", ud.getNickname());

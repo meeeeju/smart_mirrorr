@@ -12,8 +12,7 @@ import android.widget.Toast;
 
 import com.example.yanadu.R;
 import com.example.yanadu.data.model.ObjectData;
-import com.example.yanadu.data.model.SignInForm;
-import com.example.yanadu.data.model.SignUpForm;
+import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
 import com.example.yanadu.ui.MainActivity;
@@ -64,7 +63,7 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
                 }
                 else
                 {
-                    u.requestSignIn(new SignInForm(et_id.getText().toString(),et_pwd.getText().toString()));
+                    u.requestSignIn(new UserData(et_id.getText().toString(),et_pwd.getText().toString()));
                     Log.d("loginsuccess",et_id.getText().toString()+et_pwd.getText().toString());
 
                 }
@@ -80,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
 
     @Override
     public void onGetData(ObjectData objectData) {
-        if(!(((SignUpForm)objectData).getResult())){
+        if(!(((UserData)objectData).getResult())){
             Toast.makeText(getApplicationContext(),"ID와 PW를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
         }
 
@@ -88,7 +87,9 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
 //        startActivity(intent);
         else
         {
+
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("User",(UserData)objectData);
             startActivity(intent);
         }
     }

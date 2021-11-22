@@ -2,8 +2,6 @@ package com.example.yanadu.data.request;
 
 
 import com.example.yanadu.data.model.Note;
-import com.example.yanadu.data.model.SignInForm;
-import com.example.yanadu.data.model.SignUpForm;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

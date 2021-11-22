@@ -10,8 +10,7 @@ import android.widget.Switch;
 
 import com.example.yanadu.R;
 import com.example.yanadu.data.model.ObjectData;
-import com.example.yanadu.data.model.SignUpForm;
-import com.example.yanadu.data.model.User;
+import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
 
@@ -30,6 +29,7 @@ public class MyPageActivity extends AppCompatActivity implements OnGetData {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.yanadu.R.layout.activity_my_page);
+        UserData u1=(UserData) getIntent().getExtras().getSerializable("User");
 
         EditText user_name=(EditText) findViewById(R.id.my_name);
         EditText user_id=(EditText) findViewById(R.id.my_id);
@@ -38,31 +38,35 @@ public class MyPageActivity extends AppCompatActivity implements OnGetData {
         Button user_male=(Button) findViewById(R.id.my_btnmale);
         Switch user_smoke=(Switch) findViewById(R.id.my_smoking);
 
-        UserRepository u=new UserRepository(this);  //this는 OnGetData
 
-        User u1=new User("권은구","dmsrn135");
-        u.requestUserData(u1);
+        user_name.setText(u1.getNickname());
+        user_id.setText(u1.getId());
+        user_email.setText(u1.getEmail());
+        user_id.setText(u1.getId());
+        String gender=u1.getSex();
+
+
+
+        String birth;
+        birth=u1.getBirth();
+
+
+        if (gender.equals("W"))  //W:female
+        {
+            user_female.setBackgroundResource(R.color.main_pink);
+        }
+        else
+        {
+            user_male.setBackgroundResource(R.color.main_pink);
+        }
+
+
 
     }
 
     @Override
     public void onGetData(ObjectData objectData) {
 
-
-        SignUpForm ud = (SignUpForm)objectData;
-
-        user_name.setText(ud.getNickname());
-        user_id.setText(ud.getId());
-        user_email.setText(ud.getEmail());
-
-        String gender;
-        String birth;
-        birth=ud.getBirth();
-        gender=ud.getSex();
-
-        Log.d("sex",gender);
-        Log.d("birth",birth);
-        Log.d("smoking",ud.getSmoking());
 
     }
 

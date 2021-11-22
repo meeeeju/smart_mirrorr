@@ -42,9 +42,8 @@ public class BloodFragment extends Fragment {
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_blood, container, false);
 
 
-        barChart = (BarChart) getView().findViewById(R.id.fragment_bluetooth_chat_barchart);
+        barChart = (BarChart) rootView.findViewById(R.id.fragment_bluetooth_chat_barchart);
         showBarChart();
-
 
         // Inflate the layout for this fragment
         return rootView;
@@ -54,7 +53,8 @@ public class BloodFragment extends Fragment {
     public void setList(ArrayList<Double> l1,ArrayList<Double>  l2){
         valueMinList=l1;
         valueMaxList=l2;
-        //showBarChart();
+
+
     }
 
 //    public void showBarChart(){

@@ -1,20 +1,13 @@
 package com.example.yanadu.data.repository;
 
-import android.util.Log;
-
 import com.example.yanadu.data.model.Note;
-import com.example.yanadu.data.model.SignInForm;
-import com.example.yanadu.data.model.SignUpForm;
 import com.example.yanadu.data.request.ApiRequestFactory;
 import com.example.yanadu.data.request.OnGetData;
 import com.example.yanadu.data.request.ToDoAPI;
-import com.example.yanadu.data.request.UserAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-
 
 
 public class ToDoRepository {

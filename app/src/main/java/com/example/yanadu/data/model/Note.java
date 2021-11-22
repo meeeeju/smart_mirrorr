@@ -1,12 +1,13 @@
 package com.example.yanadu.data.model;
 
-public class Note extends ObjectData {
+import java.io.Serializable;
+
+public class Note extends ObjectData implements Serializable {
 
     int _id;  //todo number
     String todo;
     String date;
-    String User;
-    String name;
+    String id;
 
 
     public int get_id() {
@@ -33,21 +34,11 @@ public class Note extends ObjectData {
         this.date = date;
     }
 
-    public String getUser() {
-        return User;
+    public String getId() {
+        return id;
     }
 
-    public void setUser(String user) {
-        User = user;
+    public void setId(String id) {
+        this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
 }

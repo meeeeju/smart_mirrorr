@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:layout_margin="30dp"
+    android:layout_margin="20dp"
     tools:context=".ui.mypage.MyPageActivity">
 
     <TextView
@@ -120,8 +120,8 @@
     <TextView
         android:id="@+id/txtlay_birth"
         android:layout_width="322dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
         android:text="Birth"
         android:textColor="@color/schedule_color"
         android:textStyle="bold" />
@@ -138,8 +138,8 @@
 
     <TextView
         android:id="@+id/txtlay_gender"
-        android:layout_width="322dp"
-        android:layout_height="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Gender"
         android:textColor="#070707"
@@ -160,14 +160,16 @@
             android:textColorHighlight="@color/main_grey_700"
             android:textColorHint="@color/main_grey_700"
             android:textColorLink="@color/main_grey"
-            android:textCursorDrawable="@color/main_grey_700" />
+            android:textCursorDrawable="@color/main_grey_700"
+            android:clickable="false"/>
 
         <Button
             android:id="@+id/my_btnmale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="male"
-            android:textColor="@color/main_grey" />
+            android:textColor="@color/main_grey"
+            android:clickable="false"/>
     </LinearLayout>
 
     <LinearLayout
@@ -195,7 +197,8 @@
     <Button
         android:id="@+id/my_btnsave"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+
         android:layout_marginTop="20dp"
         android:text="save" />
 

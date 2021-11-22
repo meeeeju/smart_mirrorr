@@ -95,6 +95,8 @@ public class WeekGraphActivity extends AppCompatActivity implements OnGetData {
 
 
 
+
+
         for(double d : o2ValueList){  //테스트용
             Log.d("tag",d+"");
         }

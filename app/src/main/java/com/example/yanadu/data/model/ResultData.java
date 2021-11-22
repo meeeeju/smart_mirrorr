@@ -2,7 +2,9 @@ package com.example.yanadu.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ResultData extends ObjectData {
+import java.io.Serializable;
+
+public class ResultData extends ObjectData implements Serializable {
 
     @SerializedName("pulse")
     double pulse;
