@@ -38,6 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:gravity="center"
+            android:background="@color/main_grey"
             android:text="NAME" />
 
         <EditText
@@ -67,6 +68,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:gravity="center"
+            android:background="@color/main_grey"
             android:text="ID" />
 
         <EditText
@@ -96,6 +98,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:gravity="center"
+            android:background="@color/main_grey"
             android:text="E-mail" />
 
         <EditText

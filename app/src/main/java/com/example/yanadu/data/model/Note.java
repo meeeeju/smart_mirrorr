@@ -1,9 +1,13 @@
 package com.example.yanadu.data.model;
 
-public class Note extends ObjectData{
+public class Note extends ObjectData {
 
-    int _id;
+    int _id;  //todo number
     String todo;
+    String date;
+    String User;
+    String name;
+
 
     public int get_id() {
         return _id;
@@ -20,4 +24,30 @@ public class Note extends ObjectData{
     public void setTodo(String todo) {
         this.todo = todo;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getUser() {
+        return User;
+    }
+
+    public void setUser(String user) {
+        User = user;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
 }
