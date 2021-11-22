@@ -12,16 +12,12 @@ import android.widget.Toast;
 
 import com.example.yanadu.R;
 import com.example.yanadu.data.model.ObjectData;
-import com.example.yanadu.data.model.SignInForm;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
-import com.example.yanadu.data.request.UserAPI;
 import com.example.yanadu.ui.MainActivity;
 
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 public class LoginActivity extends AppCompatActivity implements OnGetData {
 
@@ -31,25 +27,28 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
         setContentView(com.example.yanadu.R.layout.activity_login);
 
         Button btn_login = (Button) findViewById(R.id.btn_login);
-      //  Button btn_signup = (Button) findViewById(R.id.btn_signup);
+
         EditText et_id=(EditText) findViewById(R.id.et_id);
         EditText et_pwd=(EditText) findViewById(R.id.et_pwd);
+
+        Button btn_gotojoin = (Button) findViewById(R.id.btn_gotojoin);
 
         final String[] TAG = {"Register"};
         final Boolean[] isExistBlank = {false};
         Boolean isPWSame = false;
 
-        UserRepository u=new UserRepository(this);
+        UserRepository u=new UserRepository(this);  //this는 OnGetData
 
 
-//        btn_signup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // TODO : click event
-//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        btn_gotojoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : click event
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         //로그인 클릭시 메인 화면으로 전환
@@ -64,19 +63,16 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
                 }
                 else
                 {
-                    Log.e("test",et_id.getText().toString()+et_pwd.getText().toString());
-
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    u.requestSignIn(new SignInForm(et_id.getText().toString(),et_pwd.getText().toString()));
-
-
+                    u.requestSignIn(new UserData(et_id.getText().toString(),et_pwd.getText().toString()));
+                    Log.d("loginsuccess",et_id.getText().toString()+et_pwd.getText().toString());
 
                 }
 
 
             }
         });
+
+
 
 
     }
@@ -87,16 +83,25 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
             Toast.makeText(getApplicationContext(),"ID와 PW를 다시 확인해주세요", Toast.LENGTH_SHORT).show();
         }
 
+//        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//        startActivity(intent);
+        else
+        {
 
-//        else
-//        {
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//        }
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra("User",(UserData)objectData);
+            startActivity(intent);
+        }
     }
 
     @Override
     public void onGetDataList(List<ObjectData> objectDataList) {
+
+    }
+
+    @Override
+    public void onSendDate(ObjectData objectData) {
+
 
     }
 }

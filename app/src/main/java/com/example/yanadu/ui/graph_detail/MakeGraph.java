@@ -21,7 +21,7 @@ public class MakeGraph {
 
 
 
-    public void showBarChart(ArrayList<Double> valueList){
+    public static void showBarChart(ArrayList<Double> valueList){
 
         ArrayList<BarEntry> entries = new ArrayList<>();
         String title = "Title";
@@ -43,7 +43,7 @@ public class MakeGraph {
 
     }
 
-    public void initBarDataSet(BarDataSet barDataSet, Context context){
+    public static void initBarDataSet(BarDataSet barDataSet, Context context){
         //Changing the color of the bar  // barDataSet.setColor(Color.parseColor("#304567"));
         barDataSet.setColor( ContextCompat.getColor(context, com.example.yanadu.R.color.main_pink));
         //Setting the size of the form in the legend

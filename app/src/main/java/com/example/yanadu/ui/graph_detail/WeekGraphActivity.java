@@ -37,8 +37,8 @@ public class WeekGraphActivity extends AppCompatActivity implements OnGetData {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_graph);
 
-        ResultRepository rr=new ResultRepository(this);
-        rr.requestHealthdata("dkdkd");
+        ResultRepository resultService=new ResultRepository(this);
+        resultService.requestHealthdata("dkdkd");  //
 
 
         Button btn_fragmentA= findViewById(R.id.btn_fragmentA);
@@ -74,6 +74,11 @@ public class WeekGraphActivity extends AppCompatActivity implements OnGetData {
     }
 
     @Override
+    public void onSendDate(ObjectData objectData) {
+
+    }
+
+    @Override
     public void onGetDataList(List<ObjectData> objectDataList) {
         for(ObjectData od : objectDataList){
             ResultData rd = (ResultData)od;
@@ -83,11 +88,16 @@ public class WeekGraphActivity extends AppCompatActivity implements OnGetData {
             bloodMinValueList.add(rd.getBloodMin());
             o2ValueList.add(rd.getO2());
         }
+
         o2Frag.setList(o2ValueList);
         bloodFrag.setList(bloodMinValueList,bloodMaxValueList);
         pulseFrag.setList(pulseValueList);
 
-        for(double d : o2ValueList){
+
+
+
+
+        for(double d : o2ValueList){  //테스트용
             Log.d("tag",d+"");
         }
     }

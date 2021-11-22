@@ -1,13 +1,10 @@
 package com.example.yanadu.data.request;
 
-import com.example.yanadu.data.model.SignInForm;
-import com.example.yanadu.data.model.SignUpForm;
+import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.UserData;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 
@@ -20,8 +17,10 @@ public interface UserAPI {
 //    @FormUrlEncoded
 
     @POST("/user")
-    Call<UserData> signIn(@Body SignInForm signInForm );
+    Call<UserData> signIn(@Body UserData signIn );
 
     @POST("/addUser")
-    Call<UserData> signUp(@Body UserData user);
+    Call<CheckReturn> signUp(@Body UserData signUp);
+
+
 }

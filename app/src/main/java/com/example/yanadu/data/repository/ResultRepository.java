@@ -4,12 +4,9 @@ import android.util.Log;
 
 import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.ResultData;
-import com.example.yanadu.data.model.SignInForm;
-import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.request.ApiRequestFactory;
 import com.example.yanadu.data.request.OnGetData;
 import com.example.yanadu.data.request.ResultDataAPI;
-import com.example.yanadu.data.request.UserAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +14,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class ResultRepository {
 

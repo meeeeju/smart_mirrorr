@@ -22,6 +22,26 @@ public class UserData extends ObjectData implements Serializable {
     @SerializedName("result")
     Boolean result;
 
+    public UserData() {
+
+    }
+
+    public UserData(String id, String pwd)
+    {
+        this.id=id;
+        this.pwd=pwd;
+    }
+
+    public UserData(String name, String id, String pwd, String email, String sex, String smoking, String birthday, Boolean result) {
+        this.name = name;
+        this.id = id;
+        this.pwd = pwd;
+        this.email = email;
+        this.sex = sex;
+        this.smoking = smoking;
+        this.birthday = birthday;
+        this.result = result;
+    }
 
     public String getNickname() {
         return name;

@@ -1,185 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mypage.MyPageActivity"
-    tools:layout_editor_absoluteX="53dp"
-    tools:layout_editor_absoluteY="1dp">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".ui.mypage.MyPageActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="3dp"
         android:text="USER"
         android:textColor="@color/schedule_color"
         android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_user" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/img_user"
         android:layout_width="99dp"
         android:layout_height="90dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042"
         app:srcCompat="@drawable/userimg" />
 
-    <EditText
-        android:id="@+id/txtpl_id"
-        android:layout_width="322dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="ID"
-        android:inputType="textPersonName"
-        android:text="IMUSER"
-        android:backgroundTint="@color/main_grey"
-        android:textColor="@color/schedule_color"
-        android:textColorHighlight="@color/main_brown"
-        android:textCursorDrawable="@color/schedule_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtlay_id" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-    <TextView
-        android:id="@+id/txtlay_id"
-        android:layout_width="322dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="16dp"
-        android:text="ID"
-        android:textColor="@color/schedule_color"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/label_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:background="@color/main_grey"
+            android:text="NAME" />
 
-    <TextView
-        android:id="@+id/txtlay_name"
-        android:layout_width="322dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="24dp"
-        android:text="Name"
-        android:textColor="@color/schedule_color"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtpl_id" />
+        <EditText
+            android:id="@+id/my_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_grey"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/schedule_color"
+            android:textColorHighlight="@color/main_brown"
+            android:textCursorDrawable="@color/schedule_color" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/txt_name"
-        android:layout_width="322dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:text="USER"
-        android:textColor="@color/schedule_color"
-        android:textCursorDrawable="@color/schedule_color"
-        android:backgroundTint="@color/main_grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtlay_name" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <TextView
+            android:id="@+id/label_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:background="@color/main_grey"
+            android:text="ID" />
+
+        <EditText
+            android:id="@+id/my_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_grey"
+            android:ems="10"
+            android:hint="ID"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/schedule_color"
+            android:textColorHighlight="@color/main_brown"
+            android:textCursorDrawable="@color/schedule_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <TextView
+            android:id="@+id/label_mail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:background="@color/main_grey"
+            android:text="E-mail" />
+
+        <EditText
+            android:id="@+id/my_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_grey"
+            android:ems="10"
+            android:hint="mail"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/schedule_color"
+            android:textColorHighlight="@color/main_brown"
+            android:textCursorDrawable="@color/schedule_color" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/txtlay_birth"
         android:layout_width="322dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
         android:text="Birth"
         android:textColor="@color/schedule_color"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+        android:textStyle="bold" />
+
+    <DatePicker
+        android:id="@+id/my_birthSpinner"
+        android:layout_width="258dp"
+        android:layout_height="90dp"
+        android:calendarTextColor="@color/schedule_color"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txtlay_gender"
-        android:layout_width="322dp"
-        android:layout_height="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Gender"
         android:textColor="#070707"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dpSpinner" />
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/my_btnfemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FEMALE"
+            android:textColor="@color/main_grey"
+            android:textColorHighlight="@color/main_grey_700"
+            android:textColorHint="@color/main_grey_700"
+            android:textColorLink="@color/main_grey"
+            android:textCursorDrawable="@color/main_grey_700"
+            android:clickable="false"/>
+
+        <Button
+            android:id="@+id/my_btnmale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="male"
+            android:textColor="@color/main_grey"
+            android:clickable="false"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtlay_smoking"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Do you want to Smoking Chanllenge?"
+            android:textColor="@color/schedule_color"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/my_smoking"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7" />
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btn_female"
+        android:id="@+id/my_btnsave"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="192dp"
-        android:layout_marginRight="192dp"
+        android:layout_height="match_parent"
 
-        android:text="FEMALE"
-        android:textColor="@color/main_grey"
-        android:textColorHighlight="@color/main_grey_700"
-        android:textColorHint="@color/main_grey_700"
-        android:textColorLink="@color/main_grey"
-        android:textCursorDrawable="@color/main_grey_700"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_male"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_male"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btn_male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="male"
-        android:textColor="@color/main_grey"
-        app:layout_constraintEnd_toStartOf="@+id/btn_female"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtlay_gender" />
-
-    <TextView
-        android:id="@+id/txtlay_smoking"
-        android:layout_width="322dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="24dp"
-        android:text="Do you want to Smoking Chanllenge?"
-        android:textColor="@color/schedule_color"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_male" />
-
-    <Switch
-        android:id="@+id/swch_smoking"
-        android:layout_width="53dp"
-        android:layout_height="58dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtlay_smoking" />
-
-    <DatePicker
-        android:id="@+id/dpSpinner"
-        android:layout_width="258dp"
-        android:layout_height="90dp"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        android:calendarTextColor="@color/schedule_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.287"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtlay_birth"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="20dp"
+        android:text="save" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

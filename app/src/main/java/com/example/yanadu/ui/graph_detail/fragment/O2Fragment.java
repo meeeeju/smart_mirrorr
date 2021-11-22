@@ -18,6 +18,7 @@ public class O2Fragment extends Fragment {
     ArrayList<Double> valueList;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
