@@ -2,11 +2,16 @@ package com.example.yanadu.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.yanadu.R;
+import com.example.yanadu.ui.extra.FeeelActivity;
+import com.example.yanadu.ui.graph_detail.WeekGraphActivity;
+import com.example.yanadu.ui.mypage.MyPageActivity;
+import com.example.yanadu.ui.schedule.ToDoActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NaviMainActivity extends AppCompatActivity {
@@ -18,21 +23,36 @@ public class NaviMainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomnav=findViewById(R.id.bottom_navigation);
         bottomnav.setOnNavigationItemSelectedListener(navListener);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RealMainActivity()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener=
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                  /*  Fragment selectedFragment=null;
+                    Fragment selectedFragment=null;
 
                     switch(item.getItemId())
                     {
                         case R.id.nav_home:
-                            selectedFragment=new MainActivity();
-
-                    }*/
-                    return false;
+                            selectedFragment=new RealMainActivity();
+                            break;
+                        case R.id.nav_observe:
+                            selectedFragment=new WeekGraphActivity();
+                            break;
+                        case R.id.nav_today:
+                            selectedFragment=new ToDoActivity();
+                            break;
+                        case R.id.nav_feel:
+                            selectedFragment=new FeeelActivity();
+                            break;
+                        case R.id.nav_mypage:
+                            selectedFragment=new MyPageActivity();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+                    return true;
                 }
 
 

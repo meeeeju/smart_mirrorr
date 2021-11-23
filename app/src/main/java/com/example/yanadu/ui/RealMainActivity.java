@@ -1,4 +1,4 @@
-package com.example.yanadu.ui.extra;
+package com.example.yanadu.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.yanadu.R;
 
-public class LieActivity extends Fragment {
-
+public class RealMainActivity extends Fragment {
 
 
     @Override
@@ -21,6 +20,6 @@ public class LieActivity extends Fragment {
 
 
 
-        return inflater.inflate(R.layout.activity_lie, container, false);
+        return inflater.inflate(R.layout.activity_real_main, container, false);
     }
 }

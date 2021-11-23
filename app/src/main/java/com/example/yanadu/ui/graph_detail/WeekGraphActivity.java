@@ -1,10 +1,13 @@
 package com.example.yanadu.ui.graph_detail;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.yanadu.R;
@@ -20,7 +23,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeekGraphActivity extends AppCompatActivity implements OnGetData {
+public class WeekGraphActivity extends Fragment implements OnGetData {
 
     ArrayList<Double> pulseValueList = new ArrayList<Double>();
     ArrayList<Double> bloodMaxValueList = new ArrayList<Double>();
@@ -30,43 +33,45 @@ public class WeekGraphActivity extends AppCompatActivity implements OnGetData {
     BloodFragment bloodFrag = new BloodFragment();
     O2Fragment o2Frag = new O2Fragment();
     PulseFragment pulseFrag = new PulseFragment();
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_week_graph);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v=inflater.inflate(R.layout.activity_week_graph, container, false);
 
         ResultRepository resultService=new ResultRepository(this);
         resultService.requestHealthdata("dkdkd");  //
 
 
-        Button btn_fragmentA= findViewById(R.id.btn_fragmentA);
+        Button btn_fragmentA= v.findViewById(R.id.btn_fragmentA);
         btn_fragmentA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
+               getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
             }
         });
 
-        Button btn_fragmentB = findViewById(R.id.btn_fragmentB);
+        Button btn_fragmentB = v.findViewById(R.id.btn_fragmentB);
         btn_fragmentB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, o2Frag).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, o2Frag).commit();
             }
         });
-        Button btn_fragmentC = findViewById(R.id.btn_fragmentC);
+        Button btn_fragmentC = v.findViewById(R.id.btn_fragmentC);
         btn_fragmentC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, pulseFrag).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, pulseFrag).commit();
             }
         });
 
 
-
+        return v;
     }
+
+
+
 
     @Override
     public void onGetData(ObjectData objectData) {
