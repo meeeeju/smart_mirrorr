@@ -1,9 +1,13 @@
 package com.example.yanadu.ui.mypage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -13,10 +17,11 @@ import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
+import com.github.mikephil.charting.charts.BarChart;
 
 import java.util.List;
 
-public class MyPageActivity extends AppCompatActivity implements OnGetData {
+public class MyPageActivity extends Fragment implements OnGetData {
 
     EditText user_name;
     EditText user_id;
@@ -24,19 +29,34 @@ public class MyPageActivity extends AppCompatActivity implements OnGetData {
     EditText user_female;
     EditText user_male;
 
+    @Override
+    public void onGetData(ObjectData objectData) {
+
+
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(com.example.yanadu.R.layout.activity_my_page);
-        UserData u1=(UserData) getIntent().getExtras().getSerializable("User");
+    public void onSendDate(ObjectData objectData) {
 
-        EditText user_name=(EditText) findViewById(R.id.my_name);
-        EditText user_id=(EditText) findViewById(R.id.my_id);
-        EditText user_email=(EditText) findViewById(R.id.my_Email);
-        Button user_female=(Button) findViewById(R.id.my_btnfemale);
-        Button user_male=(Button) findViewById(R.id.my_btnmale);
-        Switch user_smoke=(Switch) findViewById(R.id.my_smoking);
+    }
+
+    @Override
+    public void onGetDataList(List<ObjectData> objectDataList) {
+
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        //setContentView(com.example.yanadu.R.layout.activity_my_page);
+        View v = inflater.inflate(R.layout.activity_my_page, container, false);
+        UserData u1=(UserData) getArguments().getSerializable("User");
+
+        EditText user_name=(EditText) v.findViewById(R.id.my_name);
+        EditText user_id=(EditText) v.findViewById(R.id.my_id);
+        EditText user_email=(EditText) v.findViewById(R.id.my_Email);
+        Button user_female=(Button) v.findViewById(R.id.my_btnfemale);
+        Button user_male=(Button) v.findViewById(R.id.my_btnmale);
+        Switch user_smoke=(Switch) v.findViewById(R.id.my_smoking);
 
 
         user_name.setText(u1.getNickname());
@@ -60,23 +80,7 @@ public class MyPageActivity extends AppCompatActivity implements OnGetData {
             user_male.setBackgroundResource(R.color.main_pink);
         }
 
-
-
-    }
-
-    @Override
-    public void onGetData(ObjectData objectData) {
-
-
-    }
-
-    @Override
-    public void onSendDate(ObjectData objectData) {
-
-    }
-
-    @Override
-    public void onGetDataList(List<ObjectData> objectDataList) {
+        return v;
 
     }
 }
