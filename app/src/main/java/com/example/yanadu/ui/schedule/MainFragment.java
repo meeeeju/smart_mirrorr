@@ -21,7 +21,7 @@ public class MainFragment extends Fragment {
     //인플레이션: 화면을 생성이 아닌 구성할 때, 즉 생성된 이후에 호출되는 역할
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_main, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_todomain, container, false);
 
         initUI(rootView);
 

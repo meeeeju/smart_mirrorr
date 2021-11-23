@@ -94,11 +94,5 @@ public class WeekGraphActivity extends AppCompatActivity implements OnGetData {
         pulseFrag.setList(pulseValueList);
 
 
-
-
-
-        for(double d : o2ValueList){  //테스트용
-            Log.d("tag",d+"");
-        }
     }
 }

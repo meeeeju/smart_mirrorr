@@ -20,6 +20,7 @@ public class NaviMainActivity extends AppCompatActivity {
         bottomnav.setOnNavigationItemSelectedListener(navListener);
     }
 
+    //dkdkdk
     private BottomNavigationView.OnNavigationItemSelectedListener navListener=
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override

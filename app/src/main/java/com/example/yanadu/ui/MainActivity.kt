@@ -10,15 +10,12 @@ import androidx.core.view.GravityCompat
 import com.example.yanadu.R
 import com.example.yanadu.data.model.UserData
 import com.example.yanadu.ui.extra.FeeelActivity
-import com.example.yanadu.ui.graph_detail.DetailActivity
 import com.example.yanadu.ui.graph_detail.WeekGraphActivity
 import com.example.yanadu.ui.mypage.MyPageActivity
 import com.example.yanadu.ui.schedule.ScheduleActivity
 import com.example.yanadu.ui.schedule.ToDoActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{  //navigationView 상속해야함
 
@@ -59,7 +56,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         }
         iv_todo.setOnClickListener {
-            val intent = Intent(this, ScheduleActivity::class.java)
+            val intent = Intent(this, ToDoActivity::class.java)
             startActivity(intent)
         }
 
