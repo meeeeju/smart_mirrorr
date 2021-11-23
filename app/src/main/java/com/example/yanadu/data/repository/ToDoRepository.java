@@ -1,5 +1,6 @@
 package com.example.yanadu.data.repository;
 
+import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.Note;
 import com.example.yanadu.data.request.ApiRequestFactory;
 import com.example.yanadu.data.request.OnGetData;
@@ -21,47 +22,23 @@ public class ToDoRepository {
 
 
     public void setToDO(Note note){
-        scheduleService.signIn(note).enqueue(new Callback<Boolean>() {
+        scheduleService.writeToDO(note).enqueue(new Callback<CheckReturn>() {
             @Override
-            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+            public void onResponse(Call<CheckReturn> call, Response<CheckReturn> response) {
                 if (response.isSuccessful()) {
-                    if (response.body())
-                    {
-                        //등록되었다고 알려주기.
-                    }
+
 
                 }
             }
 
             @Override
-            public void onFailure(Call<Boolean> call, Throwable t) {
+            public void onFailure(Call<CheckReturn> call, Throwable t) {
 
             }
 
         });
     }
 
-    //코드가 중복되니까 그냥 0 1 로 바꾸면 안되나?
-    public void deleteToDO(Note note){
-        scheduleService.signIn(note).enqueue(new Callback<Boolean>() {
-            @Override
-            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                if (response.isSuccessful()) {
-                    if (response.body())
-                    {
-                        //삭제되었다고 알려주기
-                    }
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Boolean> call, Throwable t) {
-
-            }
-
-        });
-    }
 
 
 

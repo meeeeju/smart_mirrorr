@@ -25,8 +25,8 @@ public class ResultRepository {
         this.onget = onget;
     }
 
-    public void requestHealthdata(String name){
-        ResultDataService.getHealthdata(name).enqueue(new Callback<List<ResultData>>() {
+    public void requestHealthWeeklydata(String id){
+        ResultDataService.getWeeklydata(id).enqueue(new Callback<List<ResultData>>() {
             @Override
             public void onResponse(Call<List<ResultData>> call, Response<List<ResultData>> response) {
                 List<ObjectData> od = new ArrayList<ObjectData>();

@@ -16,8 +16,8 @@ public class ResultData extends ObjectData implements Serializable {
     double bloodMax;
     @SerializedName("date")
     String date;
-    @SerializedName("name")
-    String name;
+    @SerializedName("id")
+    String id;
 
     public double getPulse() {
         return pulse;
@@ -39,7 +39,8 @@ public class ResultData extends ObjectData implements Serializable {
         return date;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
+
 }

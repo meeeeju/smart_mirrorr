@@ -24,7 +24,7 @@
             android:textSize="50dp" />
 
         <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/fragment_bluetooth_chat_barchart"
+            android:id="@+id/fragment_blood"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"

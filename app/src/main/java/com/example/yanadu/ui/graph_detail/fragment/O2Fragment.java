@@ -45,15 +45,13 @@ public class O2Fragment extends Fragment {
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_o2, container, false);
 
 
-        barChart = (BarChart) rootView.findViewById(R.id.fragment_bluetooth_chat_barchart);
+        barChart = (BarChart) rootView.findViewById(R.id.fragment_o2);
         showBarChart();
 
         // Inflate the layout for this fragment
         return rootView;
 
     }
-
-
 
 
     public void showBarChart(){

@@ -40,7 +40,7 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         View v=inflater.inflate(R.layout.activity_week_graph, container, false);
 
         ResultRepository resultService=new ResultRepository(this);
-        resultService.requestHealthdata("dkdkd");  //
+        resultService.requestHealthWeeklydata("dmsrn135");  //
 
 
         Button btn_fragmentA= v.findViewById(R.id.btn_fragmentA);
