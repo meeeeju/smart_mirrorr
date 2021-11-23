@@ -35,12 +35,13 @@ public class NaviMainActivity extends AppCompatActivity {
 
     }
 
+    //dkdkdk
     private BottomNavigationView.OnNavigationItemSelectedListener navListener=
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment=null;
-                    user = (UserData) getIntent().getSerializableExtra("User");
+                    user = (UserData) getIntent().getSerializableExtra("User");  //fragment에서 값 받는 방법
 
                     switch(item.getItemId())
                     {
@@ -58,7 +59,7 @@ public class NaviMainActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_mypage:
                             selectedFragment=new MyPageActivity();
-                            Bundle bundle=new Bundle();
+                            Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
                             bundle.putSerializable("User", user);
                             selectedFragment.setArguments(bundle);
                             break;

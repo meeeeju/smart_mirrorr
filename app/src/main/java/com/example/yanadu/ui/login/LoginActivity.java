@@ -15,7 +15,6 @@ import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
-import com.example.yanadu.ui.MainActivity;
 import com.example.yanadu.ui.NaviMainActivity;
 
 import java.util.List;
