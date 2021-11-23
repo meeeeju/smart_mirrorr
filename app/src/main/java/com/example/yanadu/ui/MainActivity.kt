@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             {
                 Toast.makeText(applicationContext,"스케줄 ",LENGTH_SHORT).show()
                 val intent= Intent(this, ToDoActivity::class.java)  //다음 화면으로이동하기 위한 인텐트 객체 생성
+                intent.putExtra("User",u1);
                 startActivity(intent)
             }
 

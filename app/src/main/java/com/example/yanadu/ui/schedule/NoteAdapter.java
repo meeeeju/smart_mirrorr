@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
     private static final String Tag="NoteAdapter";
-    ArrayList<Note> items = new ArrayList<Note>();
+    static ArrayList<Note> items = new ArrayList<Note>();
 
 
     @NonNull
@@ -63,7 +63,8 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String TODO = (String) checkBox.getText();
+                    Note n = items.get(getAdapterPosition());
+                    String TODO = n.getTodo();
                     deleteToDo(TODO);
                     Toast.makeText(v.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
                 }
@@ -86,9 +87,6 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
     }
 
     public void setItems(ArrayList<Note> items){this.items = items;}
-
-
-
 
 
 

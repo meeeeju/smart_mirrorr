@@ -1,6 +1,11 @@
 package com.example.yanadu.data.repository;
 
+import android.util.Log;
+import android.widget.Toast;
+import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.Note;
+import com.example.yanadu.data.model.ObjectData;
+import com.example.yanadu.data.model.ResultData;
 import com.example.yanadu.data.request.ApiRequestFactory;
 import com.example.yanadu.data.request.OnGetData;
 import com.example.yanadu.data.request.ToDoAPI;
@@ -8,64 +13,75 @@ import com.example.yanadu.data.request.ToDoAPI;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ToDoRepository {
-    private static ToDoAPI scheduleService;
+    private static ToDoAPI scheduleService=null;
     OnGetData onget;
 
     public ToDoRepository(OnGetData onget){
         this.onget=onget;
-        scheduleService= ApiRequestFactory.getInstance().create(ToDoAPI.class);
+        if (scheduleService==null)
+            scheduleService= ApiRequestFactory.getInstance().create(ToDoAPI.class);
     }
 
 
     public void setToDO(Note note){
-        scheduleService.signIn(note).enqueue(new Callback<Boolean>() {
+        scheduleService.writeToDO(note).enqueue(new Callback<CheckReturn>() {
             @Override
-            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+            public void onResponse(Call<CheckReturn> call, Response<CheckReturn> response) {
                 if (response.isSuccessful()) {
-                    if (response.body())
-                    {
-                        //등록되었다고 알려주기.
-                    }
+                    onget.onGetData(response.body());
 
                 }
             }
 
             @Override
-            public void onFailure(Call<Boolean> call, Throwable t) {
+            public void onFailure(Call<CheckReturn> call, Throwable t) {
 
             }
 
         });
     }
 
-    //코드가 중복되니까 그냥 0 1 로 바꾸면 안되나?
-    public void deleteToDO(Note note){
-        scheduleService.signIn(note).enqueue(new Callback<Boolean>() {
+//    @GET("/getToDO")
+//    Call<List<Note>> getToDOList(@Query("id") String id);
+
+    public void getToDO(String id){
+        scheduleService.getToDOList(id).enqueue(new Callback<List<Note>>() {
             @Override
-            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+            public void onResponse(Call <List<Note>> call, Response<List<Note>> response) {
+                List<ObjectData> od = new ArrayList<ObjectData>();
                 if (response.isSuccessful()) {
-                    if (response.body())
-                    {
-                        //삭제되었다고 알려주기
+                    for (Note note : response.body()){
+
+                        od.add(note);
                     }
+                    onget.onGetDataList(od);
+
 
                 }
             }
 
             @Override
-            public void onFailure(Call<Boolean> call, Throwable t) {
+            public void onFailure(Call<List<Note>> call, Throwable t) {
 
             }
 
         });
     }
+
+
+
+
 
 
 
 
 }
-
-
