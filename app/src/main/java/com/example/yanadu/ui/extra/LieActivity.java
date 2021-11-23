@@ -9,18 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yanadu.R;
+import com.example.yanadu.ui.RealMainActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class LieActivity extends Fragment {
-
+public class LieActivity extends AppCompatActivity {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lie);
 
 
-
-        return inflater.inflate(R.layout.activity_lie, container, false);
     }
 }

@@ -1,14 +1,11 @@
 package com.example.yanadu.ui.extra;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -17,30 +14,30 @@ import com.example.yanadu.R;
 
 import java.util.ArrayList;
 
-public class RandomActivity extends Fragment {
+public class RandomActivity extends AppCompatActivity {
 
     private ArrayList<maindata>arrayList;
     private mainadapter mainadapter;
     private RecyclerView recyclerView;
     private LinearLayout linearLayout;
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(com.example.yanadu.R.layout.activity_random);
 
-        View v=inflater.inflate(R.layout.activity_random, container, false);
 
-        recyclerView=(RecyclerView) v.findViewById(R.id.rv);
+        recyclerView=(RecyclerView) findViewById(R.id.rv);
         Object linearLayoutManager;
-        linearLayoutManager=new LinearLayoutManager(getActivity());
+        linearLayoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager((RecyclerView.LayoutManager) linearLayoutManager);
 
         arrayList=new ArrayList<>();
         mainadapter=new mainadapter(arrayList);
         recyclerView.setAdapter(mainadapter);
 
-        ImageButton imageButton6= (ImageButton) v.findViewById(R.id.imageButton6);
+        ImageButton imageButton6= (ImageButton) findViewById(R.id.imageButton6);
         imageButton6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,11 +48,5 @@ public class RandomActivity extends Fragment {
                 mainadapter.notifyDataSetChanged();
             }
         });
-        return v;
     }
-
-
-    }
-
-
-
+}
