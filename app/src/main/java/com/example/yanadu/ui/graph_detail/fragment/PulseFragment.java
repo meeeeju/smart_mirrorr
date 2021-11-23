@@ -23,6 +23,7 @@ public class PulseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //hihi
 
     }
     public void setList(ArrayList<Double> l1){
