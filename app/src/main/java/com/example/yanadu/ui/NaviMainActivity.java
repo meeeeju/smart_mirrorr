@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.ui.extra.FeeelActivity;
 import com.example.yanadu.ui.graph_detail.WeekGraphActivity;
 import com.example.yanadu.ui.mypage.MyPageActivity;
@@ -15,16 +16,23 @@ import com.example.yanadu.ui.schedule.ToDoActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NaviMainActivity extends AppCompatActivity {
+    UserData user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navi_main);
 
+
+
         BottomNavigationView bottomnav=findViewById(R.id.bottom_navigation);
         bottomnav.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RealMainActivity()).commit();
+
+
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener=
@@ -32,6 +40,7 @@ public class NaviMainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment=null;
+                    user = (UserData) getIntent().getSerializableExtra("User");
 
                     switch(item.getItemId())
                     {
@@ -49,9 +58,14 @@ public class NaviMainActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_mypage:
                             selectedFragment=new MyPageActivity();
+                            Bundle bundle=new Bundle();
+                            bundle.putSerializable("User", user);
+                            selectedFragment.setArguments(bundle);
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+
+
                     return true;
                 }
 

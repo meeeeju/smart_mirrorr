@@ -80,7 +80,7 @@ public class MyPageActivity extends Fragment implements OnGetData {
             user_male.setBackgroundResource(R.color.main_pink);
         }
 
-        return inflater.inflate(R.layout.activity_my_page, container, false);
+        return v;
 
     }
 }
