@@ -10,7 +10,8 @@ public class Note extends ObjectData implements Serializable {
     int _id;  //todo number
     @SerializedName("todo")
     String todo;
-
+    @SerializedName("date")
+    String date;
     @SerializedName("id")
     String id;   //user id
 
@@ -31,6 +32,13 @@ public class Note extends ObjectData implements Serializable {
         this.todo = todo;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getId() {
         return id;
