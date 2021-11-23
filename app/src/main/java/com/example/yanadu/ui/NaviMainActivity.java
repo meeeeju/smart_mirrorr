@@ -41,25 +41,30 @@ public class NaviMainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment=null;
+                    Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
                     user = (UserData) getIntent().getSerializableExtra("User");  //fragment에서 값 받는 방법
 
                     switch(item.getItemId())
                     {
                         case R.id.nav_home:
                             selectedFragment=new RealMainActivity();
+                            bundle.putSerializable("User", user);
                             break;
                         case R.id.nav_observe:
                             selectedFragment=new WeekGraphActivity();
+                            bundle.putSerializable("User", user);
+                            selectedFragment.setArguments(bundle);
                             break;
                         case R.id.nav_today:
                             selectedFragment=new ToDoActivity();
+                            bundle.putSerializable("User", user);
+                            selectedFragment.setArguments(bundle);
                             break;
                         case R.id.nav_feel:
                             selectedFragment=new FeeelActivity();
                             break;
                         case R.id.nav_mypage:
                             selectedFragment=new MyPageActivity();
-                            Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
                             bundle.putSerializable("User", user);
                             selectedFragment.setArguments(bundle);
                             break;

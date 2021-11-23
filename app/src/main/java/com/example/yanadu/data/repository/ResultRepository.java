@@ -17,16 +17,17 @@ import retrofit2.Response;
 
 public class ResultRepository {
 
-    private static ResultDataAPI ResultDataService;
+    private static ResultDataAPI ResultDataService=null;
 
     OnGetData onget;
     public ResultRepository(OnGetData onget){
-        ResultDataService= ApiRequestFactory.getInstance().create(ResultDataAPI.class);
+        if (ResultDataService==null)
+            ResultDataService= ApiRequestFactory.getInstance().create(ResultDataAPI.class);
         this.onget = onget;
     }
 
     public void requestHealthWeeklydata(String id){
-        ResultDataService.getWeeklydata(id).enqueue(new Callback<List<ResultData>>() {
+        ResultDataService.getHealthdata(id).enqueue(new Callback<List<ResultData>>() {
             @Override
             public void onResponse(Call<List<ResultData>> call, Response<List<ResultData>> response) {
                 List<ObjectData> od = new ArrayList<ObjectData>();

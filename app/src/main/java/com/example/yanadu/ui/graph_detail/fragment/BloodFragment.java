@@ -65,7 +65,7 @@ public class BloodFragment extends Fragment {
 
         //fit the data into a bar
         for (int i = 0; i < valueMaxList.size(); i++) {
-           // Log.d("max",valueMaxList.toString());
+            Log.d("max",valueMaxList.toString());
             BarEntry barEntry = new BarEntry(i, valueMaxList.get(i).floatValue());
             entries.add(barEntry);
         }

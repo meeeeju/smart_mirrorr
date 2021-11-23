@@ -15,6 +15,12 @@ public class Note extends ObjectData implements Serializable {
     @SerializedName("id")
     String id;   //user id
 
+    public Note(int _id, String todo, String date, String id) {
+        this._id = _id;
+        this.todo = todo;
+        this.date = date;
+        this.id = id;
+    }
 
     public int get_id() {
         return _id;

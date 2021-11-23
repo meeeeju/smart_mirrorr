@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
     private static final String Tag="NoteAdapter";
-    ArrayList<Note> items = new ArrayList<Note>();
+    static  ArrayList<Note> items = new ArrayList<Note>();
 
 
     @NonNull
@@ -64,6 +64,7 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
                 @Override
                 public void onClick(View v) {
                     String TODO = (String) checkBox.getText();
+                    Note n = items.get(getAdapterPosition());
                     deleteToDo(TODO);
                     Toast.makeText(v.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
                 }
@@ -72,23 +73,16 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
                     //서버로 삭제 요청
                 }
             });
-
-
         }
-
         //editText에서 입력받은 텍스트를 체크박스에 넣도록 해줌
         public void setItem(Note item){checkBox.setText(item.getTodo());}
 
         //아이템들을 담은 LinearLayout을 보여주게하는 메서드
         public void setLayout(){layoutTodo.setVisibility(View.VISIBLE);}
 
-
     }
 
     public void setItems(ArrayList<Note> items){this.items = items;}
-
-
-
 
 
 

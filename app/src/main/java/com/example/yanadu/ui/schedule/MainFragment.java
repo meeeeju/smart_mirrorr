@@ -1,6 +1,7 @@
 package com.example.yanadu.ui.schedule;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ public class MainFragment extends Fragment {
 
     RecyclerView recyclerView;
     NoteAdapter adapter;
+    static int count ;
 
     //인플레이션: 화면을 생성이 아닌 구성할 때, 즉 생성된 이후에 호출되는 역할
     @Override
@@ -30,7 +32,7 @@ public class MainFragment extends Fragment {
 
     private void initUI(ViewGroup rootView){
 
-        //fragment_main.xml에 만들었던 RecyclerView을 연결
+        //fragment_todomain.xml에 만들었던 RecyclerView을 연결
         recyclerView = rootView.findViewById(R.id.recyclerView);
 
         //LinearLayoutManager을 이용하여 LinearLayout에 recyclerView을 붙입니다. 이후 이것은 todo_item들이 세로로 하나하나 정렬하는 역할
@@ -40,6 +42,8 @@ public class MainFragment extends Fragment {
         //어댑터들을 연결하는 역할
         adapter = new NoteAdapter();
         recyclerView.setAdapter(adapter);
+        count=adapter.getItemCount();
+        Log.d("itemcount",count+"");
 
     }
 }
