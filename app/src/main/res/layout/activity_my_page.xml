@@ -9,22 +9,24 @@
     android:layout_margin="20dp"
     tools:context=".ui.mypage.MyPageActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
-        android:text="USER"
-        android:textColor="@color/schedule_color"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    <EditText
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text=""
+            android:textColor="@color/schedule_color"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:ems="10"
+            android:inputType="textPersonName"/>
+
 
     <ImageView
-        android:id="@+id/img_user"
-        android:layout_width="99dp"
-        android:layout_height="90dp"
-        app:srcCompat="@drawable/userimg" />
-
+            android:id="@+id/img_user"
+            android:layout_width="89dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/smile" />
 
     <LinearLayout
         android:layout_width="match_parent"
