@@ -55,7 +55,7 @@ public class MainFragment extends Fragment implements OnGetData {
 //    }
 
     private void initUI(ViewGroup rootView){
-        Log.d("test","실행됨!!");
+        Log.d("test","initUI 실행됨!!");
 
         //fragment_main.xml에 만들었던 RecyclerView을 연결
         recyclerView = rootView.findViewById(R.id.recyclerView);

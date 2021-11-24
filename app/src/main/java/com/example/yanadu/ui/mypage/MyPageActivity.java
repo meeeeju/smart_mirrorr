@@ -46,7 +46,6 @@ public class MyPageActivity extends AppCompatActivity implements OnGetData {
         String gender=u1.getSex();
 
 
-
         String birth;
         birth=u1.getBirth();
 
