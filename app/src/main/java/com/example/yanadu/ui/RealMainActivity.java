@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
 import com.example.yanadu.R;
 import com.example.yanadu.ui.graph_detail.WeekGraphActivity;
 
@@ -14,6 +17,7 @@ import com.example.yanadu.ui.graph_detail.WeekGraphActivity;
 public class RealMainActivity extends Fragment implements View.OnClickListener {
 
     public CardView card1;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,6 +30,8 @@ public class RealMainActivity extends Fragment implements View.OnClickListener {
         card1.setOnClickListener(this);
 
         return v;
+
+
     }
 
     @Override
