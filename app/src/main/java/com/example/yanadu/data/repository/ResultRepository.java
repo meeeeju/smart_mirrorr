@@ -26,8 +26,33 @@ public class ResultRepository {
         this.onget = onget;
     }
 
-    public void requestHealthWeeklydata(String id){
+    public void requestHealthdata(String id){
         ResultDataService.getHealthdata(id).enqueue(new Callback<List<ResultData>>() {
+            @Override
+            public void onResponse(Call<List<ResultData>> call, Response<List<ResultData>> response) {
+                List<ObjectData> od = new ArrayList<ObjectData>();
+                if (response.isSuccessful()) {
+
+                    for (ResultData rd : response.body()){
+                        Log.d("pulse", rd.getPulse() + "");
+                        Log.d("bloodmax",rd.getBloodMax()+"");
+                        Log.d("bloodmin", rd.getBloodMin()+"");
+                        Log.d("o2", rd.getO2()+"");
+                        Log.d("date",rd.getDate()+"");
+                        od.add(rd);
+                    }
+                    onget.onGetDataList(od);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<ResultData>> call, Throwable t) {
+                Log.d("mTag", t.toString());
+            }
+        });
+    }
+
+    public void requestHealthWeeklydata(String id,String date){
+        ResultDataService.getHealthWeeklydata(id,date).enqueue(new Callback<List<ResultData>>() {
             @Override
             public void onResponse(Call<List<ResultData>> call, Response<List<ResultData>> response) {
                 List<ObjectData> od = new ArrayList<ObjectData>();

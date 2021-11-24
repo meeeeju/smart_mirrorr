@@ -15,14 +15,14 @@ public interface ResultDataAPI {
     Call<List<ResultData>> getHealthdata(@Query("name") String name);
 
     @GET("/healthweeklydata")
-    Call<List<ResultData>> getWeeklydata(@Query("id") String id);  //주
+    Call<List<ResultData>> getHealthWeeklydata(@Query("id") String id,@Query("date") String date);  //주
 
     @GET("/healthmonthlydata")
-    Call<List<ResultData>> getMonthlydata(@Query("id") String id);  //달
+    Call<List<ResultData>> getMonthlydata(@Query("id") String id,@Query("date") String date);  //달
 
 
     @GET("/healyhdailydata")
-    Call<ResultData> getDailyData(@Query("id") String id);  //메인에 띄울 데이터
+    Call<ResultData> getDailyData(@Query("id") String id,@Query("date") String date);  //메인에 띄울 데이터
 
 
 

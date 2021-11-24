@@ -60,12 +60,12 @@ public class BloodFragment extends Fragment {
 
     public void showBarChart(){
         ArrayList<BarEntry> entries = new ArrayList<>();
-        String title = "Title";
+        String title = "MaxBlood";
 
 
         //fit the data into a bar
         for (int i = 0; i < valueMaxList.size(); i++) {
-            Log.d("max",valueMaxList.toString());
+           // Log.d("max",valueMaxList.toString());
             BarEntry barEntry = new BarEntry(i, valueMaxList.get(i).floatValue());
             entries.add(barEntry);
         }

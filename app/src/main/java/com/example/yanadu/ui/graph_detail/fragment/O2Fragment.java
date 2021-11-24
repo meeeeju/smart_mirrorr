@@ -17,7 +17,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import java.util.ArrayList;
 
 
-public class O2Fragment extends Fragment {
+public class O2Fragment extends Fragment{
 
     ArrayList<Double> valueList;
     BarChart barChart;
@@ -45,7 +45,7 @@ public class O2Fragment extends Fragment {
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_o2, container, false);
 
 
-        barChart = (BarChart) rootView.findViewById(R.id.fragment_o2);
+        barChart = (BarChart) rootView.findViewById(R.id.barchart_O2);
         showBarChart();
 
         // Inflate the layout for this fragment

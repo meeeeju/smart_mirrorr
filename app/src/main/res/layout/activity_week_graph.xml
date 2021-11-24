@@ -31,20 +31,20 @@ tools:context=".ui.graph_detail.WeekGraphActivity">
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
-            android:id="@+id/btn_fragmentA"
+            android:id="@+id/btn_fragmentblood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="혈압" />
 
         <Button
-            android:id="@+id/btn_fragmentB"
+            android:id="@+id/btn_fragmento2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="산소포화도 " />
         <Button
-            android:id="@+id/btn_fragmentC"
+            android:id="@+id/btn_fragmentpulse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

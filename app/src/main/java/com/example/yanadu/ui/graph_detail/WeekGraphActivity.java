@@ -1,10 +1,9 @@
 package com.example.yanadu.ui.graph_detail;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,16 @@ import android.widget.Button;
 import com.example.yanadu.R;
 import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.ResultData;
+import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.ResultRepository;
 import com.example.yanadu.data.request.OnGetData;
 import com.example.yanadu.ui.graph_detail.fragment.BloodFragment;
 import com.example.yanadu.ui.graph_detail.fragment.O2Fragment;
 import com.example.yanadu.ui.graph_detail.fragment.PulseFragment;
-import com.github.mikephil.charting.charts.BarChart;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class WeekGraphActivity extends Fragment implements OnGetData {
@@ -40,10 +41,14 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         View v=inflater.inflate(R.layout.activity_week_graph, container, false);
 
         ResultRepository resultService=new ResultRepository(this);
-        resultService.requestHealthWeeklydata("dmsrn135");  //
+        UserData u1=(UserData) getArguments().getSerializable("User");
+
+      //  Log.d("useranddate",u1.getId()+":"+getCurrentDate());
+     //   resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());  //
+        resultService.requestHealthdata(u1.getId());
 
 
-        Button btn_fragmentA= v.findViewById(R.id.btn_fragmentA);
+        Button btn_fragmentA= v.findViewById(R.id.btn_fragmentblood);
         btn_fragmentA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,14 +56,14 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
             }
         });
 
-        Button btn_fragmentB = v.findViewById(R.id.btn_fragmentB);
+        Button btn_fragmentB = v.findViewById(R.id.btn_fragmento2);
         btn_fragmentB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, o2Frag).commit();
             }
         });
-        Button btn_fragmentC = v.findViewById(R.id.btn_fragmentC);
+        Button btn_fragmentC = v.findViewById(R.id.btn_fragmentpulse);
         btn_fragmentC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +103,20 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         bloodFrag.setList(bloodMinValueList,bloodMaxValueList);
         pulseFrag.setList(pulseValueList);
 
+//        for(Double o :o2ValueList)
+//        {
+//            Log.d("o2",o+"");
+//        }
+
+
+    }
+
+    private String getCurrentDate() {
+        //System.out.println(now); 현재 시간 출력
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+        String formatedNow = formatter.format(now); // 포맷팅 적용
+        return formatedNow;
 
     }
 }
