@@ -16,7 +16,7 @@ import com.example.yanadu.ui.graph_detail.WeekGraphActivity;
 
 public class RealMainActivity extends Fragment implements View.OnClickListener {
 
-    public CardView card1;
+    public CardView maincard1;
 
 
     @Override
@@ -25,9 +25,9 @@ public class RealMainActivity extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.activity_real_main, container, false);
 
-        card1=(CardView) v.findViewById(R.id.card1);
+        maincard1=(CardView) v.findViewById(R.id.maincard1);
 
-        card1.setOnClickListener(this);
+        maincard1.setOnClickListener(this);
 
         return v;
 
@@ -39,7 +39,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener {
         Intent i;
         switch (view.getId())
         {
-            case R.id.card1:
+            case R.id.maincard1:
                 i=new Intent(getActivity(), WeekGraphActivity.class);
                 startActivity(i);
                 break;

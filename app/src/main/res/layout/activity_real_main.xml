@@ -7,7 +7,7 @@
         tools:context=".ui.RealMainActivity">
 
     <androidx.cardview.widget.CardView
-            android:id="@+id/card1"
+            android:id="@+id/maincard1"
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_marginLeft="30dp"
@@ -16,9 +16,8 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="30dp"
-            app:cardBackgroundColor="@color/main_grey_700">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
 
         <LinearLayout
                 android:layout_width="316dp"
@@ -133,11 +132,60 @@
             android:layout_height="49dp"
             android:id="@+id/imageButton"
             android:layout_gravity="right"
-            android:layout_marginRight="27dp"
+            android:layout_marginRight="20dp"
             android:layout_marginEnd="27dp"
             android:layout_marginBottom="315dp"
-            android:layout_marginTop="367dp"
-            style="@style/Widget.AppCompat.Button.Borderless"/>
+            android:layout_marginTop="285dp"
+            style="@style/Widget.AppCompat.Button.Borderless" />
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/maincard2"
+            app:cardBackgroundColor="@color/main_pink"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="390dp"
+            android:layout_marginRight="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="15dp">
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/maincard3"
+            app:cardBackgroundColor="@color/main_grey_700"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="390dp"
+            android:layout_marginRight="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="15dp">
+
+
+        <ImageView
+                android:src="@drawable/whitebackground"
+                android:layout_width="127dp"
+                android:layout_height="122dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:id="@+id/imageView5" />
+
+        <ImageView
+                android:src="@drawable/qrcode"
+                android:layout_width="96dp"
+                android:layout_height="124dp"
+                android:id="@+id/imageView4"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp" />
+    </androidx.cardview.widget.CardView>
 
 
 </FrameLayout>
