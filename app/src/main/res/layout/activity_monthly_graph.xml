@@ -5,11 +5,11 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".ui.graph_detail.WeekGraphActivity">
+tools:context=".ui.graph_detail.MonthlyGraphActivity">
 
 
 
-    <FrameLayout
+<FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,10 +18,10 @@ tools:context=".ui.graph_detail.WeekGraphActivity">
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+</FrameLayout>
 
 
-    <LinearLayout
+<LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -30,32 +30,32 @@ tools:context=".ui.graph_detail.WeekGraphActivity">
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <Button
+    <Button
             android:id="@+id/btn_fragmentblood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="혈압" />
 
-        <Button
+    <Button
             android:id="@+id/btn_fragmento2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="산소포화도 " />
-        <Button
+    <Button
             android:id="@+id/btn_fragmentpulse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="맥박 " />
-        <Button
-                android:id="@+id/btn_gomonthly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Monthly " />
-    </LinearLayout>
+    <Button
+            android:id="@+id/btn_gomonthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Monthly " />
+</LinearLayout>
 
 
 

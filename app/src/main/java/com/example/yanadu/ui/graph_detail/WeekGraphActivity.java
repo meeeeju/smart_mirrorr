@@ -33,6 +33,7 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
     BloodFragment bloodFrag = new BloodFragment();
     O2Fragment o2Frag = new O2Fragment();
     PulseFragment pulseFrag = new PulseFragment();
+    MonthlyGraphActivity monthlyFrag=new MonthlyGraphActivity();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +68,13 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, pulseFrag).commit();
+            }
+        });
+        Button btn_fragmentD = v.findViewById(R.id.btn_gomonthly);
+        btn_fragmentC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,monthlyFrag ).commit();
             }
         });
 
