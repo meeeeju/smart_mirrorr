@@ -81,7 +81,7 @@ public class ToDoRepository {
     }
 
     //해당 todolit _id 서버에 보낼시 삭제
-    public void deleteToDO(String _id){
+    public void deleteToDO(Note _id){
         scheduleService.deleteToDo(_id).enqueue(new Callback<CheckReturn>() {
             @Override
             public void onResponse(Call<CheckReturn> call, Response<CheckReturn> response) {

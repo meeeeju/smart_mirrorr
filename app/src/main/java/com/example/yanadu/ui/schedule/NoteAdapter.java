@@ -18,6 +18,7 @@ import com.example.yanadu.data.model.Note;
 import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.repository.ToDoRepository;
 import com.example.yanadu.data.request.OnGetData;
+import com.example.yanadu.utils.CustomDialog;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -66,6 +67,7 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder> i
         if(cr.getCheck()==true)
         {
             Toast.makeText(itemView.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
+            notifyDataSetChanged();
         }
         else{
             Toast.makeText(itemView.getContext(),"오류가 발생했습니다.",Toast.LENGTH_SHORT).show();
@@ -102,11 +104,12 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder> i
                 public void onClick(View v) {
 
                     Note n = items.get(getAdapterPosition());
+                    items.remove(getAdapterPosition());
 //
                     int todo_id = n.get_id();  //todo_id는 pk임
                     Log.d("todo_id",todo_id+"현재 삭제시킬 _id 값");
 
-                    ToDoservice.deleteToDO(String.valueOf(todo_id));
+                    ToDoservice.deleteToDO(n);
                    // Toast.makeText(v.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
                 }
 
@@ -118,6 +121,8 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder> i
                 @Override
                 public void onClick(View v) {
                     // TODO : process the click event.
+                    CustomDialog.getInstance(v.getContext()).showDefaultDialog();
+
                 }
             }) ;
         }

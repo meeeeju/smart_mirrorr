@@ -25,7 +25,7 @@ public interface ToDoAPI {
 
     //todolist에 적은거 삭제하고싶은 경우
     @POST("/todoDelete")
-    Call<CheckReturn> deleteToDo(@Body String _id); //Note의 PK만 넘겨주고싶음
+    Call<CheckReturn> deleteToDo(@Body Note _id); //Note의 PK만 넘겨주고싶음
 
 
     @GET("/getToDO")
