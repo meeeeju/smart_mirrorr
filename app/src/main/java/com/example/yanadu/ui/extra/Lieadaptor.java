@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class Lieadaptor extends RecyclerView.Adapter<Lieadaptor.CustomViewHolder> {
 
-    private ArrayList<maindata>arrayList;
+    private ArrayList<LieData>arrayList;
 
-    public Lieadaptor(ArrayList<maindata> arrayList) {
+    public Lieadaptor(ArrayList<LieData> arrayList) {
         this.arrayList = arrayList;
     }
 

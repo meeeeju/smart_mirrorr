@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class LieActivity extends AppCompatActivity {
 
-    private ArrayList<maindata>arrayList;
-    private mainadapter mainadapter;
+    private ArrayList<LieData>arrayList;
+    private Lieadaptor lieadaptor;
     private RecyclerView recyclerView;
     private LinearLayout linearLayout;
 
@@ -35,16 +35,16 @@ public class LieActivity extends AppCompatActivity {
         recyclerView.setLayoutManager((RecyclerView.LayoutManager) linearLayoutManager);
 
         arrayList=new ArrayList<>();
-        mainadapter=new mainadapter(arrayList);
-        recyclerView.setAdapter(mainadapter);
+        lieadaptor=new Lieadaptor(arrayList);
+        recyclerView.setAdapter(lieadaptor);
 
         ImageButton random_add_list= (ImageButton) findViewById(R.id.random_add_list);
         random_add_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                maindata maindata=new maindata("질문 리스트를 작성해 주세요!");
-                arrayList.add(maindata);
-                mainadapter.notifyDataSetChanged();
+                LieData liedata=new LieData("질문 리스트를 작성해 주세요!");
+                arrayList.add(liedata);
+                lieadaptor.notifyDataSetChanged();
             }
         });
     }

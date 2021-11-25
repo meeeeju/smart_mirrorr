@@ -9,18 +9,6 @@
     android:layout_margin="20dp"
     tools:context=".ui.mypage.MyPageActivity">
 
-    <EditText
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:text=""
-            android:textColor="@color/schedule_color"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:ems="10"
-            android:inputType="textPersonName"/>
-
 
     <ImageView
             android:id="@+id/img_user"
