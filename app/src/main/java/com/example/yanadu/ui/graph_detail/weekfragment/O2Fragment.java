@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.UserData;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
@@ -45,6 +47,9 @@ public class O2Fragment extends Fragment{
         add("SUN");
     };}; // ArrayList 선언
 
+    Button btn_week;
+    Button btn_month;
+
 
 
 
@@ -65,6 +70,16 @@ public class O2Fragment extends Fragment{
 
 
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_o2, container, false);
+
+        UserData u1=(UserData) getArguments().getSerializable("User");
+
+        //  Log.d("useranddate",u1.getId()+":"+getCurrentDate());
+        //   resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());  //
+
+
+        btn_week= rootView.findViewById(R.id.btn_weekly);
+        btn_month = rootView.findViewById(R.id.btn_monthly);
+
 
 
         barChart = (BarChart) rootView.findViewById(R.id.barchart_O2);
@@ -101,7 +116,7 @@ public class O2Fragment extends Fragment{
 
 
         //click event 부여
-        barChart.setOnChartValueSelectedListener(new barChartOnChartValueSelectedListener());
+        //barChart.setOnChartValueSelectedListener(new barChartOnChartValueSelectedListener());
     }
 
 
@@ -142,35 +157,34 @@ public class O2Fragment extends Fragment{
 
     }
 
-    private final RectF onValueSelectedRectF = new RectF();
-    private class barChartOnChartValueSelectedListener implements OnChartValueSelectedListener {
-
-        @Override
-        public void onValueSelected(Entry e, Highlight h) {
-            //trigger activity when the bar value is selected
-
-            if (e == null)
-                return;
-
-            RectF bounds = onValueSelectedRectF;
-            barChart.getBarBounds((BarEntry) e, bounds);
-            MPPointF position = barChart.getPosition(e, YAxis.AxisDependency.LEFT);
-
-            Log.i("bounds", bounds.toString());
-            Log.i("position", position.toString());
-
-            Log.i("x-index",
-                    "low: " + barChart.getLowestVisibleX() + ", high: "
-                            + barChart.getHighestVisibleX());
-
-            MPPointF.recycleInstance(position);
-        }
-        @Override
-        public void onNothingSelected() {
-
-        }
-    }
-
+//    private final RectF onValueSelectedRectF = new RectF();
+//    private class barChartOnChartValueSelectedListener implements OnChartValueSelectedListener {
+//
+//        @Override
+//        public void onValueSelected(Entry e, Highlight h) {
+//            //trigger activity when the bar value is selected
+//
+//            if (e == null)
+//                return;
+//
+//            RectF bounds = onValueSelectedRectF;
+//            barChart.getBarBounds((BarEntry) e, bounds);
+//            MPPointF position = barChart.getPosition(e, YAxis.AxisDependency.LEFT);
+//
+//            Log.i("bounds", bounds.toString());
+//            Log.i("position", position.toString());
+//
+//            Log.i("x-index",
+//                    "low: " + barChart.getLowestVisibleX() + ", high: "
+//                            + barChart.getHighestVisibleX());
+//
+//            MPPointF.recycleInstance(position);
+//        }
+//        @Override
+//        public void onNothingSelected() {
+//
+//        }
+//    }
 
 
 }

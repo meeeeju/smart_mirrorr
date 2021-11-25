@@ -121,7 +121,14 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder> i
                 @Override
                 public void onClick(View v) {
                     // TODO : process the click event.
-                    CustomDialog.getInstance(v.getContext()).showDefaultDialog();
+                    if (checkBox.isChecked()) {
+                        // TODO : CheckBox is checked.
+                        CustomDialog.getInstance(v.getContext()).showDefaultDialog(ToDoservice,getAdapterPosition(),items);
+                    } else {
+                        // TODO : CheckBox is unchecked.
+                    }
+
+
 
                 }
             }) ;

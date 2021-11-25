@@ -10,6 +10,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.Note;
+import com.example.yanadu.data.repository.ToDoRepository;
+
+import java.util.ArrayList;
 
 /*
 직접 커스텀한 다이얼로그들을 띄워주고 다이얼로그 안에서의 동작을 정의하는 클래스 (싱글톤)
@@ -17,7 +21,7 @@ import com.example.yanadu.R;
 public class CustomDialog extends Dialog {
 
     private static CustomDialog customDialog;
-
+    private ToDoRepository todoService;
     private CustomDialog(@NonNull Context context) {
         super(context);
     }
@@ -28,8 +32,9 @@ public class CustomDialog extends Dialog {
         return customDialog;
     }
 
+
     //다이얼로그 생성하기
-    public void showDefaultDialog() {
+    public void showDefaultDialog(ToDoRepository todoService, int i, ArrayList<Note> items ) {
         //참조할 다이얼로그 화면을 연결한다.
         customDialog.setContentView(R.layout.dialog1);
 
@@ -39,6 +44,11 @@ public class CustomDialog extends Dialog {
         button_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                todoService.deleteToDO(items.get(i));
+
+                items.remove(i);
+                customDialog.dismiss();
+//
 
             }
         });
