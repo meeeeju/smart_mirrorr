@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import com.example.yanadu.R;
 
 import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.Note;
+import com.example.yanadu.data.model.NoteId;
 import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.ToDoRepository;
@@ -33,11 +36,11 @@ public class ToDoActivity extends Fragment implements OnGetData{
 
     private static final String TAG = "ToDoActivity";
 
-
     ToDoListFragment toDoListFragment;
     ToDoRepository ToDoservice;
     UserData u1;
     int size;
+    Note temp;
 
 //    Button saveButton=(Button) findViewById(R.id.btn_saveButton);
 
@@ -58,8 +61,6 @@ public class ToDoActivity extends Fragment implements OnGetData{
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,toDoListFragment).commit();
 
 
-
-
         ToDoservice=new ToDoRepository(this);
         ToDoservice.getToDO(u1.getId());
 
@@ -74,7 +75,6 @@ public class ToDoActivity extends Fragment implements OnGetData{
             @Override
             public void onClick(View v) {
 
-
                 EditText inputToDo=(EditText) view.findViewById(R.id.et_inputToDo);
                  String  todo = inputToDo.getText().toString();
                  if (todo==null || todo.equals(""))
@@ -83,18 +83,15 @@ public class ToDoActivity extends Fragment implements OnGetData{
                      return;
 
                  }
-                Note temp = new Note(size+1,todo,getCurrentDate(),u1.getId());
-                 //데이터 컬럼 수 알아오는 함
-                ToDoservice.getToDO(u1.getId());
-
-                toDoListFragment.ToDOList.add(temp);
+                 temp = new Note(todo,getCurrentDate(),u1.getId());
                 ToDoservice.setToDO(temp);
+
                 inputToDo.setText("");
-                toDoListFragment.adapter.notifyDataSetChanged();
+
 
             }
 
-            //ㅎgetTODO를 지우고 먼저 서버에 보낸후 _id값(사이즈임)이 오면 그 사이즈를 NOte temp에 넣어주고 Todolist.add() + 데이터 모델 만들기
+
 
         });
 
@@ -106,9 +103,14 @@ public class ToDoActivity extends Fragment implements OnGetData{
 
     @Override
     public void onGetData(ObjectData objectData) {
-        CheckReturn cr=(CheckReturn) objectData;
-        Log.d("check",cr.getCheck()+"");
+        NoteId _id=(NoteId) objectData;
+        Log.d("check",_id.get_id()+"");
         Toast.makeText(getContext(),"추가되었습니다.",Toast.LENGTH_SHORT).show();
+
+        //get_id로 _id 가져오기
+        temp.set_id(_id.get_id());
+        toDoListFragment.ToDOList.add(temp);
+        toDoListFragment.adapter.notifyDataSetChanged();
 
 
     }

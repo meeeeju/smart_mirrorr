@@ -22,7 +22,8 @@
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
-            android:hint="오늘의 TO DO LIST를 작성해요세요. "/>
+            android:hint="TO DO LIST를 작성해보세요 . "
+               />
 
         <Button
             android:id="@+id/btn_saveButton"

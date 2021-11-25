@@ -4,6 +4,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.Note;
+import com.example.yanadu.data.model.NoteId;
 import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.ResultData;
 import com.example.yanadu.data.request.ApiRequestFactory;
@@ -36,9 +37,9 @@ public class ToDoRepository {
 
 
     public void setToDO(Note note){
-        scheduleService.writeToDO(note).enqueue(new Callback<CheckReturn>() {
+        scheduleService.writeToDO(note).enqueue(new Callback<NoteId>() {
             @Override
-            public void onResponse(Call<CheckReturn> call, Response<CheckReturn> response) {
+            public void onResponse(Call<NoteId> call, Response<NoteId> response) {
                 if (response.isSuccessful()) {
                     onget.onGetData(response.body());
 
@@ -46,16 +47,15 @@ public class ToDoRepository {
             }
 
             @Override
-            public void onFailure(Call<CheckReturn> call, Throwable t) {
+            public void onFailure(Call<NoteId> call, Throwable t) {
 
             }
 
         });
     }
 
-//    @GET("/getToDO")
-//    Call<List<Note>> getToDOList(@Query("id") String id);
 
+    //user id 보낼시 서버에서 user와 관련된 투두 리스트 가져와
     public void getToDO(String id){
         scheduleService.getToDOList(id).enqueue(new Callback<List<Note>>() {
             @Override
@@ -74,6 +74,26 @@ public class ToDoRepository {
 
             @Override
             public void onFailure(Call<List<Note>> call, Throwable t) {
+
+            }
+
+        });
+    }
+
+    //해당 todolit _id 서버에 보낼시 삭제
+    public void deleteToDO(String _id){
+        scheduleService.deleteToDo(_id).enqueue(new Callback<CheckReturn>() {
+            @Override
+            public void onResponse(Call<CheckReturn> call, Response<CheckReturn> response) {
+                if (response.isSuccessful()) {
+//                    Log.d("삭제응답응답",response.body().getCheck()+"");
+                    onget.onGetData(response.body());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CheckReturn> call, Throwable t) {
 
             }
 

@@ -1,5 +1,6 @@
 package com.example.yanadu.ui.schedule;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +13,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.Note;
+import com.example.yanadu.data.model.ObjectData;
+import com.example.yanadu.data.repository.ToDoRepository;
+import com.example.yanadu.data.request.OnGetData;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
+public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder> implements OnGetData {
 
     private static final String Tag="NoteAdapter";
 
     static ArrayList<Note> items = new ArrayList<Note>();
+    View itemView;
+    static ToDoRepository ToDoservice;
 
 
 
@@ -31,7 +39,9 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
     @Override
     public NoteAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View itemView = inflater.inflate(R.layout.todo_item, parent, false);
+
+        itemView = inflater.inflate(R.layout.todo_item, parent, false);
+        ToDoservice=new ToDoRepository(this);
 
         return new ViewHolder(itemView);
     }
@@ -49,6 +59,30 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
         return items.size();
     }
 
+    @Override
+    public void onGetData(ObjectData objectData) {
+        CheckReturn cr=(CheckReturn) objectData;
+        Log.d("delete return value",cr.getCheck()+"");
+        if(cr.getCheck()==true)
+        {
+            Toast.makeText(itemView.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(itemView.getContext(),"오류가 발생했습니다.",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    public void onSendDate(ObjectData objectData) {
+
+    }
+
+    @Override
+    public void onGetDataList(List<ObjectData> objectDataList) {
+
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         LinearLayout layoutTodo;
@@ -62,22 +96,30 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             deleteButton = itemView.findViewById(R.id.btn_deleteButton);
 
 
+
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     Note n = items.get(getAdapterPosition());
-//                    n.get_id()
-                    String TODO = n.getTodo();
+//
+                    int todo_id = n.get_id();  //todo_id는 pk임
+                    Log.d("todo_id",todo_id+"현재 삭제시킬 _id 값");
 
-                    deleteToDo(TODO);
-                    Toast.makeText(v.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
+                    ToDoservice.deleteToDO(String.valueOf(todo_id));
+                   // Toast.makeText(v.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
                 }
 
-                private void deleteToDo(String TODO){
-                    //서버로 삭제 요청
-                }
+
             });
+
+
+            checkBox.setOnClickListener(new CheckBox.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO : process the click event.
+                }
+            }) ;
         }
         //editText에서 입력받은 텍스트를 체크박스에 넣도록 해줌
         public void setItem(Note item){checkBox.setText(item.getTodo());}
