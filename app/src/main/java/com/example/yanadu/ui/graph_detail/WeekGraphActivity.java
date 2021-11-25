@@ -1,6 +1,5 @@
 package com.example.yanadu.ui.graph_detail;
 
-import android.util.Log;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -15,9 +14,9 @@ import com.example.yanadu.data.model.ResultData;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.ResultRepository;
 import com.example.yanadu.data.request.OnGetData;
-import com.example.yanadu.ui.graph_detail.fragment.BloodFragment;
-import com.example.yanadu.ui.graph_detail.fragment.O2Fragment;
-import com.example.yanadu.ui.graph_detail.fragment.PulseFragment;
+import com.example.yanadu.ui.graph_detail.weekfragment.BloodFragment;
+import com.example.yanadu.ui.graph_detail.weekfragment.O2Fragment;
+import com.example.yanadu.ui.graph_detail.weekfragment.PulseFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
