@@ -13,6 +13,12 @@ import com.example.yanadu.data.request.ToDoAPI;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,13 +53,30 @@ public class ToDoRepository {
         });
     }
 
+//    @GET("/getToDO")
+//    Call<List<Note>> getToDOList(@Query("id") String id);
+
+    public void getToDO(String id){
+        scheduleService.getToDOList(id).enqueue(new Callback<List<Note>>() {
+            @Override
+            public void onResponse(Call<List<Note>> call, Response<List<Note>> response) {
+                List<ObjectData> od = new ArrayList<ObjectData>();
+                if (response.isSuccessful()) {
+                    for (Note note : response.body()) {
+
+                        od.add(note);
+                    }
+                    onget.onGetDataList(od);
 
 
+                }
+            }
 
+            @Override
+            public void onFailure(Call<List<Note>> call, Throwable t) {
 
+            }
 
-
-
+        });
+    }
 }
-
-

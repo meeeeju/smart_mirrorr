@@ -93,7 +93,7 @@ public class BloodFragment extends Fragment {
         for (int i = 0; i < valueMaxList.size(); i++) {
            // Log.d("max",valueMaxList.toString());
             BarEntry barEntry = new BarEntry(i, valueMaxList.get(i).floatValue());
-            BarEntry barEntry1=new BarEntry(i+0.3f,valueMinList.get(i).floatValue());
+            BarEntry barEntry1=new BarEntry(i,valueMinList.get(i).floatValue());
             entries.add(barEntry);
             entries1.add(barEntry1);
         }
@@ -107,20 +107,19 @@ public class BloodFragment extends Fragment {
         BarData data = new BarData(dataSets);
 
 
-        float groupSpace = 0.4f;
+        float groupSpace = 0.35f;
         float barSpace = 0f;
-        float barWidth = 0.4f;
+        float barWidth = 0.3f;
         // (barSpace + barWidth) * 2 + groupSpace = 1
         data.setBarWidth(barWidth);
         // so that the entire chart is shown when scrolled from right to left
         xAxis.setValueFormatter(new IndexAxisValueFormatter(weekdays));
-        xAxis.setAxisMaximum(weekdays.size() );
+//        xAxis.setAxisMaximum(weekdays.size() );
         barChart.setData(data);
         barChart.setScaleEnabled(false);
        // barChart.setVisibleXRangeMaximum(6f);
-       barChart.groupBars(0f, groupSpace, barSpace);
-
-        barChart.invalidate();
+       barChart.groupBars(-0.35f, groupSpace, barSpace);
+       barChart.invalidate();
 
 
         //click event 부여

@@ -33,7 +33,11 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
     BloodFragment bloodFrag = new BloodFragment();
     O2Fragment o2Frag = new O2Fragment();
     PulseFragment pulseFrag = new PulseFragment();
-    MonthlyGraphActivity monthlyFrag=new MonthlyGraphActivity();
+
+    Button btn_fragmentA;
+    Button btn_fragmentB ;
+    Button btn_fragmentC ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,33 +52,44 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         resultService.requestHealthdata(u1.getId());
 
 
-        Button btn_fragmentA= v.findViewById(R.id.btn_fragmentblood);
+         btn_fragmentA= v.findViewById(R.id.btn_fragmentblood);
+        btn_fragmentB = v.findViewById(R.id.btn_fragmento2);
+        btn_fragmentC = v.findViewById(R.id.btn_fragmentpulse);
+
+
         btn_fragmentA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn_fragmentB.setBackgroundResource(R.color.white);
+                btn_fragmentC.setBackgroundResource(R.color.white);
+                btn_fragmentA.setBackgroundResource(R.drawable.rectangle_background_pink);
+
                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
             }
         });
 
-        Button btn_fragmentB = v.findViewById(R.id.btn_fragmento2);
+
         btn_fragmentB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn_fragmentA.setBackgroundResource(R.color.white);
+                btn_fragmentC.setBackgroundResource(R.color.white);
+                btn_fragmentB.setBackgroundResource(R.drawable.rectangle_background_pink);
+
+
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, o2Frag).commit();
             }
         });
-        Button btn_fragmentC = v.findViewById(R.id.btn_fragmentpulse);
+
         btn_fragmentC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn_fragmentA.setBackgroundResource(R.color.white);
+                btn_fragmentB.setBackgroundResource(R.color.white);
+                btn_fragmentC.setBackgroundResource(R.drawable.rectangle_background_pink);
+
+
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, pulseFrag).commit();
-            }
-        });
-        Button btn_fragmentD = v.findViewById(R.id.btn_gomonthly);
-        btn_fragmentC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,monthlyFrag ).commit();
             }
         });
 
@@ -115,6 +130,10 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
 //            Log.d("o2",o+"");
 //        }
 
+        //기본 설정
+        btn_fragmentB.setBackgroundResource(R.color.white);
+        btn_fragmentC.setBackgroundResource(R.color.white);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
 
     }
 
@@ -126,4 +145,6 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         return formatedNow;
 
     }
+
+
 }

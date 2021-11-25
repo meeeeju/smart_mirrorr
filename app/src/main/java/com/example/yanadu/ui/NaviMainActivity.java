@@ -48,27 +48,27 @@ public class NaviMainActivity extends AppCompatActivity {
                     {
                         case R.id.nav_home:
                             selectedFragment=new RealMainActivity();
-                            bundle.putSerializable("User", user);
+
                             break;
                         case R.id.nav_observe:
                             selectedFragment=new WeekGraphActivity();
-                            bundle.putSerializable("User", user);
-                            selectedFragment.setArguments(bundle);
+
                             break;
                         case R.id.nav_today:
                             selectedFragment=new ToDoActivity();
-                            bundle.putSerializable("User", user);
-                            selectedFragment.setArguments(bundle);
+
                             break;
                         case R.id.nav_feel:
                             selectedFragment=new FeeelActivity();
                             break;
                         case R.id.nav_mypage:
                             selectedFragment=new MyPageActivity();
-                            bundle.putSerializable("User", user);
-                            selectedFragment.setArguments(bundle);
+
                             break;
+
                     }
+                    bundle.putSerializable("User", user);
+                    selectedFragment.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
 
 

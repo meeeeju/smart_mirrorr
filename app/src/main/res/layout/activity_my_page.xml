@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:layout_margin="20dp"
+    android:layout_marginHorizontal="20dp"
     tools:context=".ui.mypage.MyPageActivity">
 
     <TextView
@@ -198,8 +198,6 @@
         android:id="@+id/my_btnsave"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-
-        android:layout_marginTop="20dp"
         android:text="save" />
 
 

@@ -3,9 +3,10 @@
     <item android:state_focused="false" android:state_pressed="false">
             <shape>
 
-                <stroke android:color="@color/main_pink"/>
-                <stroke android:width="2sp"/>
-                <corners android:radius="20dp"/>
+                <stroke android:color="@color/white"/>
+                <stroke android:width="4sp"/>
+                <solid android:color="@color/grey"/>
+                <corners android:radius="10dp"/>
             </shape>
     </item>
 </selector>

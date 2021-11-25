@@ -93,6 +93,7 @@ public class PulseFragment extends Fragment {
         BarData data = new BarData(barDataSet);
         barChart.setData(data);
         barChart.invalidate();
+        barChart.setScaleEnabled(false);
         xAxis.setValueFormatter(new IndexAxisValueFormatter(weekdays));
 
 

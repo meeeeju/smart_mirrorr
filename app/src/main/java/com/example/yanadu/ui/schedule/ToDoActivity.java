@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 
 import com.example.yanadu.R;
+
 import com.example.yanadu.data.model.CheckReturn;
 import com.example.yanadu.data.model.Note;
 import com.example.yanadu.data.model.ObjectData;
@@ -23,19 +24,20 @@ import com.example.yanadu.data.repository.ToDoRepository;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
 
-import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class ToDoActivity extends Fragment implements OnGetData{
 
+
     private static final String TAG = "ToDoActivity";
 
 
-    Fragment mainFragment;
-    ToDoRepository TodoService;
+    ToDoListFragment toDoListFragment;
+    ToDoRepository ToDoservice;
     UserData u1;
+    int size;
 
 //    Button saveButton=(Button) findViewById(R.id.btn_saveButton);
 
@@ -44,54 +46,69 @@ public class ToDoActivity extends Fragment implements OnGetData{
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.activity_to_do, container, false);
-        mainFragment = new MainFragment();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFragment).commit();
+        View view=inflater.inflate(R.layout.activity_to_do, container, false);
+
+        Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
+        u1=(UserData) getArguments().getSerializable("User");
+        toDoListFragment = new ToDoListFragment();
+
+        //값 보내기
+        bundle.putSerializable("User", u1);
+        toDoListFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,toDoListFragment).commit();
+
+
+
+
+        ToDoservice=new ToDoRepository(this);
+        ToDoservice.getToDO(u1.getId());
+
 
 //
 //        TodoService=new ToDoRepository(this);  //this는 OnGetData
 //        u1=(UserData) getArguments().getSerializable("User");
 //
 
-        Button saveButton=(Button) v.findViewById(R.id.btn_saveButton);
+        Button saveButton=(Button) view.findViewById(R.id.btn_saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText inputToDo=(EditText) v.findViewById(R.id.et_inputToDo);
-                String todo = inputToDo.getText().toString();
-//                Log.d("check","tesing"+u1.getId()+"");
-//
-//                //서버로 전송
-//                TodoService.setToDO(new Note(1,u1.getId(),todo,getCurrentDate()));
+
+
+                EditText inputToDo=(EditText) view.findViewById(R.id.et_inputToDo);
+                 String  todo = inputToDo.getText().toString();
+                 if (todo==null || todo.equals(""))
+                 {
+                     Toast.makeText(getContext(),"다시 입력해주세요", Toast.LENGTH_SHORT).show();
+                     return;
+
+                 }
+                Note temp = new Note(size+1,todo,getCurrentDate(),u1.getId());
+                 //데이터 컬럼 수 알아오는 함
+                ToDoservice.getToDO(u1.getId());
+
+                toDoListFragment.ToDOList.add(temp);
+                ToDoservice.setToDO(temp);
                 inputToDo.setText("");
-                Toast.makeText(getActivity().getApplicationContext(),"추가되었습니다.",Toast.LENGTH_SHORT).show();
+                toDoListFragment.adapter.notifyDataSetChanged();
+
             }
 
+            //ㅎgetTODO를 지우고 먼저 서버에 보낸후 _id값(사이즈임)이 오면 그 사이즈를 NOte temp에 넣어주고 Todolist.add() + 데이터 모델 만들기
 
         });
 
-        return inflater.inflate(R.layout.activity_to_do, container, false);
+        return view;
     }
 
 
-    private String getCurrentDate() {
-        //System.out.println(now); 현재 시간 출력
-        Date now = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-        String formatedNow = formatter.format(now); // 포맷팅 적용
-        return formatedNow;
 
-    }
 
     @Override
     public void onGetData(ObjectData objectData) {
-
-        CheckReturn flag=(CheckReturn) objectData;
-
-        if (flag.getCheck())
-        {
-            Log.d("check setToDO funct",flag.getCheck()+"");
-        }
+        CheckReturn cr=(CheckReturn) objectData;
+        Log.d("check",cr.getCheck()+"");
+        Toast.makeText(getContext(),"추가되었습니다.",Toast.LENGTH_SHORT).show();
 
 
     }
@@ -103,6 +120,21 @@ public class ToDoActivity extends Fragment implements OnGetData{
 
     @Override
     public void onGetDataList(List<ObjectData> objectDataList) {
+
+
+        size=objectDataList.size();
+        Log.d("current todolist size", objectDataList.size() + "");
+
+    }
+
+
+    private String getCurrentDate() {
+        //System.out.println(now); 현재 시간 출력
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+        String formatedNow = formatter.format(now); // 포맷팅 적용
+        return formatedNow;
+
 
     }
 }

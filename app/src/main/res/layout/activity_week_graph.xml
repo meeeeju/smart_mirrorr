@@ -31,30 +31,32 @@ tools:context=".ui.graph_detail.WeekGraphActivity">
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
-            android:id="@+id/btn_fragmentblood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="혈압" />
+                android:id="@+id/btn_fragmentblood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:stateListAnimator="@null"
+                android:background="@drawable/rectangle_background_pink"
+
+                android:text="혈압" />
 
         <Button
             android:id="@+id/btn_fragmento2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:stateListAnimator="@null"
+                android:background="@drawable/rectangle_background_pink"
             android:text="산소포화도 " />
         <Button
             android:id="@+id/btn_fragmentpulse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:stateListAnimator="@null"
+                android:background="@drawable/rectangle_background_pink"
             android:layout_weight="1"
             android:text="맥박 " />
-        <Button
-                android:id="@+id/btn_gomonthly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Monthly " />
+
     </LinearLayout>
 
 

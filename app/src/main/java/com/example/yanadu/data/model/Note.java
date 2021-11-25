@@ -22,6 +22,13 @@ public class Note extends ObjectData implements Serializable {
         this.id = id;
     }
 
+    public Note(String todo, String date, String id) {  //setToDo시
+
+        this.todo = todo;
+        this.date = date;
+        this.id = id;
+    }
+
     public int get_id() {
         return _id;
     }

@@ -66,7 +66,6 @@ public class MyPageActivity extends Fragment implements OnGetData {
         String gender=u1.getSex();
 
 
-
         String birth;
         birth=u1.getBirth();
 
