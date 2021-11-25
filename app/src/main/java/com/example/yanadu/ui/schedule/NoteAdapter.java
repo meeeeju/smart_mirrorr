@@ -64,6 +64,7 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
                 @Override
                 public void onClick(View v) {
                     Note n = items.get(getAdapterPosition());
+//                    n.get_id()
                     String TODO = n.getTodo();
                     deleteToDo(TODO);
                     Toast.makeText(v.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();

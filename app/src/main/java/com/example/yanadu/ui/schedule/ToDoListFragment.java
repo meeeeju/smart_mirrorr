@@ -20,15 +20,15 @@ import com.example.yanadu.data.request.OnGetData;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainFragment extends Fragment implements OnGetData {
+public class ToDoListFragment extends Fragment implements OnGetData {
 
     private static final String TAG = "MainFragment";
 
     RecyclerView recyclerView;
-    NoteAdapter adapter;
+    public NoteAdapter adapter;
     ToDoRepository ToDoservice;
-    ArrayList<Note> ToDOList = new ArrayList<Note>();
-  //  UserData u1;
+    public ArrayList<Note> ToDOList = new ArrayList<Note>();
+    UserData u1;
 
 
     //인플레이션: 화면을 생성이 아닌 구성할 때, 즉 생성된 이후에 호출되는 역할
@@ -37,10 +37,10 @@ public class MainFragment extends Fragment implements OnGetData {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_main, container, false);
          ToDoservice=new ToDoRepository(this);
 
-        // u1=(UserData) getArguments().getSerializable("User");
+         u1=(UserData) getArguments().getSerializable("User");
 
-       //  ToDoservice.getToDO(u1.getId());
-         ToDoservice.getToDO("dmsrn135");
+         ToDoservice.getToDO(u1.getId());
+        // ToDoservice.getToDO("dmsrn135");
 
         initUI(rootView);
 

@@ -2,7 +2,6 @@ package com.example.yanadu.ui.schedule;
 
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +16,6 @@ import com.example.yanadu.data.model.*;
 import com.example.yanadu.data.repository.ToDoRepository;
 import com.example.yanadu.data.request.OnGetData;
 
-import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +24,8 @@ public class ToDoActivity extends AppCompatActivity implements OnGetData {
 
     private static final String TAG = "ToDoActivity";
 
-    Fragment mainFragment;
+
+    ToDoListFragment toDoListFragment;
     ToDoRepository ToDoservice;
     UserData u1;
     int size;
@@ -39,11 +38,14 @@ public class ToDoActivity extends AppCompatActivity implements OnGetData {
         setContentView(com.example.yanadu.R.layout.activity_to_do);
 
         u1=(UserData) getIntent().getExtras().getSerializable("User");
-        mainFragment = new MainFragment();
+        toDoListFragment = new ToDoListFragment();
 
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("User", u1);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFragment).commit();
+        //값 보내기
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("User", u1);
+        toDoListFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,toDoListFragment).commit();
 
         ToDoservice=new ToDoRepository(this);
         ToDoservice.getToDO(u1.getId());
@@ -54,14 +56,17 @@ public class ToDoActivity extends AppCompatActivity implements OnGetData {
             public void onClick(View v) {
                 EditText inputToDo=(EditText) findViewById(R.id.et_inputToDo);
                  String  todo = inputToDo.getText().toString();
-
-
+                Note temp = new Note(size+1,todo,getCurrentDate(),u1.getId());
+                 //데이터 컬럼 수 알아오는 함
                 ToDoservice.getToDO(u1.getId());
-                ToDoservice.setToDO(new Note(size+1,todo,getCurrentDate(),u1.getId()));
-                inputToDo.setText("");
 
+                toDoListFragment.ToDOList.add(temp);
+                ToDoservice.setToDO(temp);
+                inputToDo.setText("");
+                toDoListFragment.adapter.notifyDataSetChanged();
             }
 
+            //ㅎgetTODO를 지우고 먼저 서버에 보낸후 _id값(사이즈임)이 오면 그 사이즈를 NOte temp에 넣어주고 Todolist.add() + 데이터 모델 만들기
 
         });
     }
