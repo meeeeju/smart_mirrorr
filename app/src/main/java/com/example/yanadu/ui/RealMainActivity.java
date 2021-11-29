@@ -79,7 +79,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
             }
         });
 
-       /* mircon=(Button) v.findViewById(R.id.mirrorconnect);
+        mircon=(Button) v.findViewById(R.id.mirrorconnect);
         mircon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +87,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
                 startActivity(intent);
 
             }
-        });*/
+        });
 
 
         return v;
