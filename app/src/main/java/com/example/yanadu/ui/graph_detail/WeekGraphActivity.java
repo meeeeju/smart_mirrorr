@@ -1,6 +1,7 @@
 package com.example.yanadu.ui.graph_detail;
 
 import android.util.Log;
+import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -31,13 +32,26 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
     ArrayList<Double> bloodMinValueList = new ArrayList<Double>();
     ArrayList<Double> o2ValueList = new ArrayList<Double>();
 
+
     BloodFragment bloodFrag = new BloodFragment();
     O2Fragment o2Frag = new O2Fragment();
     PulseFragment pulseFrag = new PulseFragment();
 
+
     Button btn_fragmentA;
     Button btn_fragmentB ;
     Button btn_fragmentC ;
+    //날짜 표시해주기
+    TextView result_date;
+    ArrayList<String> weekDate=new ArrayList<>();
+
+    Button btn_week;
+    Button btn_month;
+
+    String selectedFrag="blood";
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +73,41 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
          btn_fragmentA= v.findViewById(R.id.btn_fragmentblood);
         btn_fragmentB = v.findViewById(R.id.btn_fragmento2);
         btn_fragmentC = v.findViewById(R.id.btn_fragmentpulse);
+        result_date=(TextView)v.findViewById(R.id.result_date);
+        btn_week= v.findViewById(R.id.btn_weekly);
+        btn_month = v.findViewById(R.id.btn_monthly);
+
+
+
+
+        //버튼 클릭시 weekly/monthly 전환
+        btn_week.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (bloodFrag.isWeek == 0)
+                {
+                    bloodFrag.isWeek = 1;
+                    o2Frag.isWeek=1;
+                    pulseFrag.isWeek=1;
+                    resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());  //
+                }
+            }
+        });
+        btn_month.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (bloodFrag.isWeek == 1)
+                {
+                    bloodFrag.isWeek = 0;
+                    o2Frag.isWeek=0;
+                    pulseFrag.isWeek=0;
+
+                }
+
+            }
+        });
+
 
 
         btn_fragmentA.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +117,10 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
                 btn_fragmentC.setBackgroundResource(R.color.white);
                 btn_fragmentA.setBackgroundResource(R.drawable.rectangle_background_pink);
 
+                selectedFrag="blood";
                 bundle.putSerializable("User", u1); //값 보내기
                 bloodFrag.setArguments(bundle);
-               getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
             }
         });
 
@@ -82,9 +132,12 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
                 btn_fragmentC.setBackgroundResource(R.color.white);
                 btn_fragmentB.setBackgroundResource(R.drawable.rectangle_background_pink);
 
+                selectedFrag="o2";
+
                 bundle.putSerializable("User", u1); //값 보내기
                 o2Frag.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, o2Frag).commit();
+
             }
         });
 
@@ -95,11 +148,18 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
                 btn_fragmentB.setBackgroundResource(R.color.white);
                 btn_fragmentC.setBackgroundResource(R.drawable.rectangle_background_pink);
 
+                selectedFrag="pulse";
+
                 bundle.putSerializable("User", u1); //값 보내기
                 pulseFrag.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, pulseFrag).commit();
             }
         });
+
+        //기본 설정
+//        btn_fragmentB.setBackgroundResource(R.color.white);
+//        btn_fragmentC.setBackgroundResource(R.color.white);
+//        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
 
 
         return v;
@@ -123,7 +183,6 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         for(ObjectData od : objectDataList){
             ResultData rd = (ResultData)od;
 
-
             pulseValueList.add(rd.getPulse());
             bloodMaxValueList.add(rd.getBloodMax());
             bloodMinValueList.add(rd.getBloodMin());
@@ -137,19 +196,62 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         //날짜 등록해주기
         ResultData first=(ResultData) objectDataList.get(0);
         ResultData second=(ResultData) objectDataList.get(6);
-        o2Frag.setDate(first,second);
-        pulseFrag.setDate(first,second);
+        weekDate.add(first.getDate());
+        weekDate.add(second.getDate());
+
+//        o2Frag.setDate(first,second);
+//        pulseFrag.setDate(first,second);
+
+        //날짜 지정해주기
+        if (objectDataList.size()>7){
+           // result_date.setText(weekDate.get(0));
+            Date d = new Date(weekDate.get(0));
+            result_date.setText(d.getYear());
+
+        }
+        else
+            result_date.setText(weekDate.get(0)+"~"+weekDate.get(1));
 
 
-//        for(Double o :o2ValueList)
+//        if (what_clicked.equals("week"))
 //        {
-//            Log.d("o2",o+"");
+//            bloodFrag.showBarChart();//weekly bar chart 그려줌
+//            o2Frag.showBarChart();
+//            pulseFrag.showBarChart();
+//
+//        }
+//        else
+//        {
+//
 //        }
 
-        //기본 설정
-        btn_fragmentB.setBackgroundResource(R.color.white);
-        btn_fragmentC.setBackgroundResource(R.color.white);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
+        if (getActivity().getSupportFragmentManager().findFragmentById(R.id.frameLayout)==null)
+        {
+            btn_fragmentB.setBackgroundResource(R.color.white);
+            btn_fragmentC.setBackgroundResource(R.color.white);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
+        }
+        else{
+            switch(selectedFrag){
+                case "blood":
+                    if (bloodFrag.isWeek==1)
+                        bloodFrag.showBarChart();//weekly bar chart 그려줌
+                    else
+                        bloodFrag.showBarChart();
+
+                    break;
+                case "o2":
+                    o2Frag.showBarChart();
+                     break;
+                case "pulse":
+                    pulseFrag.showBarChart();
+                    break;
+
+            }
+
+
+        }
+
 
     }
 

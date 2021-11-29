@@ -1,34 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".ui.graph_detail.WeekGraphActivity">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
 
+        tools:context=".ui.graph_detail.WeekGraphActivity">
+
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="테스트용도(지울꺼임)"
+            android:textColor="#1E1D1D"
+            android:textSize="30dp"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/result_date"
+            android:text=""
+            android:textColor="#1E1D1D"
+            android:textSize="30dp"/>
+
+    <LinearLayout
+            android:id="@+id/buttonlinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+
+        <Button
+                android:id="@+id/btn_weekly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:stateListAnimator="@null"
+                android:background="@drawable/rectangle_background_pink"
+                android:text="주"/>
+        <Button
+                android:id="@+id/btn_monthly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:stateListAnimator="@null"
+                android:background="@drawable/rectangle_background_pink"
+                android:text="월"/>
+
+    </LinearLayout>
 
 
     <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
 
     </FrameLayout>
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+         >
 
         <Button
                 android:id="@+id/btn_fragmentblood"
@@ -38,44 +77,42 @@ tools:context=".ui.graph_detail.WeekGraphActivity">
                 android:stateListAnimator="@null"
                 android:background="@drawable/rectangle_background_pink"
 
-                android:text="혈압" />
+                android:text="혈압"/>
 
         <Button
-            android:id="@+id/btn_fragmento2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:stateListAnimator="@null"
+                android:id="@+id/btn_fragmento2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:stateListAnimator="@null"
                 android:background="@drawable/rectangle_background_pink"
-            android:text="산소포화도 " />
+                android:text="산소포화도 "/>
         <Button
-            android:id="@+id/btn_fragmentpulse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:stateListAnimator="@null"
+                android:id="@+id/btn_fragmentpulse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stateListAnimator="@null"
                 android:background="@drawable/rectangle_background_pink"
-            android:layout_weight="1"
-            android:text="맥박 " />
+                android:layout_weight="1"
+                android:text="맥박 "/>
 
     </LinearLayout>
 
 
-
-<!--<com.github.mikephil.charting.charts.BarChart-->
-<!--    android:id="@+id/barchart_view"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:layout_marginStart="5dp"-->
-<!--    android:layout_marginEnd="5dp"-->
-<!--    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintHorizontal_bias="0.495"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toTopOf="parent"-->
-<!--    app:layout_constraintVertical_bias="0.471" />-->
-
+    <!--<com.github.mikephil.charting.charts.BarChart-->
+    <!--    android:id="@+id/barchart_view"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:layout_marginStart="5dp"-->
+    <!--    android:layout_marginEnd="5dp"-->
+    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:layout_constraintHorizontal_bias="0.495"-->
+    <!--    app:layout_constraintStart_toStartOf="parent"-->
+    <!--    app:layout_constraintTop_toTopOf="parent"-->
+    <!--    app:layout_constraintVertical_bias="0.471" />-->
 
 
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -37,8 +37,7 @@ public class PulseFragment extends Fragment{
     BarChart barChart;
     BarDataSet barDataSet;
     ArrayList<Double> valueList;  //값 넣어지는 곳
-
-    ArrayList<String> weekDate=new ArrayList<>();
+    public int isWeek = 1;
 
     private ArrayList<String> weekdays = new ArrayList<String>(){{
         add("MON");
@@ -49,12 +48,6 @@ public class PulseFragment extends Fragment{
         add("SAT");
         add("SUN");
     };}; // ArrayList 선언
-
-    Button btn_week;
-    Button btn_month;
-    TextView result_date;
-
-
 
 
 
@@ -83,33 +76,12 @@ public class PulseFragment extends Fragment{
         //   resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());  //
 
 
-        btn_week= rootView.findViewById(R.id.btn_weekly);
-        btn_month = rootView.findViewById(R.id.btn_monthly);
+
         barChart = (BarChart) rootView.findViewById(R.id.barchart_O2);
-        result_date=(TextView)rootView.findViewById(R.id.result_date);
-
-        //날짜 지정해주기
-        result_date.setText(weekDate.get(0)+"~"+weekDate.get(1));
-
-        //weeklybar chart 그려줌  default:weekly
         showBarChart();
-        initBarDataSet(barDataSet);  //barchar 꾸며주기
 
-        //버튼 클릭시 weekly/monthly 전환
-        btn_week.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showBarChart(); //weekly bar chart 그려줌
-                initBarDataSet(barDataSet);  //barchar 꾸며주기
 
-            }
-        });
-        btn_month.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
 
         // Inflate the layout for this fragment
@@ -142,6 +114,7 @@ public class PulseFragment extends Fragment{
         xAxis.setValueFormatter(new IndexAxisValueFormatter(weekdays));
 
 
+        initBarDataSet(barDataSet);  //barchar 꾸며주기
         //click event 부여
         //barChart.setOnChartValueSelectedListener(new barChartOnChartValueSelectedListener());
     }
@@ -187,12 +160,12 @@ public class PulseFragment extends Fragment{
 
     }
 
-    public void setDate(ResultData first, ResultData second) {
-        weekDate.add(first.getDate());
-        weekDate.add(second.getDate());
-
-
-    }
+//    public void setDate(ResultData first, ResultData second) {
+//        weekDate.add(first.getDate());
+//        weekDate.add(second.getDate());
+//
+//
+//    }
 
 //    private final RectF onValueSelectedRectF = new RectF();
 //    private class barChartOnChartValueSelectedListener implements OnChartValueSelectedListener {

@@ -40,6 +40,7 @@ public class BloodFragment extends Fragment {
     BarDataSet barDataSet1;
     private ArrayList<Double> valueMinList;
     private ArrayList<Double> valueMaxList;
+    public int isWeek = 1;
 
     private ArrayList<String> weekdays = new ArrayList<String>(){{
         add("MON");
@@ -67,8 +68,9 @@ public class BloodFragment extends Fragment {
 
         barChart = (BarChart) rootView.findViewById(R.id.fragment_blood);
         xAxis = barChart.getXAxis();
+
+        //default=weekly
         showBarChart();
-        initBarDataSet(barDataSet,barDataSet1);
 
         // Inflate the layout for this fragment
         return rootView;
@@ -126,6 +128,9 @@ public class BloodFragment extends Fragment {
 
         //click event 부여
         barChart.setOnChartValueSelectedListener(new barChartOnChartValueSelectedListener());
+        initBarDataSet(barDataSet,barDataSet1);
+
+
     }
 
 
