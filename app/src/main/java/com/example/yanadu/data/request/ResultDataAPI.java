@@ -13,4 +13,6 @@ public interface ResultDataAPI {
     @GET("/healthdata")
     Call<List<ResultData>> getHealthdata(@Query("name") String name);
 
+    @GET("/healthdailydata")
+    Call<ResultData> getDayHealthdata(@Query("id") String id,@Query("date") String date);
 }

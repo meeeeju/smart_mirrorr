@@ -50,6 +50,17 @@ public class ResultRepository {
         });
     }
 
-
-
+    public void requesthealthdailydata(String id,String date){
+        ResultDataService.getDayHealthdata(id,date).enqueue(new Callback<ResultData>() {
+            @Override
+            public void onResponse(Call<ResultData> call, Response<ResultData> response) {
+                ResultData rd = response.body();
+                onget.onGetData(rd);
+            }
+            @Override
+            public void onFailure(Call<ResultData> call, Throwable t) {
+                Log.d("mTag", t.toString());
+            }
+        });
+    }
 }

@@ -8,7 +8,7 @@ public class ResultData extends ObjectData implements Serializable {
 
     @SerializedName("pulse")
     double pulse;
-    @SerializedName("o2")
+    @SerializedName("spo")
     double o2;
     @SerializedName("bloodMin")
     double bloodMin;
