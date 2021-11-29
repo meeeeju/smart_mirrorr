@@ -1,5 +1,6 @@
 package com.example.yanadu.ui.graph_detail;
 
+import android.util.Log;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -43,13 +44,16 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.activity_week_graph, container, false);
+        Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
 
         ResultRepository resultService=new ResultRepository(this);
         UserData u1=(UserData) getArguments().getSerializable("User");
 
-      //  Log.d("useranddate",u1.getId()+":"+getCurrentDate());
-     //   resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());  //
-        resultService.requestHealthdata(u1.getId());
+        Log.d("useranddate",u1.getId()+":"+getCurrentDate());
+        resultService.requestHealthWeeklydata(u1.getId(),"2021/11/26");  //
+       // resultService.requestHealthdata(u1.getId());
+
+
 
 
          btn_fragmentA= v.findViewById(R.id.btn_fragmentblood);
@@ -64,6 +68,8 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
                 btn_fragmentC.setBackgroundResource(R.color.white);
                 btn_fragmentA.setBackgroundResource(R.drawable.rectangle_background_pink);
 
+                bundle.putSerializable("User", u1); //값 보내기
+                bloodFrag.setArguments(bundle);
                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bloodFrag).commit();
             }
         });
@@ -76,7 +82,8 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
                 btn_fragmentC.setBackgroundResource(R.color.white);
                 btn_fragmentB.setBackgroundResource(R.drawable.rectangle_background_pink);
 
-
+                bundle.putSerializable("User", u1); //값 보내기
+                o2Frag.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, o2Frag).commit();
             }
         });
@@ -88,7 +95,8 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
                 btn_fragmentB.setBackgroundResource(R.color.white);
                 btn_fragmentC.setBackgroundResource(R.drawable.rectangle_background_pink);
 
-
+                bundle.putSerializable("User", u1); //값 보내기
+                pulseFrag.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, pulseFrag).commit();
             }
         });
@@ -115,6 +123,7 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         for(ObjectData od : objectDataList){
             ResultData rd = (ResultData)od;
 
+
             pulseValueList.add(rd.getPulse());
             bloodMaxValueList.add(rd.getBloodMax());
             bloodMinValueList.add(rd.getBloodMin());
@@ -124,6 +133,13 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         o2Frag.setList(o2ValueList);
         bloodFrag.setList(bloodMinValueList,bloodMaxValueList);
         pulseFrag.setList(pulseValueList);
+
+        //날짜 등록해주기
+        ResultData first=(ResultData) objectDataList.get(0);
+        ResultData second=(ResultData) objectDataList.get(6);
+        o2Frag.setDate(first,second);
+        pulseFrag.setDate(first,second);
+
 
 //        for(Double o :o2ValueList)
 //        {

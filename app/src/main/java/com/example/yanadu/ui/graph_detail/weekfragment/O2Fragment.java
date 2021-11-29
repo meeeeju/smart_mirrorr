@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.Bundle;
 
+import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.ResultData;
 import com.example.yanadu.data.model.UserData;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
@@ -33,10 +35,11 @@ import java.util.ArrayList;
 public class O2Fragment extends Fragment{
 
     BarChart barChart;
-    XAxis xAxis ;
     BarDataSet barDataSet;
+    ArrayList<Double> valueList;  //값 넣어지는 곳
 
-    ArrayList<Double> valueList;
+    ArrayList<String> weekDate=new ArrayList<>();
+
     private ArrayList<String> weekdays = new ArrayList<String>(){{
         add("MON");
         add("TUE");
@@ -49,6 +52,8 @@ public class O2Fragment extends Fragment{
 
     Button btn_week;
     Button btn_month;
+    TextView result_date;
+
 
 
 
@@ -71,6 +76,7 @@ public class O2Fragment extends Fragment{
 
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_o2, container, false);
 
+
         UserData u1=(UserData) getArguments().getSerializable("User");
 
         //  Log.d("useranddate",u1.getId()+":"+getCurrentDate());
@@ -79,13 +85,32 @@ public class O2Fragment extends Fragment{
 
         btn_week= rootView.findViewById(R.id.btn_weekly);
         btn_month = rootView.findViewById(R.id.btn_monthly);
-
-
-
         barChart = (BarChart) rootView.findViewById(R.id.barchart_O2);
-        xAxis=barChart.getXAxis();
+        result_date=(TextView)rootView.findViewById(R.id.result_date);
+
+        //날짜 지정해주기
+        result_date.setText(weekDate.get(0)+"~"+weekDate.get(1));
+
+        //weeklybar chart 그려줌  default:weekly
         showBarChart();
-        initBarDataSet(barDataSet);
+        initBarDataSet(barDataSet);  //barchar 꾸며주기
+
+        //버튼 클릭시 weekly/monthly 전환
+        btn_week.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBarChart(); //weekly bar chart 그려줌
+                initBarDataSet(barDataSet);  //barchar 꾸며주기
+
+            }
+        });
+        btn_month.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
         // Inflate the layout for this fragment
         return rootView;
@@ -112,6 +137,8 @@ public class O2Fragment extends Fragment{
         barChart.setData(data);
         barChart.invalidate();
         barChart.setScaleEnabled(false);
+
+        XAxis xAxis=barChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(weekdays));
 
 
@@ -139,6 +166,9 @@ public class O2Fragment extends Fragment{
         //      barChart.animateY(500);
 
         //xㅌ
+
+        XAxis xAxis=barChart.getXAxis();
+
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         //set the horizontal distance of the grid line
         xAxis.setGranularity(1f);
@@ -154,6 +184,13 @@ public class O2Fragment extends Fragment{
         YAxis rightAxis = barChart.getAxisRight();
         //hiding the right y-axis line, default true if not set
         rightAxis.setDrawAxisLine(false);
+
+    }
+
+    public void setDate(ResultData first, ResultData second) {
+        weekDate.add(first.getDate());
+        weekDate.add(second.getDate());
+
 
     }
 
