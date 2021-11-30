@@ -34,7 +34,7 @@ public class mainadapter extends RecyclerView.Adapter<mainadapter.CustomViewHold
 
     @Override
     public void onBindViewHolder(@NonNull mainadapter.CustomViewHolder holder, int position) {
-        holder.et_mission.setText(arrayList.get(position).getEt_mission());
+        //holder.et_mission.setText(arrayList.get(position).getEt_mission());
 
 
         holder.itemView.setTag(position);

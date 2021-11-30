@@ -76,6 +76,25 @@ public class ResultRepository {
         });
     }
 
+    public void requesthealthdailydata(String id,String date){
+        ResultDataService.getHealthDaydata(id,date).enqueue(new Callback<ResultData>() {
+            @Override
+            public void onResponse(Call<ResultData> call, Response<ResultData> response) {
+                if (response.isSuccessful())
+                {
+                    ResultData rd = response.body();
+                    onget.onGetData(rd);
+                    Log.d("on","실행됨");
+                }
+                else{
+                    Log.d("","실행안됨");
+                }
 
-
+            }
+            @Override
+            public void onFailure(Call<ResultData> call, Throwable t) {
+                Log.d("mTag", t.toString());
+            }
+        });
+    }
 }

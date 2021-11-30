@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class Lieadaptor extends RecyclerView.Adapter<Lieadaptor.CustomViewHolder> {
 
-    private ArrayList<maindata>arrayList;
+    private ArrayList<LieData>arrayList;
 
-    public Lieadaptor(ArrayList<maindata> arrayList) {
+    public Lieadaptor(ArrayList<LieData> arrayList) {
         this.arrayList = arrayList;
     }
 
@@ -33,7 +33,7 @@ public class Lieadaptor extends RecyclerView.Adapter<Lieadaptor.CustomViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull Lieadaptor.CustomViewHolder holder, int position) {
-        holder.et_mission.setText(arrayList.get(position).getEt_mission());
+        //holder.et_mission.setText(arrayList.get(position).getEt_mission());
 
 
         holder.itemView.setTag(position);

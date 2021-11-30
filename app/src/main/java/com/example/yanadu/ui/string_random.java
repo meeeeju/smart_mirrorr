@@ -15,7 +15,7 @@ public class string_random extends AppCompatActivity {
 
     Button btn;
     TextView tv;
-    String option[]={"hi","bi","i","want","to","sleep"};
+    String option[]={"sdifjepiowjfoqifejqopwiefjpqowiej","oqiwefjqpwoifejwqpoeif","qwefjqwopfewpoe","want","qwoeifjqwoei","sleepwqefoiwimofwqifjw;o"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

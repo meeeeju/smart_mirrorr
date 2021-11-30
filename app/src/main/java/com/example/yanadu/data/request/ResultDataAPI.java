@@ -14,6 +14,7 @@ public interface ResultDataAPI {
     @GET("/healthdata")
     Call<List<ResultData>> getHealthdata(@Query("name") String name);
 
+
     @GET("/healthweeklydata")
     Call<List<ResultData>> getHealthWeeklydata(@Query("id") String id,@Query("date") String date);  //주
 
@@ -22,7 +23,7 @@ public interface ResultDataAPI {
 
 
     @GET("/healyhdailydata")
-    Call<ResultData> getDailyData(@Query("id") String id,@Query("date") String date);  //메인에 띄울 데이터
+    Call<ResultData> getHealthDaydata(@Query("id") String id,@Query("date") String date);  //메인에 띄울 데이터
 
 
 

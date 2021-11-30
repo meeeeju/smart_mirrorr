@@ -6,16 +6,6 @@ android:id="@+id/linearLayout3"
 android:layout_width="match_parent"
 android:layout_height="wrap_content">
 
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteY="5dp"
-        tools:layout_editor_absoluteX="0dp"
-        android:id="@+id/linearLayout5">
-
-
-</LinearLayout>
 
 
 <EditText
@@ -33,19 +23,7 @@ android:layout_height="wrap_content">
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="1.0" />
 
-<LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-
-</LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

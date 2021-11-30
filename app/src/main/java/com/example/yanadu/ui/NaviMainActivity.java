@@ -24,12 +24,18 @@ public class NaviMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navi_main);
 
+        user = (UserData) getIntent().getSerializableExtra("User");  //fragment에서 값 받는 방법
 
+
+        Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
+        bundle.putSerializable("User", user);
 
         BottomNavigationView bottomnav=findViewById(R.id.bottom_navigation);
         bottomnav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RealMainActivity()).commit();
+        Fragment startF = new RealMainActivity();
+        startF.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, startF).commit();
 
 
 
@@ -41,9 +47,11 @@ public class NaviMainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment=null;
-                    Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
-                    user = (UserData) getIntent().getSerializableExtra("User");  //fragment에서 값 받는 방법
 
+
+
+                    Bundle bundle=new Bundle();   //bundle 생성해서 보내주기
+                    bundle.putSerializable("User", user);  //fragment에서 값 받는 방법
                     switch(item.getItemId())
                     {
                         case R.id.nav_home:
@@ -65,10 +73,13 @@ public class NaviMainActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_mypage:
                             selectedFragment=new MyPageActivity();
+
                             bundle.putSerializable("User", user);
                             selectedFragment.setArguments(bundle);
+
                             break;
                     }
+                    selectedFragment.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
 
 
