@@ -202,6 +202,7 @@ public class BloodFragment extends Fragment {
         @Override
         public void onNothingSelected() {
 
+
         }
     }
 

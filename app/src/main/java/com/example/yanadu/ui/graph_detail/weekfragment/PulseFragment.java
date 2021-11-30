@@ -77,7 +77,7 @@ public class PulseFragment extends Fragment{
 
 
 
-        barChart = (BarChart) rootView.findViewById(R.id.barchart_O2);
+        barChart = (BarChart) rootView.findViewById(R.id.barchart_op);
         showBarChart();
 
 

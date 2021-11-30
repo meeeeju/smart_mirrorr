@@ -17,15 +17,14 @@ import com.example.yanadu.R;
 import com.example.yanadu.data.model.ResultData;
 import com.example.yanadu.data.model.UserData;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.*;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.MPPointF;
 
@@ -35,7 +34,8 @@ import java.util.ArrayList;
 public class O2Fragment extends Fragment{
 
     BarChart barChart;
-    BarDataSet barDataSet;
+
+
     ArrayList<Double> valueList;  //값 넣어지는 곳
     public int isWeek = 1;
 
@@ -86,8 +86,7 @@ public class O2Fragment extends Fragment{
 
         btn_week= rootView.findViewById(R.id.btn_weekly);
         btn_month = rootView.findViewById(R.id.btn_monthly);
-        barChart = (BarChart) rootView.findViewById(R.id.barchart_O2);
-
+        barChart = (BarChart) rootView.findViewById(R.id.barchart_op);
 
         //weeklybar chart 그려줌  default:weekly
         showBarChart();
@@ -113,7 +112,7 @@ public class O2Fragment extends Fragment{
             entries.add(barEntry);
         }
 
-        barDataSet = new BarDataSet(entries, title);
+        BarDataSet barDataSet = new BarDataSet(entries, title);
 
         BarData data = new BarData(barDataSet);
         barChart.setData(data);
@@ -169,6 +168,11 @@ public class O2Fragment extends Fragment{
         rightAxis.setDrawAxisLine(false);
 
     }
+
+
+
+
+
 //
 //    public void setDate(ResultData first, ResultData second) {
 //        weekDate.add(first.getDate());
