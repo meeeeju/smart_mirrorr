@@ -3,7 +3,6 @@ package com.example.yanadu.ui.extra;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,17 +14,17 @@ import com.example.yanadu.R;
 
 import java.util.ArrayList;
 
-public class mainadapter extends RecyclerView.Adapter<mainadapter.CustomViewHolder> {
+public class Lieadaptor extends RecyclerView.Adapter<Lieadaptor.CustomViewHolder> {
 
-    private ArrayList<maindata>arrayList;
+    private ArrayList<LieData>arrayList;
 
-    public mainadapter(ArrayList<maindata> arrayList) {
+    public Lieadaptor(ArrayList<LieData> arrayList) {
         this.arrayList = arrayList;
     }
 
     @NonNull
     @Override
-    public mainadapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Lieadaptor.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false);
         CustomViewHolder holder=new CustomViewHolder(view);
 
@@ -33,7 +32,7 @@ public class mainadapter extends RecyclerView.Adapter<mainadapter.CustomViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull mainadapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Lieadaptor.CustomViewHolder holder, int position) {
         //holder.et_mission.setText(arrayList.get(position).getEt_mission());
 
 

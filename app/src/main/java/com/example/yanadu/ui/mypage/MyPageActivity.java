@@ -56,7 +56,7 @@ public class MyPageActivity extends Fragment implements OnGetData {
         EditText user_email=(EditText) v.findViewById(R.id.my_Email);
         Button user_female=(Button) v.findViewById(R.id.my_btnfemale);
         Button user_male=(Button) v.findViewById(R.id.my_btnmale);
-        Switch user_smoke=(Switch) v.findViewById(R.id.my_smoking);
+
 
 
         user_name.setText(u1.getNickname());

@@ -21,9 +21,7 @@ public interface ResultDataAPI {
     Call<List<ResultData>> getMonthlydata(@Query("id") String id,@Query("date") String date);  //달
 
 
-    @GET("/healyhdailydata")
-    Call<ResultData> getDailyData(@Query("id") String id,@Query("date") String date);  //메인에 띄울 데이터
-
-
+    @GET("/healthdailydata")
+    Call<ResultData> getDayHealthdata(@Query("id") String id,@Query("date") String date);  //메인에 띄울 데이터
 
 }
