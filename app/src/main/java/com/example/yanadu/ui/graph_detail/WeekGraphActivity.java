@@ -64,7 +64,7 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         UserData u1=(UserData) getArguments().getSerializable("User");
 
         Log.d("useranddate",u1.getId()+":"+getCurrentDate());
-        resultService.requestHealthWeeklydata(u1.getId(),"2021/11/26");  //
+        resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());  //
        // resultService.requestHealthdata(u1.getId());
 
 
