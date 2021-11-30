@@ -103,7 +103,7 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         bloodFrag.setList(bloodMinValueList,bloodMaxValueList);
         pulseFrag.setList(pulseValueList);
 
-//        for(Double o :o2ValueList)
+//        for(Double o :o2ValuegitList)
 //        {
 //            Log.d("o2",o+"");
 //        }
