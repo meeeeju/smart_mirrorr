@@ -26,6 +26,7 @@
         <activity
                 android:name=".ui.string_random"
                 android:exported="true"/>
+
         <activity
                 android:name=".ui.NaviMainActivity"
                 android:exported="true"/>
