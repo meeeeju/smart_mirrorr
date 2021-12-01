@@ -119,6 +119,9 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
         pulse.setText(rd.getPulse()+"");
         oxygen.setText(rd.getO2()+"");
 
+        
+
+
     }
 
     @Override

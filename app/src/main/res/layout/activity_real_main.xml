@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
             android:id="@+id/maincard1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="220dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="30dp"
@@ -40,7 +40,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="52dp"
                         android:layout_gravity="top"
-                        app:srcCompat="@drawable/smile3"/>
+                        app:srcCompat="@drawable/smile3" />
 
                 <TextView
                         android:id="@+id/username"
@@ -53,14 +53,14 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         android:layout_marginLeft="10dp"
-                        android:textSize="30dp"/>
+                        android:textSize="30dp" />
 
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/mainlist"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp" />
 
             </LinearLayout>
 
@@ -74,7 +74,7 @@
                         android:layout_width="146dp"
                         android:layout_height="25dp"
                         android:textSize="16dp"
-                        android:id="@+id/textView3"/>
+                        android:id="@+id/textView3" />
                 <TextView
                         android:id="@+id/bloddpressure"
                         android:layout_width="146dp"
@@ -84,7 +84,7 @@
                         android:textAlignment="textEnd"
                         android:background="@null"/>
             </LinearLayout>
-            "
+"
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="28dp"
@@ -96,7 +96,7 @@
                         android:layout_width="146dp"
                         android:layout_height="25dp"
                         android:textSize="16dp"
-                        android:id="@+id/textView4"/>
+                        android:id="@+id/textView4" />
                 <TextView
                         android:id="@+id/pulse"
                         android:layout_width="146dp"
@@ -120,7 +120,7 @@
                         android:layout_width="146dp"
                         android:layout_height="25dp"
                         android:textSize="16dp"
-                        android:id="@+id/textView5"/>
+                        android:id="@+id/textView5" />
                 <TextView
                         android:id="@+id/oxygen"
                         android:layout_width="146dp"
@@ -143,58 +143,87 @@
             android:layout_marginTop="25dp"
             android:orientation="horizontal">
 
-        <com.example.yanadu.ui.DigitTextView
-                android:id="@+id/digitTextView"
-                android:layout_marginLeft="20dp"
-                android:layout_width="290dp"
-                android:layout_height="match_parent" />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/shuffle64"
-                android:id="@+id/mainshuffle"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+
+            <com.example.yanadu.ui.DigitTextView
+                    android:id="@+id/digitTextView"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="280dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+            ></com.example.yanadu.ui.DigitTextView>
+            <ImageButton
+                    android:text="Click"
+                    android:layout_width="wrap_content"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_margin="3dp"
+                    android:src="@drawable/smile3"
+                    android:padding="10dp"
+                    android:layout_height="match_parent" android:id="@+id/button3" android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <!--        <ImageButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/shuffle64"-->
+<!--                android:id="@+id/mainshuffle"-->
+<!--                style="@style/Widget.AppCompat.Button.Borderless"/>-->
 
 
     </LinearLayout>
 
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="389dp"
+            android:layout_height="260dp"
             android:layout_marginLeft="12dp"
             android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
-                android:id="@+id/maincard2"
-                app:cardBackgroundColor="@color/main_pink"
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="23dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="15dp">
+                android:layout_height="match_parent" android:layout_weight="1">
+
+            <androidx.cardview.widget.CardView
+                    android:id="@+id/maincard2"
+                    app:cardBackgroundColor="@color/white"
+                    android:elevation="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="15dp" tools:layout_editor_absoluteY="20dp" tools:layout_editor_absoluteX="253dp">
 
 
-        </androidx.cardview.widget.CardView>
+                <ImageView
+                        android:src="@drawable/pulsemain"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp" android:id="@+id/imagePulse"/>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <Button
                 android:id="@+id/mirrorconnect"
-                android:layout_width="169dp"
-                android:layout_height="45dp"
-                android:layout_gravity="right"
-                android:layout_marginBottom="17dp"
-                android:layout_marginRight="17dp"
-                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_margin="10dp"
                 android:background="@drawable/alittlebitroundbutton"
                 android:backgroundTint="@color/real_maincolor"
-                android:text="거울연결 바로가기"
-                android:textSize="18dp"
+                android:text="Connect"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+
+
+                android:textSize="20dp"
                 android:textColor="#F8F3F3"
                 android:fontFamily="@font/font"/>
 
