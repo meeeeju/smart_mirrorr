@@ -34,7 +34,7 @@ public class ToDoListFragment extends Fragment implements OnGetData {
     //인플레이션: 화면을 생성이 아닌 구성할 때, 즉 생성된 이후에 호출되는 역할
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_todomain, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_todo, container, false);
          ToDoservice=new ToDoRepository(this);
 
          u1=(UserData) getArguments().getSerializable("User");
@@ -58,7 +58,7 @@ public class ToDoListFragment extends Fragment implements OnGetData {
         Log.d("test","initUI 실행됨!!");
 
         //fragment_main.xml에 만들었던 RecyclerView을 연결
-        recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView = rootView.findViewById(R.id.recyclerViewToDo);
 
         //LinearLayoutManager을 이용하여 LinearLayout에 recyclerView을 붙입니다. 이후 이것은 todo_item들이 세로로 하나하나 정렬하는 역할
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

@@ -14,7 +14,7 @@
     app:cardElevation="5dp">
 
     <LinearLayout
-        android:id="@+id/layoutTodo"
+        android:id="@+id/layoutRandom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">

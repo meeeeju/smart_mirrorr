@@ -2,37 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.extra.RandomActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
-    <ImageButton
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/random_add_list"
-            android:id="@+id/random_add_list"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_gravity="right" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
+        <EditText
+            android:id="@+id/inputR"
             android:layout_width="match_parent"
-            android:layout_height="680dp"
-            android:scrollbarFadeDuration="0"
-            android:scrollbarSize="5dp"
-            android:scrollbarThumbVertical="@android:color/darker_gray"
-            android:scrollbars="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="건강을 위한 습관을 만들어보세요!."
+            android:inputType="textMultiLine" />
 
+        <Button
+            android:id="@+id/saveBtnR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="save"
+            app:backgroundTint="?android:attr/colorActivatedHighlight" />
+    </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="685dp">
 
-
-    </androidx.recyclerview.widget.RecyclerView>
-
+    </FrameLayout>
 
 </LinearLayout>

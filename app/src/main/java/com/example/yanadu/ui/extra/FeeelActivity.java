@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yanadu.R;
+import com.example.yanadu.ui.extra.Random.RandomActivity;
+import com.example.yanadu.ui.extra.game.GameActivity;
 
 public class FeeelActivity extends Fragment implements View.OnClickListener {
 
@@ -41,12 +43,12 @@ public class FeeelActivity extends Fragment implements View.OnClickListener {
         switch (view.getId())
         {
             case R.id.card1:
-                i=new Intent(getActivity(),LieActivity.class);
+                i=new Intent(getActivity(), GameActivity.class);
                 startActivity(i);
                 break;
 
             case R.id.card2:
-                i=new Intent(getActivity(),RandomActivity.class);
+                i=new Intent(getActivity(), RandomActivity.class);
                 startActivity(i);
                 break;
 

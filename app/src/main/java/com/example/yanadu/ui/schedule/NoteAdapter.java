@@ -41,7 +41,7 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder> i
     public NoteAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-        itemView = inflater.inflate(R.layout.todo_item, parent, false);
+        itemView = inflater.inflate(R.layout.todo_items, parent, false);
         ToDoservice=new ToDoRepository(this);
 
         return new ViewHolder(itemView);
@@ -93,7 +93,7 @@ public class NoteAdapter  extends RecyclerView.Adapter<NoteAdapter.ViewHolder> i
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            layoutTodo = itemView.findViewById(R.id.layoutTodo);
+            layoutTodo = itemView.findViewById(R.id.layoutRandom);
             checkBox = itemView.findViewById(R.id.checkBox);
             deleteButton = itemView.findViewById(R.id.btn_deleteButton);
 
