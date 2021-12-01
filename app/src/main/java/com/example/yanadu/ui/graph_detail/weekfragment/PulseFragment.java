@@ -35,7 +35,6 @@ import java.util.ArrayList;
 public class PulseFragment extends Fragment{
 
     BarChart barChart;
-    BarDataSet barDataSet;
     ArrayList<Double> valueList;  //값 넣어지는 곳
     public int isWeek = 1;
 
@@ -93,6 +92,7 @@ public class PulseFragment extends Fragment{
 
     public void showBarChart(){
         ArrayList<BarEntry> entries = new ArrayList<>();
+        BarDataSet barDataSet;
         String title = "맥박";
 
 
@@ -103,9 +103,11 @@ public class PulseFragment extends Fragment{
             entries.add(barEntry);
         }
 
+
         barDataSet = new BarDataSet(entries, title);
 
         BarData data = new BarData(barDataSet);
+
         barChart.setData(data);
         barChart.invalidate();
         barChart.setScaleEnabled(false);
@@ -115,8 +117,7 @@ public class PulseFragment extends Fragment{
 
 
         initBarDataSet(barDataSet);  //barchar 꾸며주기
-        //click event 부여
-        //barChart.setOnChartValueSelectedListener(new barChartOnChartValueSelectedListener());
+
     }
 
 
