@@ -13,7 +13,6 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="테스트용도(지울꺼임)"
             android:textColor="#1E1D1D"
             android:textSize="30dp"/>
 

@@ -95,6 +95,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),MirrorConnection.class);
+                intent.putExtra("User", u1);
                 startActivity(intent);
 
             }
@@ -139,7 +140,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
         showBarChart(dailyValueList);
 
 
-        
+
 
 
 
@@ -180,6 +181,8 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
         BarDataSet barDataSet = new BarDataSet(entries, title);
 
         BarData data = new BarData(barDataSet);
+        data.setBarWidth(0.5f);
+
         mainBarCard.setData(data);
         mainBarCard.invalidate();
         mainBarCard.setScaleEnabled(false);
@@ -196,7 +199,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
 
     private void initBarDataSet(BarDataSet barDataSet){
         //Changing the color of the bar
-        barDataSet.setColor(Color.parseColor("#F7BFA8"));
+        barDataSet.setColor(Color.parseColor("#6B8E23"));
         //Setting the size of the form in the legend
         barDataSet.setFormSize(15f);
         //showing the value of the bar, default true if not set

@@ -11,13 +11,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.Note;
 import com.example.yanadu.data.model.ObjectData;
 import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
 import com.github.mikephil.charting.charts.BarChart;
+
 
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class MyPageActivity extends Fragment implements OnGetData {
     EditText user_email;
     EditText user_female;
     EditText user_male;
+
 
     @Override
     public void onGetData(ObjectData objectData) {
@@ -75,14 +79,15 @@ public class MyPageActivity extends Fragment implements OnGetData {
 
         if (gender.equals("W"))  //W:female
         {
-            user_female.setBackgroundResource(R.color.main_pink);
+            user_female.setBackgroundResource(R.color.real_maincolor);
         }
         else
         {
-            user_male.setBackgroundResource(R.color.main_pink);
+            user_male.setBackgroundResource(R.color.real_maincolor);
         }
 
+        
         return v;
-
     }
+
 }

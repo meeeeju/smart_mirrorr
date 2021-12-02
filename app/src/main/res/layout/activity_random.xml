@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:text="save"
-            app:backgroundTint="?android:attr/colorActivatedHighlight" />
+            android:backgroundTint="@color/real_maincolor"
+            />
     </LinearLayout>
 
     <FrameLayout
