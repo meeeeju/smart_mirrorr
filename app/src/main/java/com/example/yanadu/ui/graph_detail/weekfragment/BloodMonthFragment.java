@@ -1,8 +1,18 @@
 package com.example.yanadu.ui.graph_detail.weekfragment;
 
+import android.content.Context;
 import android.graphics.Color;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.yanadu.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
@@ -16,81 +26,55 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
 
-public class SampleMutipleLines extends AppCompatActivity {
+public class BloodMonthFragment extends Fragment {
 
     LineChart lineChart;
 
      ArrayList<Double> valueMinList;  //값 넣어지는 곳
      ArrayList<Double> valueMaxList;  //값 넣어지는 곳
-
-
-
+    Context c;
     private ArrayList<String> monthLabel = new ArrayList<String>();
 
+    public BloodMonthFragment(Context c) {
+        this.c = c;
+    }
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample_line);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = (ViewGroup) inflater.inflate(R.layout.activity_sample_line, container, false);
 
+        lineChart = (LineChart) rootView.findViewById(R.id.linechart_op);
 
-        lineChart = (LineChart) findViewById(R.id.linechart_op);
-
-        //sampledata 30개
-        ArrayList<Double> value30List=new ArrayList<Double>(){
-            {
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(7.0);add(4.0);add(5.0);
-                add(6.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(12.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(18.0);add(24.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-
-            }
-        };
-
-        //sampledata 31개
-        ArrayList<Double> value31MaxList=new ArrayList<Double>(){
-            {
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(7.0);add(4.0);add(5.0);
-                add(6.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(12.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(18.0);add(24.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(7.0);
-
-            }
-        };
-        //sampledata 31개
-        ArrayList<Double> value31MinList=new ArrayList<Double>(){
-            {
-                add(2.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(8.0);add(7.0);add(4.0);add(8.0);
-                add(2.0);add(2.0);add(39.0);add(8.0);add(5.0);
-                add(18.0);add(12.0);add(3.0);add(4.0);add(5.0);
-                add(3.0);add(23.0);add(24.0);add(4.0);add(9.0);
-                add(1.0);add(7.0);add(3.0);add(9.0);add(5.0);
-                add(15.0);
-
-            }
-        };
-
-        //sampledata28개
-        ArrayList<Double> value28List=new ArrayList<Double>(){
-            {
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(7.0);add(4.0);add(5.0);
-                add(6.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(12.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(18.0);add(24.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(3.0);
-            }
-        };
-        setValueList(value31MinList,value31MaxList);
+//        //sampledata 31개
+//        ArrayList<Double> value31MaxList=new ArrayList<Double>(){
+//            {
+//                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
+//                add(1.0);add(2.0);add(7.0);add(4.0);add(5.0);
+//                add(6.0);add(2.0);add(3.0);add(4.0);add(5.0);
+//                add(1.0);add(12.0);add(3.0);add(4.0);add(5.0);
+//                add(1.0);add(18.0);add(24.0);add(4.0);add(5.0);
+//                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
+//                add(7.0);
+//
+//            }
+//        };
+//        //sampledata 31개
+//        ArrayList<Double> value31MinList=new ArrayList<Double>(){
+//            {
+//                add(2.0);add(2.0);add(3.0);add(4.0);add(5.0);
+//                add(1.0);add(8.0);add(7.0);add(4.0);add(8.0);
+//                add(2.0);add(2.0);add(39.0);add(8.0);add(5.0);
+//                add(18.0);add(12.0);add(3.0);add(4.0);add(5.0);
+//                add(3.0);add(23.0);add(24.0);add(4.0);add(9.0);
+//                add(1.0);add(7.0);add(3.0);add(9.0);add(5.0);
+//                add(15.0);
+//
+//            }
+//        };
+//        setValueList(value31MinList,value31MaxList);
         showLineChart();
-
-
+        return rootView;
     }
 
     public void setValueList(ArrayList<Double> dataList1,ArrayList<Double> dataList2) //1이 작은것
@@ -98,8 +82,6 @@ public class SampleMutipleLines extends AppCompatActivity {
         valueMinList=dataList1;
         valueMaxList=dataList2;
     }
-
-
 
     public void showLineChart() {
 
@@ -141,7 +123,7 @@ public class SampleMutipleLines extends AppCompatActivity {
 
 
 
-        MyMarkerViews mv = new MyMarkerViews(this, R.layout.custom_marker_view);
+        MyMarkerViews mv = new MyMarkerViews(c, R.layout.custom_marker_view);
         // Set the marker to the chart
         mv.setChartView(lineChart);
         lineChart.setMarker(mv);
