@@ -7,13 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.example.yanadu.R;
+import com.example.yanadu.data.model.UserData;
 import com.example.yanadu.ui.extra.game.GameActivity;
+import com.example.yanadu.ui.login.SignupActivity;
+import com.example.yanadu.utils.ConnectMrror;
 import com.mukesh.OnOtpCompletionListener;
 import com.mukesh.OtpView;
 
 public class MirrorConnection extends AppCompatActivity implements View.OnClickListener, OnOtpCompletionListener {
     private Button validateButton;
     private OtpView otpView;
+    UserData u;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +27,9 @@ public class MirrorConnection extends AppCompatActivity implements View.OnClickL
     }
 
     @Override public void onClick(View v) {
-        if (v.getId() == R.id.validate_button) {
-            Toast.makeText(this, otpView.getText(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(),RealMainActivity.class);
-            startActivity(intent);
-        }
+
+        finish();
+        Toast.makeText(getApplicationContext(),"거울 연결 요청을 보냈습니다.", Toast.LENGTH_SHORT).show();
     }
 
     private void initializeUi() {
@@ -42,6 +44,9 @@ public class MirrorConnection extends AppCompatActivity implements View.OnClickL
 
     @Override public void onOtpCompleted(String otp) {
         // do Stuff
+        ConnectMrror sc=new ConnectMrror(MirrorConnection.this,otp,u);
+        sc.start();
         Toast.makeText(this, "OnOtpCompletionListener called", Toast.LENGTH_SHORT).show();
+
     }
 }

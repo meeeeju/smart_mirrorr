@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginBottom="40dp"
+
             style="@style/Widget.AppCompat.Button.Borderless"
             android:text="save"
             android:textSize="20dp"/>
@@ -137,7 +138,8 @@
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
 
-            tools:ignore="MissingConstraints"/>
+            tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/txtlay_gender"
         android:layout_width="match_parent"

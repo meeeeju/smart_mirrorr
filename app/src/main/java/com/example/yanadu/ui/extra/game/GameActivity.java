@@ -79,30 +79,6 @@ public class GameActivity extends AppCompatActivity {
         inputToDo.setText("");
     }
 
-    private void MakeLieData(){
-
-        Log.d("dkdkd","나 실행됨");
-
-        ArrayList<String> dummyLieData = new ArrayList<String>(){{
-            add("거짓말 1");
-            add("거짓말 2");
-            add("거짓말 2");
-
-
-        };}; // ArrayList 선언
-
-        for (int i=0;i<dummyLieData.size();i++)
-        {
-            //테이블에 값을 추가하는 sql구문 insert...
-            String sqlSave = "insert into " + NoteDatabase.TABLE_NOTE + " (TODO) values (" +
-                    "'" + dummyLieData.get(i) + "')";
-            //sql문 실행
-            NoteDatabase database = NoteDatabase.getInstance(context);
-            database.execSQL(sqlSave);
-        }
-
-    }
-
 
     public void openDatabase() {
         // open database
@@ -119,7 +95,7 @@ public class GameActivity extends AppCompatActivity {
             Log.d(TAG, "Note database is not open.");
         }
 
-        MakeLieData();
+
     }
     @Override
     protected void onDestroy() {

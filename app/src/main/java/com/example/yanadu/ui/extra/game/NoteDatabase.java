@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class NoteDatabase {
     private static final String TAG = "NoteDatabase";
 
@@ -96,6 +98,24 @@ public class NoteDatabase {
                 db.execSQL(CREATE_INDEX_SQL);
             } catch (Exception ex){
                 Log.e(TAG, "Exception in CREATE_INDEX_SQL",ex);
+            }
+
+            ArrayList<String> dummyLieData = new ArrayList<String>(){{
+                add("거짓말 11");
+                add("거짓말 22");
+                add("거짓말 33");
+
+
+            };}; // ArrayList 선언
+
+            for (int i=0;i<dummyLieData.size();i++)
+            {
+                //테이블에 값을 추가하는 sql구문 insert...
+                String sqlSave = "insert into " + NoteDatabase.TABLE_NOTE + " (TODO) values (" +
+                        "'" + dummyLieData.get(i) + "')";
+                //sql문 실행
+                NoteDatabase database = NoteDatabase.getInstance(context);
+                database.execSQL(sqlSave);
             }
         }
 
