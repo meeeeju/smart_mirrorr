@@ -9,8 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="12"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
@@ -32,13 +31,9 @@
             app:backgroundTint="?android:attr/colorActivatedHighlight" />
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-    >
-
-    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewGame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 </LinearLayout>

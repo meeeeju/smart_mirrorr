@@ -2,11 +2,15 @@ package com.example.yanadu.ui.extra.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,9 +22,11 @@ import java.util.ArrayList;
 public class GameActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
+    RecyclerView recyclerView;
+    NoteAdapter adapter;
+
     Fragment mainFragment;
     EditText inputToDo;
-    Context context;
 
     public static com.example.yanadu.ui.extra.game.NoteDatabase noteDatabase = null;
 
@@ -31,22 +37,70 @@ public class GameActivity extends AppCompatActivity {
 
         mainFragment = new GameFragment();
 
-        //getSupportFragmentManager 을 이용하여 이전에 만들었던 **FrameLayout**에 `fragment_main.xml`이 추가
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, mainFragment).commit();
+        initUI();
 
         Button saveButton = findViewById(R.id.saveBtnG);
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
                 saveToDo();
-
-
-
+                loadNoteListData();
             }
         });
         openDatabase();
+        loadNoteListData();
     }
+
+    private void initUI(){
+
+        //recyclerView연결
+        recyclerView = findViewById(R.id.recyclerViewGame);
+
+        //LinearLayoutManager을 이용하여 recyclerView설정
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        //어댑터 연결결
+        adapter = new NoteAdapter();
+        recyclerView.setAdapter(adapter);
+
+    }
+
+    public int loadNoteListData(){
+
+        //데이터를 가져오는 sql문 select... (id의 역순으로 정렬)
+        String loadSql = "select _id, TODO from " + NoteDatabase.TABLE_NOTE + " order by _id desc";
+
+        int recordCount = -1;
+        NoteDatabase database = NoteDatabase.getInstance(this);
+
+        if(database != null){
+            //cursor를 객체화하여 rawQuery문 저장
+            Cursor outCursor = database.rawQuery(loadSql);
+
+            recordCount = outCursor.getCount();
+
+            //_id, TODO가 담겨질 배열 생성
+            ArrayList<LieNote> items = new ArrayList<>();
+
+            //for문을 통해 하나하나 추가
+            for(int i = 0; i < recordCount; i++){
+                outCursor.moveToNext();
+
+                int _id = outCursor.getInt(0);
+                String todo = outCursor.getString(1);
+                items.add(new LieNote(_id,todo));
+            }
+            outCursor.close();
+
+            //어댑터에 연결 및 데이터셋 변경
+            adapter.setItems(items);
+            adapter.notifyDataSetChanged();
+        }
+
+        return recordCount;
+    }
+
     private void saveToDo(){
         inputToDo = findViewById(R.id.inputToDo);
 
@@ -59,7 +113,7 @@ public class GameActivity extends AppCompatActivity {
                     "'" + todo + "')";
 
             //sql문 실행
-            com.example.yanadu.ui.extra.game.NoteDatabase database = com.example.yanadu.ui.extra.game.NoteDatabase.getInstance(context);
+            com.example.yanadu.ui.extra.game.NoteDatabase database = com.example.yanadu.ui.extra.game.NoteDatabase.getInstance(this);
             database.execSQL(sqlSave);
             Toast.makeText(getApplicationContext(),"추가되었습니다.",Toast.LENGTH_SHORT).show();
         }
@@ -97,7 +151,7 @@ public class GameActivity extends AppCompatActivity {
             String sqlSave = "insert into " + NoteDatabase.TABLE_NOTE + " (TODO) values (" +
                     "'" + dummyLieData.get(i) + "')";
             //sql문 실행
-            NoteDatabase database = NoteDatabase.getInstance(context);
+            NoteDatabase database = NoteDatabase.getInstance(this);
             database.execSQL(sqlSave);
         }
 

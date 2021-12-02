@@ -25,6 +25,7 @@ import com.example.yanadu.ui.graph_detail.weekfragment.BloodMonthFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -62,6 +63,10 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
     UserData u1;
     Bundle bundle;
 
+    Button dayprev, daynext;
+
+    Calendar now;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -75,10 +80,17 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         is_week = 1;
         cur_frag = 1;
 
+        now = Calendar.getInstance();
+
         pulseMonthFrag = new PulseMonthFragment(getActivity().getApplicationContext());
         o2MonthFrag = new O2MonthFragment(getActivity().getApplicationContext());
         bloodMonthFrag = new BloodMonthFragment(getActivity().getApplicationContext());
 
+        dayprev = (Button)v.findViewById(R.id.graphprev);
+        daynext = (Button)v.findViewById(R.id.graphnext);
+
+        dayprev.setText("<");
+        daynext.setText(">");
         Log.d("useranddate",u1.getId()+":"+getCurrentDate());
         resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());  //
        // resultService.requestHealthdata(u1.getId());
@@ -93,13 +105,43 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         btn_month.setBackgroundResource(R.color.white);
         btn_week.setBackgroundResource(R.drawable.rectangle_background_pink);
 
+        dayprev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Fragment()).commit();
+                if(is_week == 1){
+                    now.add(Calendar.DAY_OF_MONTH, -7);
+                    resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());
+                }
+                else{
+                    now.add(Calendar.MONTH, -1);
+                    resultService.requestHealthMonthlydata(u1.getId(),getCurrentDate());
+                }
+            }
+        });
+
+        daynext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Fragment()).commit();
+                if(is_week == 1){
+                    now.add(Calendar.DAY_OF_MONTH, 7);
+                    resultService.requestHealthWeeklydata(u1.getId(),getCurrentDate());
+                }
+                else{
+                    now.add(Calendar.MONTH, 1);
+                    resultService.requestHealthMonthlydata(u1.getId(),getCurrentDate());
+                }
+            }
+        });
+
         //버튼 클릭시 weekly/monthly 전환
         btn_week.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (is_week == 0)
                 {
+                    now = Calendar.getInstance();
                     btn_month.setBackgroundResource(R.color.white);
                     btn_week.setBackgroundResource(R.drawable.rectangle_background_pink);
                     is_week = 1;
@@ -112,6 +154,7 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
             public void onClick(View v) {
                 if (is_week == 1)
                 {
+                    now = Calendar.getInstance();
                     btn_week.setBackgroundResource(R.color.white);
                     btn_month.setBackgroundResource(R.drawable.rectangle_background_pink);
                     is_week = 0;
@@ -180,7 +223,7 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
         weekDate.clear();
         //날짜 등록해주기
         ResultData first=(ResultData) objectDataList.get(0);
-        ResultData second=(ResultData) objectDataList.get(6);
+        ResultData second=(ResultData) objectDataList.get(objectDataList.size() - 1);
         weekDate.add(first.getDate());
         weekDate.add(second.getDate());
 
@@ -216,10 +259,9 @@ public class WeekGraphActivity extends Fragment implements OnGetData {
     }
 
     private String getCurrentDate() {
-        //System.out.println(now); 현재 시간 출력
-        Date now = new Date();
+        Date date = now.getTime();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-        String formatedNow = formatter.format(now); // 포맷팅 적용
+        String formatedNow = formatter.format(date); // 포맷팅 적용
         return formatedNow;
     }
 

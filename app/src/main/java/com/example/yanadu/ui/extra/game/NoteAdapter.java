@@ -69,6 +69,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                     //CheckBox의 String 가져오기
                     String TODO = (String) editText.getText().toString();
                     deleteToDo(TODO);
+
                     Toast.makeText(v.getContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
                 }
 
