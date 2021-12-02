@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class RandomDatabase {
-    private static final String TAG = "NoteDatabase";
+    private static final String TAG = "RandomDatabase";
 
     private static RandomDatabase database;
     public static String DATABASE_NAME = "random.db";
@@ -97,7 +99,13 @@ public class RandomDatabase {
             } catch (Exception ex){
                 Log.e(TAG, "Exception in CREATE_INDEX_SQL",ex);
             }
+
+//
         }
+
+
+
+
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

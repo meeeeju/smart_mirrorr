@@ -130,15 +130,14 @@
         android:textStyle="bold" />
 
     <DatePicker
-        android:id="@+id/my_birthSpinner"
-        android:layout_width="258dp"
-        android:layout_height="90dp"
-        android:calendarTextColor="@color/schedule_color"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"
+            android:id="@+id/my_birthSpinner"
+            android:layout_width="258dp"
+            android:layout_height="90dp"
+            android:calendarTextColor="@color/schedule_color"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
 
-        tools:ignore="MissingConstraints" />
-
+            tools:ignore="MissingConstraints"/>
     <TextView
         android:id="@+id/txtlay_gender"
         android:layout_width="match_parent"

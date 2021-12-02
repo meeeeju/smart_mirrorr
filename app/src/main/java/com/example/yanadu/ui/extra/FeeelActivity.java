@@ -27,8 +27,8 @@ public class FeeelActivity extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.activity_feeel, container, false);
 
-        card1=(CardView) v.findViewById(R.id.card1);
-        card2=(CardView) v.findViewById(R.id.card2);
+        card1=(CardView) v.findViewById(R.id.card1);  //거짓말 탐지기
+        card2=(CardView) v.findViewById(R.id.card2);  //습관 생성
 
         card1.setOnClickListener(this);
         card2.setOnClickListener(this);

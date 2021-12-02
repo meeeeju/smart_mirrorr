@@ -164,7 +164,7 @@
                     android:layout_margin="3dp"
                     android:src="@drawable/smile3"
                     android:padding="10dp"
-                    android:layout_height="match_parent" android:id="@+id/button3" android:layout_weight="1"/>
+                    android:layout_height="match_parent" android:id="@+id/mainshuffle" android:layout_weight="1"/>
 
         </LinearLayout>
 
@@ -185,31 +185,20 @@
             android:layout_marginLeft="12dp"
             android:orientation="horizontal">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/mainDataGraph"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="1">
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.471" />
 
-            <androidx.cardview.widget.CardView
-                    android:id="@+id/maincard2"
-                    app:cardBackgroundColor="@color/white"
-                    android:elevation="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="15dp" tools:layout_editor_absoluteY="20dp" tools:layout_editor_absoluteX="253dp">
-
-
-                <ImageView
-                        android:src="@drawable/pulsemain"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp" android:id="@+id/imagePulse"/>
-            </androidx.cardview.widget.CardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
         <Button
                 android:id="@+id/mirrorconnect"
                 android:layout_width="match_parent"

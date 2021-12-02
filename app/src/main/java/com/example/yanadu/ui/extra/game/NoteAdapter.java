@@ -58,7 +58,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             layoutTodo = itemView.findViewById(R.id.layoutRandom);
             //checkBox = itemView.findViewById(R.id.checkBox);
             editText=itemView.findViewById(R.id.inputG);
-            deleteButton = itemView.findViewById(R.id.deleteBtnR);
+            deleteButton = itemView.findViewById(R.id.deleteBtnQ);
 
             //버튼 클릭 시 SQLite에서 데이터 삭제
             deleteButton.setOnClickListener(new View.OnClickListener() {

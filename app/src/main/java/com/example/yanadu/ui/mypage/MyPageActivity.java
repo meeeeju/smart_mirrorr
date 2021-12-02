@@ -57,6 +57,8 @@ public class MyPageActivity extends Fragment implements OnGetData {
         Button user_female=(Button) v.findViewById(R.id.my_btnfemale);
         Button user_male=(Button) v.findViewById(R.id.my_btnmale);
 
+        //u1.getBirth() String이라서
+
 
 
         user_name.setText(u1.getNickname());
@@ -64,6 +66,7 @@ public class MyPageActivity extends Fragment implements OnGetData {
         user_email.setText(u1.getEmail());
         user_id.setText(u1.getId());
         String gender=u1.getSex();
+
 
 
         String birth;
