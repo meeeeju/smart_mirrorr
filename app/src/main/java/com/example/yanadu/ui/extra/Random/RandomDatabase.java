@@ -101,6 +101,21 @@ public class RandomDatabase {
             }
 
 //
+            ArrayList<String> dummyRandomData = new ArrayList<String>(){{
+                add("산책가기");
+                add("물 많이 마시기");
+                add("택시 타지 말기");
+                add("웃기 ");
+
+            };}; // ArrayList 선언
+
+            for (int i=0;i<dummyRandomData.size();i++)
+            {
+                //테이블에 값을 추가하는 sql구문 insert...
+                String sqlSave = "insert into " + RandomDatabase.TABLE_NOTE + " (TODO) values (" +
+                        "'" + dummyRandomData.get(i) + "')";
+                db.execSQL(sqlSave);
+            }
         }
 
 
@@ -128,6 +143,4 @@ public class RandomDatabase {
         db.close();
         database = null;
     }
-
-
 }

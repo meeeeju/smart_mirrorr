@@ -83,9 +83,9 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
         shufflebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int randomnum=(int) (Math.random()*10);
                 DigitTextView digitTextView = (DigitTextView) v.findViewById(R.id.digitTextView);
-                digitTextView.setValue(randomnum);
+                int randomnum= ((int)(Math.random() * 100)) % (digitTextView.getItemCount() - 2) + 1;
+                digitTextView.setValue(randomnum, 0);
 
             }
         });
