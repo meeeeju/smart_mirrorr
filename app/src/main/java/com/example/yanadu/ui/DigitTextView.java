@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.yanadu.R;
+import com.example.yanadu.ui.extra.Random.RandomDatabase;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -18,14 +20,25 @@ import java.util.Random;
 
 public class DigitTextView extends FrameLayout {
 
-    private static int ANIMATION_DURATION = 250;
+    private static int ANIMATION_DURATION = 100;
     TextView currentTextView, nextTextView;
     ArrayList<StringData> string=new ArrayList<>();
     public int cur = 0;
+    private int count = 0;
     public DigitTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
+        RandomDatabase db = RandomDatabase.getInstance(context);
+        db.open();
+        Cursor c = db.rawQuery("SELECT * FROM " + RandomDatabase.TABLE_NOTE);
+        while(c.moveToNext()) {
+            string.add(new StringData(count++, c.getString(1)));
+        }
+        db.close();
+    }
 
+    public int getItemCount(){
+        return count;
     }
 
     public DigitTextView(Context context) {
@@ -34,20 +47,7 @@ public class DigitTextView extends FrameLayout {
     }
 
     private void init(Context context) {
-
-
-        string.add(new StringData(0, "신천역에서 학교까지 택시 안타고 걸어가기"));
-        string.add(new StringData(1, "하루 물 3잔 마시기!"));
-        string.add(new StringData(2, "하루에 택시 한번타기"));
-        string.add(new StringData(3, "dasdf"));
-        string.add(new StringData(4, "안녕하세요 안녕하세요 안녕하세요 앙ㄴ녕하세요 안녕하세요 안녕"));
-        string.add(new StringData(5, "f"));
-        string.add(new StringData(6, "asdf"));
-        string.add(new StringData(7, "wethg"));
-        string.add(new StringData(8, "myty"));
-        string.add(new StringData(9, "cx"));
-
-
+        string.add(new StringData(0, "돌려주세요!"));
 
         LayoutInflater.from(context).inflate(R.layout.digit_text_view, this);
         currentTextView = (TextView) getRootView().findViewById(R.id.currentTextView);
@@ -55,60 +55,38 @@ public class DigitTextView extends FrameLayout {
 
         nextTextView.setTranslationY(getHeight());
 
-        setValue(0);
+        setValue(0, 100);
     }
 
-    public void setValue(final int desiredValue) {
+    public void setValue(final int desiredValue, int roll) {
         if (currentTextView.getText() == null || currentTextView.getText().length() == 0) {
             currentTextView.setText(string.get(desiredValue).val);
         }
-
+        if(roll > 3 && desiredValue == cur) return;
         final int oldValue = cur;
+        final int prev = oldValue + 1 != string.size() ? oldValue + 1 : 0;
+        final int newroll = prev == 0 ? roll+1 : roll;
+        nextTextView.setText(string.get(prev).val);
 
-        if (oldValue > desiredValue) {
-            nextTextView.setText(string.get(oldValue-1).val);
-
-            currentTextView.animate().translationY(-getHeight()).setDuration(ANIMATION_DURATION).start();
-            nextTextView.setTranslationY(nextTextView.getHeight());
-            nextTextView.animate().translationY(0).setDuration(ANIMATION_DURATION).setListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animation) {}
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    currentTextView.setText(string.get(oldValue-1).val);
-                    currentTextView.setTranslationY(0);
-                    if (oldValue - 1 != desiredValue) {
-                        cur--;
-                        setValue(desiredValue);
-                    }
+        currentTextView.animate().translationY(getHeight()).setDuration(ANIMATION_DURATION).start();
+        nextTextView.setTranslationY(-nextTextView.getHeight());
+        nextTextView.animate().translationY(0).setDuration(ANIMATION_DURATION).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {}
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                currentTextView.setText(string.get(prev).val);
+                currentTextView.setTranslationY(0);
+                cur--;
+                if(cur == -1) {
+                    cur = string.size() - 1;
                 }
-                @Override
-                public void onAnimationCancel(Animator animation) {}
-                @Override
-                public void onAnimationRepeat(Animator animation) {}
-            }).start();
-        } else if (oldValue < desiredValue) {
-            nextTextView.setText(string.get(oldValue+1).val);
-
-            currentTextView.animate().translationY(getHeight()).setDuration(ANIMATION_DURATION).start();
-            nextTextView.setTranslationY(-nextTextView.getHeight());
-            nextTextView.animate().translationY(0).setDuration(ANIMATION_DURATION).setListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animation) {}
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    currentTextView.setText(string.get(oldValue+1).val);
-                    currentTextView.setTranslationY(0);
-                    if (oldValue + 1 != desiredValue) {
-                        cur++;
-                        setValue(desiredValue);
-                    }
-                }
-                @Override
-                public void onAnimationCancel(Animator animation) {}
-                @Override
-                public void onAnimationRepeat(Animator animation) {}
-            }).start();
-        }
+                setValue(desiredValue, newroll);
+            }
+            @Override
+            public void onAnimationCancel(Animator animation) {}
+            @Override
+            public void onAnimationRepeat(Animator animation) {}
+        }).start();
     }
 }

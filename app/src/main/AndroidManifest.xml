@@ -19,11 +19,10 @@
         <activity android:name=".ui.extra.game.GameActivity">
 
         </activity>
-        <activity android:name=".ui.graph_detail.weekfragment.SampleMutipleLines">
-        </activity>
-        <activity android:name=".ui.graph_detail.weekfragment.SampleLine">
 
-        </activity>
+
+
+
         <activity
                 android:name=".ui.MirrorConnection"
                 android:exported="true"/>

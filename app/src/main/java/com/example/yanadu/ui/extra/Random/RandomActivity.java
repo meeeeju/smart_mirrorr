@@ -48,30 +48,6 @@ public class RandomActivity extends AppCompatActivity {
         openDatabase();
     }
 
-    private void MakeRandomData(){  //database dummby data
-
-        ArrayList<String> dummyRandomData = new ArrayList<String>(){{
-            add("산책가기");
-            add("물 많이 마시기");
-            add("택시 타지 말기");
-            add("웃기 ");
-
-        };}; // ArrayList 선언
-
-        for (int i=0;i<dummyRandomData.size();i++)
-        {
-            //테이블에 값을 추가하는 sql구문 insert...
-            String sqlSave = "insert into " + RandomDatabase.TABLE_NOTE + " (TODO) values (" +
-                    "'" + dummyRandomData.get(i) + "')";
-            //sql문 실행
-            RandomDatabase database = RandomDatabase.getInstance(context);
-            database.execSQL(sqlSave);
-        }
-
-    }
-
-
-
     private void saveToDo(){
         intputRandom = findViewById(R.id.inputR);
 
@@ -105,7 +81,6 @@ public class RandomActivity extends AppCompatActivity {
         } else {
             Log.d(TAG, "Random database is not open.");
         }
-        MakeRandomData();
 
     }
 

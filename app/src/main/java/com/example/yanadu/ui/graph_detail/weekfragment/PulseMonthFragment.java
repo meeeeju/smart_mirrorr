@@ -1,8 +1,18 @@
 package com.example.yanadu.ui.graph_detail.weekfragment;
 
+import android.content.Context;
 import android.graphics.Color;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.yanadu.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
@@ -15,38 +25,28 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class SampleLine extends AppCompatActivity {
+public class PulseMonthFragment extends Fragment {
 
     LineChart lineChart;
 
     ArrayList<Double> valueList;  //값 넣어지는 곳
-
-
     private ArrayList<String> monthLabel = new ArrayList<String>();
+    View rootView;
+    private Context c;
 
+    public PulseMonthFragment(Context c) {
+        this.c = c;
+    }
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample_line);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        rootView = (ViewGroup) inflater.inflate(R.layout.activity_sample_line, container, false);
 
-
-        lineChart = (LineChart) findViewById(R.id.linechart_op);
-
-        //sampledata 30개
-        ArrayList<Double> value30List=new ArrayList<Double>(){
-            {
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(7.0);add(4.0);add(5.0);
-                add(6.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(12.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(18.0);add(24.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-
-            }
-        };
+        lineChart = (LineChart) rootView.findViewById(R.id.linechart_op);
 
         //sampledata 31개
         ArrayList<Double> value31List=new ArrayList<Double>(){
@@ -62,21 +62,9 @@ public class SampleLine extends AppCompatActivity {
             }
         };
 
-        //sampledata28개
-        ArrayList<Double> value28List=new ArrayList<Double>(){
-            {
-                add(1.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(7.0);add(4.0);add(5.0);
-                add(6.0);add(2.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(12.0);add(3.0);add(4.0);add(5.0);
-                add(1.0);add(18.0);add(24.0);add(4.0);add(5.0);
-                add(1.0);add(2.0);add(3.0);
-            }
-        };
-        setValueList(value31List);
+        //setValueList(value31List);
         showLineChart();
-
-
+        return rootView;
     }
 
     public void setValueList(ArrayList<Double> dataList)
@@ -84,17 +72,15 @@ public class SampleLine extends AppCompatActivity {
         valueList=dataList;
     }
 
-
-
     public void showLineChart() {
 
-        String labeltitle = "o2";
+        String labeltitle = "pulse";
         ArrayList<Entry> values = new ArrayList<>();
 
         //fit the data into entry
         for (int i = 0; i < valueList.size(); i++) {
             // Log.d("max",valueMaxList.toString());
-           values.add(new Entry(i,(valueList.get(i)).floatValue()));
+            values.add(new Entry(i,(valueList.get(i)).floatValue()));
         }
 
         //make line with value and labeltitle
@@ -136,7 +122,7 @@ public class SampleLine extends AppCompatActivity {
 //        });
 
 
-        MyMarkerViews mv = new MyMarkerViews(this, R.layout.custom_marker_view);
+        MyMarkerViews mv = new MyMarkerViews(c, R.layout.custom_marker_view);
 
         // Set the marker to the chart
         mv.setChartView(lineChart);
@@ -155,10 +141,10 @@ public class SampleLine extends AppCompatActivity {
 
         set1.setLineWidth(2);
         set1.setCircleRadius(6);
-        set1.setCircleColor(Color.parseColor("#FFA1B4DC"));
-        set1.setCircleColorHole(Color.BLUE);
-        set1.setColor(Color.parseColor("#FFA1B4DC"));
-        set1.setColor(Color.BLUE); // 차트의 선 색 설정
+        set1.setCircleColor(Color.parseColor("#F7BFA8"));
+        set1.setCircleColorHole(Color.RED);
+        set1.setColor(Color.parseColor("#F7BFA8"));
+        set1.setColor(Color.RED); // 차트의 선 색 설정
 
 
         //Setting the size of the form in the legend

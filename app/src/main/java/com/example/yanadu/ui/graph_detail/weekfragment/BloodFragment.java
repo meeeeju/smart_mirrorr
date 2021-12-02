@@ -41,6 +41,7 @@ public class BloodFragment extends Fragment {
     private ArrayList<Double> valueMinList;
     private ArrayList<Double> valueMaxList;
     public int isWeek = 1;
+    View rootView;
 
     private ArrayList<String> weekdays = new ArrayList<String>(){{
         add("MON");
@@ -62,12 +63,7 @@ public class BloodFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_blood, container, false);
-
-
-
-        barChart = (BarChart) rootView.findViewById(R.id.fragment_blood);
-        xAxis = barChart.getXAxis();
+        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_blood, container, false);
 
         //default=weekly
         showBarChart();
@@ -81,12 +77,13 @@ public class BloodFragment extends Fragment {
     public void setList(ArrayList<Double> l1,ArrayList<Double>  l2){
         valueMinList=l1;
         valueMaxList=l2;
-
-
     }
 
 
     public void showBarChart(){
+        barChart = (BarChart) rootView.findViewById(R.id.fragment_blood);
+        xAxis = barChart.getXAxis();
+
         ArrayList<BarEntry> entries = new ArrayList<>();
         ArrayList<BarEntry> entries1 = new ArrayList<>();
         String title = "MaxBlood";
