@@ -22,13 +22,14 @@ public class MirrorConnection extends AppCompatActivity implements View.OnClickL
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mirror_connection);
+        u = (UserData) getIntent().getSerializableExtra("User");
         initializeUi();
         setListeners();
     }
 
     @Override public void onClick(View v) {
 
-        finish();
+
         Toast.makeText(getApplicationContext(),"거울 연결 요청을 보냈습니다.", Toast.LENGTH_SHORT).show();
     }
 
@@ -46,6 +47,7 @@ public class MirrorConnection extends AppCompatActivity implements View.OnClickL
         // do Stuff
         ConnectMrror sc=new ConnectMrror(MirrorConnection.this,otp,u);
         sc.start();
+        finish();
         Toast.makeText(this, "OnOtpCompletionListener called", Toast.LENGTH_SHORT).show();
 
     }

@@ -2,6 +2,7 @@ package com.example.yanadu.utils;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 
 import com.example.yanadu.data.model.UserData;
 
@@ -29,7 +30,8 @@ public class ConnectMrror extends Thread {
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
             byte[] byteArr= null;
-            String s = "mobile\n" + code + "\n " + u.getId() + "\n" + u.getNickname() + "\n";
+            String s = "mobile\n" + code + "\n" + u.getId() + "\n" + u.getNickname() + "\n";
+            Log.d("asdf", s);
             byteArr = s.getBytes("UTF-8");
 
             os.write(byteArr);
@@ -42,9 +44,6 @@ public class ConnectMrror extends Thread {
                 throw new IOException();
 
             s = new String(byteArr, 0, readByteCount, "UTF-8");
-
-
-
 
         } catch (IOException e) {
             e.printStackTrace();

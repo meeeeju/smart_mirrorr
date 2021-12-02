@@ -95,6 +95,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),MirrorConnection.class);
+                intent.putExtra("User", u1);
                 startActivity(intent);
 
             }
