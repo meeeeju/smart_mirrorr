@@ -174,10 +174,15 @@ public class PulseMonthFragment extends Fragment {
         YAxis leftAxis = lineChart.getAxisLeft();
         //hiding the left y-axis line, default true if not set
         leftAxis.setDrawAxisLine(false);
+        leftAxis.setAxisMinValue(60.f);
+        leftAxis.setAxisMaxValue(120.f);
 
         YAxis rightAxis = lineChart.getAxisRight();
         //hiding the right y-axis line, default true if not set
         rightAxis.setDrawAxisLine(false);
+        rightAxis.setAxisMinValue(60.f);
+        rightAxis.setAxisMaxValue(120.f);
+
 
 
     }

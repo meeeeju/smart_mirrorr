@@ -3,7 +3,7 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="yellow">#F8C77F</color>
+    <color name="yellow2">#F8C77F</color>
     <color name="main_grey">#EAEAEF</color>
     <color name="main_grey_700">#D3DADF</color>
     <color name="main_white">#EAEAEF</color>
@@ -17,6 +17,7 @@
     <color name="min">#1FBCD3</color>
     <color name="o2">#6B8E23</color>
     <color name="pulse"> #FF0036</color>
+    <color name="yellow">#FFC107</color>
 
 </resources>
 

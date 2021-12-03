@@ -24,6 +24,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.google.android.material.transition.MaterialSharedAxis;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -174,10 +175,13 @@ public class O2MonthFragment extends Fragment {
         YAxis leftAxis = lineChart.getAxisLeft();
         //hiding the left y-axis line, default true if not set
         leftAxis.setDrawAxisLine(false);
+        leftAxis.setAxisMinValue(70.f);
+
 
         YAxis rightAxis = lineChart.getAxisRight();
         //hiding the right y-axis line, default true if not set
         rightAxis.setDrawAxisLine(false);
+        rightAxis.setAxisMinValue(70.f);
 
 
     }

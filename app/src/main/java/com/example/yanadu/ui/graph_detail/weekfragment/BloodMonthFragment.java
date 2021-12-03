@@ -188,6 +188,8 @@ public class BloodMonthFragment extends Fragment {
         //hiding the left y-axis line, default true if not set
         leftAxis.setDrawAxisLine(false);
 
+
+
         YAxis rightAxis = lineChart.getAxisRight();
         //hiding the right y-axis line, default true if not set
         rightAxis.setDrawAxisLine(false);

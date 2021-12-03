@@ -115,7 +115,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
         switch (view.getId())
         {
             case R.id.maincard1:
-                i=new Intent(getActivity(), WeekGraphActivity.class);
+                i=new Intent(getContext().getApplicationContext(), WeekGraphActivity.class);
                 startActivity(i);
                 break;
 
