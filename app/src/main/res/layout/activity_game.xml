@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:text="save"
-            app:backgroundTint="?android:attr/colorActivatedHighlight" />
+            android:backgroundTint="@color/real_maincolor" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
