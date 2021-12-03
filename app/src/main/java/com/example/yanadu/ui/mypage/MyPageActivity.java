@@ -86,7 +86,7 @@ public class MyPageActivity extends Fragment implements OnGetData {
             user_male.setBackgroundResource(R.color.real_maincolor);
         }
 
-        
+
         return v;
     }
 
