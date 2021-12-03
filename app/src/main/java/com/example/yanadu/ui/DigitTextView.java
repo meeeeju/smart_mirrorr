@@ -47,7 +47,7 @@ public class DigitTextView extends FrameLayout {
     }
 
     private void init(Context context) {
-        string.add(new StringData(0, "돌려주세요!"));
+        string.add(new StringData(0, "룰렛을 돌려주세요!"));
 
         LayoutInflater.from(context).inflate(R.layout.digit_text_view, this);
         currentTextView = (TextView) getRootView().findViewById(R.id.currentTextView);

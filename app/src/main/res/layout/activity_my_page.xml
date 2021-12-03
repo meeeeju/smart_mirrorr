@@ -135,6 +135,7 @@
             android:layout_height="90dp"
             android:calendarTextColor="@color/schedule_color"
             android:calendarViewShown="false"
+            android:layout_gravity="center"
             android:datePickerMode="spinner"
 
             tools:ignore="MissingConstraints" />

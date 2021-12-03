@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
 
@@ -19,6 +20,8 @@ import com.example.yanadu.data.repository.UserRepository;
 import com.example.yanadu.data.request.OnGetData;
 import com.github.mikephil.charting.charts.BarChart;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MyPageActivity extends Fragment implements OnGetData {
@@ -56,7 +59,10 @@ public class MyPageActivity extends Fragment implements OnGetData {
         EditText user_email=(EditText) v.findViewById(R.id.my_Email);
         Button user_female=(Button) v.findViewById(R.id.my_btnfemale);
         Button user_male=(Button) v.findViewById(R.id.my_btnmale);
+        String day = u1.getBirth();
 
+        DatePicker dp = v.findViewById(R.id.my_birthSpinner);
+        dp.updateDate(Integer.valueOf(day.substring(0, 4)), Integer.valueOf(day.substring(5, 7)) - 1, Integer.valueOf(day.substring(8, 10)) + 1);
         //u1.getBirth() String이라서
 
 
