@@ -125,7 +125,9 @@
         android:id="@+id/txtlay_birth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="3dp" android:layout_marginTop="10dp"
+
+        android:paddingTop="3dp"
+            android:layout_marginTop="40dp"
         android:text="Birth"
         android:textColor="@color/schedule_color"
         android:textStyle="bold" />
@@ -145,7 +147,7 @@
         android:id="@+id/txtlay_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:text="Gender"
         android:textColor="@color/schedule_color"
         android:textStyle="bold" />

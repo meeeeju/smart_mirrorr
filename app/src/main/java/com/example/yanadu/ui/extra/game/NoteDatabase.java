@@ -69,6 +69,7 @@ public class NoteDatabase {
         public void onCreate(SQLiteDatabase db) {
 
 
+            //open();
             //테이블초기화
             String DROP_SQL = "drop table if exists " +TABLE_NOTE;
 

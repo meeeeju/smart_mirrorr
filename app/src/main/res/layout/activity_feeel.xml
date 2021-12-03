@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+        android:gravity="center_vertical"
     tools:context=".ui.extra.FeeelActivity">
 
 
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp"
+
         android:layout_marginRight="30dp"
         android:clickable="true"
         android:focusable="true"
@@ -47,41 +48,41 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginRight="30dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="#00BCD4"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="30dp">
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginRight="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="#00BCD4"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="30dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                app:srcCompat="@drawable/gachapon" />
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    app:srcCompat="@drawable/gachapon" />
         </LinearLayout>
 
         <TextView
-            android:layout_width="248dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:fontFamily="@font/fonthear"
-            android:text=" 랜덤 미션 !"
-            android:textColor="#000"
-            android:textSize="35sp" />
+                android:layout_width="248dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/fonthear"
+                android:text=" 랜덤 미션 !"
+                android:textColor="#000"
+                android:textSize="35sp" />
 
     </androidx.cardview.widget.CardView>
 

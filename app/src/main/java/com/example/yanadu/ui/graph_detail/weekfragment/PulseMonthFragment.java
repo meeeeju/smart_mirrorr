@@ -142,9 +142,9 @@ public class PulseMonthFragment extends Fragment {
         set1.setLineWidth(2);
         set1.setCircleRadius(6);
         set1.setCircleColor(Color.parseColor("#FF0036"));
-        set1.setCircleColorHole(Color.RED);
+        set1.setCircleColorHole(Color.YELLOW);
         set1.setColor(Color.parseColor("#FF0036"));
-        set1.setColor(Color.RED); // 차트의 선 색 설정
+        set1.setColor(Color.parseColor("#FF0036")); // 차트의 선 색 설정
 
 
         //Setting the size of the form in the legend

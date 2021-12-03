@@ -6,6 +6,7 @@ import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -148,12 +149,11 @@ public class BloodMonthFragment extends Fragment {
         setMax.setCircleRadius(6);
         setMin.setCircleColor(Color.parseColor("#F7BFA8"));
         setMax.setCircleColor(Color.parseColor("#1FBCD3"));
-        setMin.setCircleColorHole(Color.BLUE);
-        setMax.setCircleColorHole(Color.BLUE);
-        setMin.setColor(Color.parseColor("#F7BFA8"));
-        setMax.setColor(Color.parseColor("#1FBCD3"));
-        setMin.setColor(Color.parseColor("#F8C77F")); // 차트의 선 색 설정
-        setMax.setColor(Color.BLUE); // 차트의 선 색 설정
+        setMin.setCircleColorHole(Color.YELLOW);
+        setMax.setCircleColorHole(Color.YELLOW);
+
+        setMin.setColor(ContextCompat.getColor(getContext().getApplicationContext(), R.color.min));
+        setMin.setColor(ContextCompat.getColor(getContext().getApplicationContext(), R.color.max));
 
 
         //Setting the size of the form in the legend

@@ -142,9 +142,9 @@ public class O2MonthFragment extends Fragment {
         set1.setLineWidth(2);
         set1.setCircleRadius(6);
         set1.setCircleColor(Color.parseColor("#6B8E23"));
-        set1.setCircleColorHole(Color.BLUE);
+        set1.setCircleColorHole(Color.YELLOW);
         set1.setColor(Color.parseColor("#6B8E23"));
-        set1.setColor(Color.BLUE); // 차트의 선 색 설정
+        set1.setColor(Color.parseColor("#6B8E23")); // 차트의 선 색 설정
 
 
         //Setting the size of the form in the legend

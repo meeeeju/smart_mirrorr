@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
 //        startActivity(intent);
         else
         {
-            Toast.makeText(getApplicationContext(),"login success", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"login success", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(getApplicationContext(), NaviMainActivity.class);
             intent.putExtra("User",(UserData)objectData);
