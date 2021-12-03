@@ -105,10 +105,10 @@ public class ToDoActivity extends Fragment implements OnGetData{
     public void onGetData(ObjectData objectData) {
         NoteId _id=(NoteId) objectData;
         Log.d("check",_id.get_id()+"");
-        if (_id.get_id()<-1)
-            Toast.makeText(getContext(),"추가되었습니다.",Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(getContext(),"오류가 발생하였습니다..",Toast.LENGTH_SHORT).show();
+//        if (_id.get_id()>-1)
+//            Toast.makeText(getContext(),"추가되었습니다.",Toast.LENGTH_SHORT).show();
+//        else
+//            Toast.makeText(getContext(),"오류가 발생하였습니다..",Toast.LENGTH_SHORT).show();
 
         //get_id로 _id 가져오기
         temp.set_id(_id.get_id());

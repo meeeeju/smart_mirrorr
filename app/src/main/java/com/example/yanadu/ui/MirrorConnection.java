@@ -28,8 +28,6 @@ public class MirrorConnection extends AppCompatActivity implements View.OnClickL
     }
 
     @Override public void onClick(View v) {
-
-
         Toast.makeText(getApplicationContext(),"거울 연결 요청을 보냈습니다.", Toast.LENGTH_SHORT).show();
     }
 
@@ -48,7 +46,7 @@ public class MirrorConnection extends AppCompatActivity implements View.OnClickL
         ConnectMrror sc=new ConnectMrror(MirrorConnection.this,otp,u);
         sc.start();
         finish();
-        Toast.makeText(this, "OnOtpCompletionListener called", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "OnOtpCompletionListener called", Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -139,16 +139,19 @@ public class BloodMonthFragment extends Fragment {
         //xAxis.enableGridDashedLine(8, 10, 0);
         // xAxis.setLabelCount(12, true); //X축의 데이터를 최대 몇개 까지 나타낼지에 대한 설정 5개 force가 true 이면 반드시 보여줌
 
+
+
+
         setMin.setLineWidth(2);
         setMax.setLineWidth(2);
         setMin.setCircleRadius(6);
         setMax.setCircleRadius(6);
-        setMin.setCircleColor(Color.parseColor("#F8C77F"));
-        setMax.setCircleColor(Color.parseColor("#FFA1B4DC"));
+        setMin.setCircleColor(Color.parseColor("#F7BFA8"));
+        setMax.setCircleColor(Color.parseColor("#1FBCD3"));
         setMin.setCircleColorHole(Color.BLUE);
         setMax.setCircleColorHole(Color.BLUE);
-        setMin.setColor(Color.parseColor("#F8C77F"));
-        setMax.setColor(Color.parseColor("#FFA1B4DC"));
+        setMin.setColor(Color.parseColor("#F7BFA8"));
+        setMax.setColor(Color.parseColor("#1FBCD3"));
         setMin.setColor(Color.parseColor("#F8C77F")); // 차트의 선 색 설정
         setMax.setColor(Color.BLUE); // 차트의 선 색 설정
 

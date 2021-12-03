@@ -2,6 +2,7 @@ package com.example.yanadu.ui;
 import android.graphics.Color;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.animation.Animator;
@@ -179,6 +180,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
         }
 
         BarDataSet barDataSet = new BarDataSet(entries, title);
+        barDataSet.setColors(new int[] {ContextCompat.getColor(getContext().getApplicationContext(), R.color.max), ContextCompat.getColor(getContext().getApplicationContext(), R.color.min), ContextCompat.getColor(getContext().getApplicationContext(), R.color.o2), ContextCompat.getColor(getContext().getApplicationContext(), R.color.pulse)});
 
         BarData data = new BarData(barDataSet);
         data.setBarWidth(0.5f);
@@ -199,7 +201,7 @@ public class RealMainActivity extends Fragment implements View.OnClickListener, 
 
     private void initBarDataSet(BarDataSet barDataSet){
         //Changing the color of the bar
-        barDataSet.setColor(Color.parseColor("#6B8E23"));
+        //barDataSet.setColor(Color.parseColor("#6B8E23"));
         //Setting the size of the form in the legend
         barDataSet.setFormSize(15f);
         //showing the value of the bar, default true if not set

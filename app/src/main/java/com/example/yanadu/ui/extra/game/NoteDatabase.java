@@ -101,9 +101,10 @@ public class NoteDatabase {
             }
 
             ArrayList<String> dummyLieData = new ArrayList<String>(){{
-                add("거짓말 11");
-                add("거짓말 22");
-                add("거짓말 33");
+                add("난 너랑 같이 있는게 불편하다?!");
+                add("힘들때 돈빌려달라고 하면 빌려줄 수 있다?!");
+                add("엄마 아빠중에 누가 더 좋아?!");
+                add("친구중에 나랑 제일 친하다?!");
 
 
             };}; // ArrayList 선언

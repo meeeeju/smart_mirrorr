@@ -123,7 +123,7 @@ public class PulseFragment extends Fragment{
 
     private void initBarDataSet(BarDataSet barDataSet){
         //Changing the color of the bar
-        barDataSet.setColor(Color.parseColor("#F7BFA8"));
+        barDataSet.setColor(Color.parseColor("#FF0036"));
         //Setting the size of the form in the legend
         barDataSet.setFormSize(15f);
         //showing the value of the bar, default true if not set

@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements OnGetData {
                 else
                 {
                     u.requestSignIn(new UserData(et_id.getText().toString(),et_pwd.getText().toString()));
-                    Log.d("loginsuccess",et_id.getText().toString()+et_pwd.getText().toString());
+                    //Log.d("loginsuccess",et_id.getText().toString()+et_pwd.getText().toString());
 
                 }
 

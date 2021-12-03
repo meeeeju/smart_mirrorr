@@ -102,10 +102,10 @@ public class RandomDatabase {
 
 //
             ArrayList<String> dummyRandomData = new ArrayList<String>(){{
-                add("산책가기");
-                add("물 많이 마시기");
-                add("택시 타지 말기");
-                add("웃기 ");
+                add("하루 1시간 걷기");
+                add("하루 물 1L 마시기");
+                add("택시 탈 거리 걸어가기");
+                add("하루 3번웃기 ");
 
             };}; // ArrayList 선언
 
