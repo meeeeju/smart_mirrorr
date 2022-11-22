@@ -7,7 +7,7 @@ import android.widget.Toast
 import com.example.yanadu.R
 import com.example.yanadu.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
-
+import 
 class LoginActivity : AppCompatActivity() {
 
     val TAG: String = "Register"
